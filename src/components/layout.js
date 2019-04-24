@@ -3,6 +3,10 @@ import { css } from "@emotion/core"
 import { StaticQuery, Link, graphql } from "gatsby"
 import { rhythm } from "../utils/typography"
 
+import "./bootstrap.min.css"
+
+import Navbar from "./Globals/Navbar"
+
 export default ({ children }) => (
   <StaticQuery
     query={graphql`
@@ -42,6 +46,7 @@ export default ({ children }) => (
         >
           About
         </Link>
+        <Navbar />
         {children}
       </div>
     )}

@@ -4,6 +4,8 @@ import { css } from "@emotion/core"
 import { rhythm } from "../utils/typography"
 import Layout from "../components/layout"
 
+import { FaGulp } from "react-icons/fa"
+
 export default ({ data }) => {
   console.log(data)
   return (
@@ -16,33 +18,33 @@ export default ({ data }) => {
           `}
         >
           Crazy pandas eatting stuff!!
+          <FaGulp />
         </h1>
         <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <div key={node.id}>
-          <Link
-              to={node.fields.slug}
+            <Link
+              to={node.frontmatter.slug}
               css={css`
                 text-decoration: none;
                 color: inherit;
-              `
-}
-            >
-            <h3
-              css={css`
-                margin-bottom: ${rhythm(1 / 4)};
               `}
             >
-              {node.frontmatter.title}{" "}
-              <span
+              <h3
                 css={css`
-                  color: #222bbb;
+                  margin-bottom: ${rhythm(1 / 4)};
                 `}
               >
-                - {node.frontmatter.date}
-              </span>
-            </h3>
-            <p>{node.excerpt}</p>
+                {node.frontmatter.title}{" "}
+                <span
+                  css={css`
+                    color: #222bbb;
+                  `}
+                >
+                  - {node.frontmatter.date}
+                </span>
+              </h3>
+              <p>{node.excerpt}</p>
             </Link>
           </div>
         ))}
