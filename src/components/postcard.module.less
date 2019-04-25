@@ -2,12 +2,15 @@
   display: inline-block;
   position: relative;
   line-height: 0;
-  box-shadow: 0 3px 3px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 -1px 5px 0 rgba(0,0,0,.12);
+  box-shadow: 0 3px 3px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 -1px 5px 0 rgba(0, 0, 0, 0.12);
   transition: box-shadow 0.2s ease;
 }
 
-.postcard:hover, .postcard:focus {
-  box-shadow: 0 3px 12px 0 rgba(0,0,0,.4), 0 2px 10px 0 rgba(0,0,0,.14), 0 -1px 20px 0 rgba(0,0,0,.12);
+.postcard:hover,
+.postcard:focus {
+  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.4), 0 2px 10px 0 rgba(0, 0, 0, 0.14),
+    0 -1px 20px 0 rgba(0, 0, 0, 0.12);
 }
 
 .postcard__banner {
@@ -16,15 +19,17 @@
 }
 
 .postcard__title {
-  font-size: 1.2em;
+  font-size: 1.1em;
   color: #333;
-  padding: .2em 0;
+  padding: 0.2em 0;
+  text-align: center;
 }
 
 .postcard__meta {
   color: #707070;
   display: flex;
   justify-content: space-between;
+  font-size: 0.8em;
 }
 
 .postcard__icon {
@@ -43,11 +48,12 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(255,255,255,.85);
+  background-color: rgba(255, 255, 255, 0.85);
   transition: background-color 0.2s ease;
-  padding: .7em;
+  padding: 0.7em;
 
-  .postcard:hover &, .postcard:focus & {
+  .postcard:hover &,
+  .postcard:focus & {
     background-color: white;
   }
 }
