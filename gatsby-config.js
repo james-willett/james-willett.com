@@ -8,7 +8,7 @@ module.exports = {
   plugins: [
     "gatsby-plugin-typescript",
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-feed",
+    //    "gatsby-plugin-feed",
     {
       resolve: `gatsby-plugin-typography`,
       options: {
