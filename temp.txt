@@ -1,0 +1,33 @@
+
+.prettierrc
+
+{
+  "endOfLine": "lf",
+  "semi": false,
+  "singleQuote": false,
+  "tabWidth": 2,
+  "trailingComma": "es5"
+}
+
+.eslintrc.js
+
+module.exports = {
+  "env": {
+    "browser": true,
+    "es6": true,
+  },
+  "plugins": [
+    "react",
+  ],
+  "globals": {
+    "graphql": false,
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "jsx": true,
+    },
+  }
+}
+
