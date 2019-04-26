@@ -1,3 +1,4 @@
+NOTE: moved /typings folder into /src ... used to be in root
 
 .prettierrc
 
