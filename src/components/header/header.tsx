@@ -1,30 +1,30 @@
-import React from "react"
-import className from "classnames"
-import Img, { FixedObject } from "gatsby-image"
-import { Link, StaticQuery, graphql } from "gatsby"
-import { GitHubLink, TwitterLink, YoutubeLink } from "./social-link"
-import css from "./header.module.less"
+import React from "react";
+import className from "classnames";
+import Img, { FixedObject } from "gatsby-image";
+import { Link, StaticQuery, graphql } from "gatsby";
+import { GitHubLink, TwitterLink, YoutubeLink } from "./social-link";
+import css from "./header.module.less";
 
 interface HeaderProps {
-  wide?: boolean
+  wide?: boolean;
   data: {
     site: {
       siteMetadata: {
-        title: string
-      }
-    }
+        title: string;
+      };
+    };
     logo: {
       childImageSharp: {
-        fixed: FixedObject
-      }
-    }
-  }
+        fixed: FixedObject;
+      };
+    };
+  };
 }
 
 function HeaderComponent({ data, wide }: HeaderProps) {
   const contentClass = className(css.header__content, {
-    [css.header__contentWide]: wide,
-  })
+    [css.header__contentWide]: wide
+  });
   return (
     <header role="banner" className={css.header}>
       <div className={contentClass}>
@@ -46,13 +46,13 @@ function HeaderComponent({ data, wide }: HeaderProps) {
           aria-label="Social media links"
           className={css.header__socialLinks}
         >
-          <GitHubLink />
-          <YoutubeLink />
           <TwitterLink />
+          <YoutubeLink />
+          <GitHubLink />
         </nav>
       </div>
     </header>
-  )
+  );
 }
 
 export const Header = (props: Omit<HeaderProps, "data">) => (
@@ -75,4 +75,4 @@ export const Header = (props: Omit<HeaderProps, "data">) => (
     `}
     render={data => <HeaderComponent data={data} {...props} />}
   />
-)
+);
