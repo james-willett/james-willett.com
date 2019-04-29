@@ -1,6 +1,6 @@
-import React from 'react';
-import Helmet from 'react-helmet';
-import { StaticQuery, graphql } from 'gatsby';
+import React from "react";
+import Helmet from "react-helmet";
+import { StaticQuery, graphql } from "gatsby";
 
 interface MetaComponentProps {
   pageTitle?: string;
@@ -9,11 +9,16 @@ interface MetaComponentProps {
   canonical: string;
 }
 
-export function MetaComponent({ pageTitle, description, siteTitle, canonical }: MetaComponentProps) {
+export function MetaComponent({
+  pageTitle,
+  description,
+  siteTitle,
+  canonical
+}: MetaComponentProps) {
   return (
     <Helmet>
-      <link rel="canonical" href={canonical}/>
-      <title>{ pageTitle ? `${pageTitle} » ${siteTitle}` : siteTitle }</title>
+      <link rel="canonical" href={canonical} />
+      <title>{pageTitle ? `${pageTitle} » ${siteTitle}` : siteTitle}</title>
       <meta name="description" content={description} />
 
       <meta property="og:title" content={pageTitle} />
@@ -25,12 +30,18 @@ export function MetaComponent({ pageTitle, description, siteTitle, canonical }: 
       {/* Twitter meta tags (that are not already covered by OpenGraph) */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@tim_roes" />
-    	<meta name="twitter:creator" content="@tim_roes" />
+      <meta name="twitter:creator" content="@tim_roes" />
+      <script
+        src="https://my.hellobar.com/dda62609d0d048417d4d1f6c67f0dbfe7d51c801.js"
+        type="text/javascript"
+        charset="utf-8"
+        async="async"
+      />
     </Helmet>
   );
 }
 
-export const Meta = (props: Omit<MetaComponentProps, 'siteTitle'>) => (
+export const Meta = (props: Omit<MetaComponentProps, "siteTitle">) => (
   <StaticQuery
     query={graphql`
       query {
@@ -41,6 +52,8 @@ export const Meta = (props: Omit<MetaComponentProps, 'siteTitle'>) => (
         }
       }
     `}
-    render={data => <MetaComponent siteTitle={data.site.siteMetadata.title} {...props} />}
+    render={data => (
+      <MetaComponent siteTitle={data.site.siteMetadata.title} {...props} />
+    )}
   />
 );
