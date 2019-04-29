@@ -3,7 +3,7 @@ module.exports = {
     title: "James Willett",
     description: "Blog for James Willett, Software Engineer & Web Entrepreneur",
     siteUrl: "https://james-willett.netlify.com/",
-    privacyPolicy: "https://www.iubenda.com/privacy-policy/43002998",
+    privacyPolicy: "https://www.iubenda.com/privacy-policy/43002998"
   },
   plugins: [
     "gatsby-plugin-typescript",
@@ -12,8 +12,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-typography`,
       options: {
-        pathToConfigModule: `src/utils/typography.js`,
-      },
+        pathToConfigModule: `src/utils/typography.js`
+      }
     },
     "gatsby-plugin-less",
     "gatsby-plugin-sharp",
@@ -22,15 +22,15 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "posts",
-        path: `${__dirname}/content/posts/`,
-      },
+        path: `${__dirname}/content/posts/`
+      }
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "images",
-        path: `${__dirname}/src/images/`,
-      },
+        path: `${__dirname}/src/images/`
+      }
     },
     {
       resolve: "gatsby-transformer-remark",
@@ -49,33 +49,33 @@ module.exports = {
               blocks: {
                 info: {
                   classes: "info-block",
-                  title: "optional",
+                  title: "optional"
                 },
                 warn: {
                   classes: "warning-block",
-                  title: "optional",
-                },
-              },
-            },
+                  title: "optional"
+                }
+              }
+            }
           },
           {
             resolve: "gatsby-remark-images",
             options: {
               // maxWidth: 590,
-              withWebp: true,
-            },
+              withWebp: true
+            }
           },
           {
             resolve: "gatsby-remark-prismjs",
             options: {
-              noInlineHighlight: true,
-            },
+              noInlineHighlight: true
+            }
           },
           "gatsby-remark-external-links",
           "gatsby-remark-copy-linked-files",
-          "gatsby-remark-smartypants",
-        ],
-      },
+          "gatsby-remark-smartypants"
+        ]
+      }
     },
     "gatsby-transformer-sharp",
     "gatsby-plugin-catch-links",
@@ -85,21 +85,21 @@ module.exports = {
         trackingId: "UA-112812454-1",
         head: false,
         anonymize: true,
-        respectDNT: true,
-      },
+        respectDNT: true
+      }
     },
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        name: "Tim Roes",
-        short_name: "Tim Roes",
+        name: "James Willett",
+        short_name: "James Willett",
         start_url: "/",
         background_color: "#f7f0eb",
         theme_color: "#00705f",
         display: "minimal-ui",
-        icon: "src/images/logo.png",
-      },
+        icon: "src/images/logo.png"
+      }
     },
-    "gatsby-plugin-offline",
-  ],
-}
+    "gatsby-plugin-offline"
+  ]
+};
