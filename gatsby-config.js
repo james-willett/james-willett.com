@@ -8,7 +8,6 @@ module.exports = {
   plugins: [
     "gatsby-plugin-typescript",
     "gatsby-plugin-react-helmet",
-    //    "gatsby-plugin-feed",
     {
       resolve: `gatsby-plugin-typography`,
       options: {
@@ -36,12 +35,6 @@ module.exports = {
       resolve: "gatsby-transformer-remark",
       options: {
         plugins: [
-          // {
-          //   resolve: 'gatsby-remark-improved-timetoread',
-          //   options: {
-          //     imageFactor: 2
-          //   }
-          // },
           "gatsby-remark-autolink-headers",
           {
             resolve: "gatsby-remark-custom-blocks",
@@ -61,7 +54,6 @@ module.exports = {
           {
             resolve: "gatsby-remark-images",
             options: {
-              // maxWidth: 590,
               withWebp: true
             }
           },

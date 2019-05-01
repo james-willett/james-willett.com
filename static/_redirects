@@ -1,3 +1,21 @@
 # Forward old date URLs to new URLs
 /2015/06/rest-assured-extract-json-response/ /rest-assured-extract-json-response
 /2017/12/rest-assured-serialization-with-json-and-xml/ /rest-assured-serialization-with-json-and-xml
+/2018/05/debug-gatling/ /debug-gatling
+/2017/12/rest-assured-schema-validation-json-xml/ /rest-assured-schema-validation-json-xml
+/2017/08/rest-assured-gpath-xml/ /rest-assured-gpath-xml
+/2017/08/intellij-fiddler/ /intellij-fiddler
+/2017/08/gatling-introduction/ /gatling-introduction
+/2017/05/rest-assured-gpath-json/ /rest-assured-gpath-json
+/2017/05/groovy-gpath-in-rest-assured-part1-overview/ /groovy-gpath-in-rest-assured-part1-overview
+/2017/04/running-gatling-through-gradle/ /running-gatling-through-gradle
+/2016/10/8-reasons-why-software-testing-is-harder-than-development/ /8-reasons-why-software-testing-is-harder-than-development
+/2016/09/the-evolution-of-the-testing-pyramid/ /the-evolution-of-the-testing-pyramid
+/2016/04/goal-objective-setting-for-a-qa-performance-review-appraisal/ /goal-objective-setting-for-a-qa-performance-review-appraisal
+/2017/12/rest-assured-serialization-with-json-and-xml/ /rest-assured-serialization-with-json-and-xml
+/2015/08/considerations-when-performance-testing-native-mobile-applications/ /considerations-when-performance-testing-native-mobile-applications
+/2015/07/specification-re-use-in-rest-assured-with-responsespecbuilder-and-requestspecbuilder/ /specification-re-use-in-rest-assured-with-responsespecbuilder-and-requestspecbuilder
+/2015/06/going-further-with-rest-assured-part-2-parameterised-testing-with-junitparams/ /going-further-with-rest-assured-part-2-parameterised-testing-with-junitparams
+/2015/06/going-further-with-rest-assured-part-1-writing-and-using-test-data-in-your-framework/ /going-further-with-rest-assured-part-1-writing-and-using-test-data-in-your-framework
+/2015/06/rest-assured-extract-json-response/ /rest-assured-extract-json-response
+/2015/06/getting-up-and-running-with-rest-assured/ /getting-up-and-running-with-rest-assured
