@@ -53,7 +53,6 @@
     "react-typography": "^0.16.13",
     "typescript": "^3.2.2",
     "typography": "^0.16.19",
-    "typography-theme-st-annes": "^0.15.10",
     "typography-theme-stow-lake": "^0.16.19"
   },
   "resolutions": {
