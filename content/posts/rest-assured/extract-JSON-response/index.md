@@ -4,11 +4,12 @@ date: 2015-06-16
 slug: rest-assured-extract-json-response
 summary: |
   How to extract a JSON response in REST Assured and then use that response later on in your tests
-image: ./extractResponseTitle.png
+image: ./restAssuredTitlePink.png
 category: REST Assured
+prev: getting-up-and-running-with-rest-assured
 ---
 
-In the previous blog post on **(TODO: ADD LINK)** Getting up and Running with Rest-Assured, we went over everything that we needed to get up and running quickly. In this post I am going to focus on one of the features of Rest-Assured that I use regularly: **extracting a response.**
+In the previous blog post, we went over everything that we needed to get up and running quickly. In this post I am going to focus on one of the features of Rest-Assured that I use regularly: **extracting a response.**
 
 ---
 
@@ -214,3 +215,5 @@ What this REST Assured code simply does is goes through the JSON response and lo
 In this post we explored how we can extract a JSON response from an API directly into our code and then how we can execute tests to check that the content is as we expected. This is barely scratching the surface of what REST Assured can do, and there are literally hundreds of different tests that we could execute, but hopefully after reading this you are getting some idea of what can be done.
 
 Unfortunately in this test we didn’t have access to an API that we could actually use and therefore we couldn’t actually see any of these tests running. In the next post, I will type the JSON example in this post directly into our program and then we can use that as if we had called the API and converted it into a String (as we did in this post). Continuing with the ‘Rides’ theme, I am also going to demonstrate how you can write some test data into your program, add that to a Java Map, and then compare your test data with the response from the URL. We will also be executing some parameterised testing using the JUnitParams library.
+
+---

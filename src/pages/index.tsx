@@ -1,10 +1,10 @@
-import React from 'react';
-import Helmet from 'react-helmet';
-import { Page, PostCard } from '../components';
-import { graphql } from 'gatsby';
-import { FixedObject } from 'gatsby-image';
+import React from "react";
+import Helmet from "react-helmet";
+import { Page, PostCard } from "../components";
+import { graphql } from "gatsby";
+import { FixedObject } from "gatsby-image";
 
-import css from './index.module.less';
+import css from "./index.module.less";
 
 // Must match the result of the below graphql query
 interface IndexData {
@@ -13,7 +13,7 @@ interface IndexData {
       node: {
         fields: {
           slug: string;
-        },
+        };
         timeToRead: string;
         frontmatter: {
           title: string;
@@ -21,18 +21,18 @@ interface IndexData {
           image: null | {
             childImageSharp: {
               fixed: FixedObject;
-            }
-          }
-        }
-      }
-    }>
-  },
+            };
+          };
+        };
+      };
+    }>;
+  };
   site: {
     siteMetadata: {
       description: string;
       siteUrl: string;
-    }
-  }
+    };
+  };
 }
 
 interface IndexPageProps {
@@ -47,11 +47,11 @@ export default ({ data }: IndexPageProps) => {
       description={data.site.siteMetadata.description}
     >
       <Helmet>
-      	<meta property="og:type" content="website" />
+        <meta property="og:type" content="website" />
       </Helmet>
       <nav aria-label="Posts">
         <ul className={css.postlist}>
-          { data.allMarkdownRemark.posts.map(({ node: post }) => (
+          {data.allMarkdownRemark.posts.map(({ node: post }) => (
             <li key={post.fields.slug} className={css.postlist__entry}>
               <PostCard
                 slug={post.fields.slug}
@@ -59,7 +59,7 @@ export default ({ data }: IndexPageProps) => {
                 {...post.frontmatter}
               />
             </li>
-          )) }
+          ))}
         </ul>
       </nav>
     </Page>
@@ -67,32 +67,33 @@ export default ({ data }: IndexPageProps) => {
 };
 
 export const query = graphql`
-{
-  allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}) {
-    posts: edges {
-      node {
-        fields {
-          slug
-        }
-        timeToRead
-        frontmatter {
-          title
-          date(formatString: "MMM D, YYYY")
-          image {
-            childImageSharp {
-              fixed(width: 350) {
-                ...GatsbyImageSharpFixed_withWebp
+  {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+      posts: edges {
+        node {
+          fields {
+            slug
+          }
+          timeToRead
+          frontmatter {
+            title
+            date(formatString: "MMM D, YYYY")
+            image {
+              childImageSharp {
+                fixed(width: 350) {
+                  ...GatsbyImageSharpFixed_withWebp
+                }
               }
             }
           }
         }
       }
     }
-  }
-  site {
-    siteMetadata {
-      description
-      siteUrl
+    site {
+      siteMetadata {
+        description
+        siteUrl
+      }
     }
   }
-}`;
+`;

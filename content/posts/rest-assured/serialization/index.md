@@ -2,7 +2,7 @@
 title: REST Assured ObjectMapper Serialization with JSON and XML
 date: 2015-12-15
 slug: rest-assured-serialization-with-json-and-xml
-image: ./serializationTitle.png
+image: ./restAssuredBlue.png
 category: REST Assured
 ---
 
@@ -132,7 +132,7 @@ Now let’s write another test that calls a GET request to the API to return the
 
 We know that the deserialzation worked because of the output of the print line. To make sure, let’s take a look at the myVideoGame object in debug mode:
 
-![myVideoGame object in debug mode](./images/deserialDebug.png)
+![myVideoGame object in debug mode](./deserialDebug.png)
 
 Rest Assured Serialization back to a POJO is looking good here!
 
