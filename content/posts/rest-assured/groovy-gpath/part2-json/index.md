@@ -1,8 +1,8 @@
 ---
-title: "How to Effectively use Groovy GPath in REST Assured – Part 2: GPath JSON"
+title: "Groovy GPath in REST Assured – Part 2: GPath JSON"
 date: 2017-05-23
 slug: rest-assured-gpath-json
-image: ./GpathSeriesTitle_Part2.png
+image: ./restAssuredVelvet.png
 category: REST Assured
 prev: groovy-gpath-in-rest-assured-part1-overview
 next: rest-assured-gpath-xml

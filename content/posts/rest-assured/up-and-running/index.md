@@ -2,7 +2,7 @@
 title: "Getting up and Running with Rest-Assured"
 date: 2015-06-15
 slug: getting-up-and-running-with-rest-assured
-image: ./UpRunning.png
+image: ./restAssuredLime.png
 category: REST Assured
 next: rest-assured-extract-json-response
 ---

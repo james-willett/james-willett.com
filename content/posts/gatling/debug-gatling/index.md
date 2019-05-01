@@ -2,7 +2,7 @@
 title: "Debug Gatling Performance Test Scripts – 5 Essential Methods"
 date: 2018-05-10
 slug: debug-gatling
-image: ./Debug-Gatling.png
+image: ./GatlingYellow.png
 category: Gatling
 ---
 

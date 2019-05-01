@@ -2,7 +2,7 @@
 title: REST Assured ObjectMapper Serialization with JSON and XML
 date: 2015-12-15
 slug: rest-assured-serialization-with-json-and-xml
-image: ./serializationTitle.png
+image: ./restAssuredBlue.png
 category: REST Assured
 ---
 

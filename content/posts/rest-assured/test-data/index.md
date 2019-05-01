@@ -1,8 +1,8 @@
 ---
-title: "Going Further with Rest-Assured – Part 1: Writing and Using Test Data in your Framework"
+title: "Using Test Data in your REST Assured Framework"
 date: 2015-06-17
 slug: going-further-with-rest-assured-part-1-writing-and-using-test-data-in-your-framework
-image: ./GoingFurtherRestAssured_Part1_Header-768x768.png
+image: ./restAssuredGreen.png
 category: REST Assured
 next: going-further-with-rest-assured-part-2-parameterised-testing-with-junitparams
 ---

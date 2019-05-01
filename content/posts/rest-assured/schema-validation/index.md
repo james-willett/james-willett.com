@@ -2,7 +2,7 @@
 title: REST Assured Schema Validation for JSON and XML
 date: 2017-12-21
 slug: rest-assured-schema-validation-json-xml
-image: ./schemaTitle.png
+image: ./restAssuredStripeBlue.png
 category: REST Assured
 ---
 

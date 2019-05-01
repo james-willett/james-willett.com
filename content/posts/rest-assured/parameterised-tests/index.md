@@ -1,8 +1,8 @@
 ---
-title: "Going Further with Rest-Assured – Part 2: Parameterised Testing with JUnitParams"
+title: "Parameterised Testing with JUnitParams in REST Assured"
 date: 2015-06-18
 slug: going-further-with-rest-assured-part-2-parameterised-testing-with-junitparams
-image: ./GoingFurtherRestAssured_Part2_Header-768x768.png
+image: ./restAssuredGrey.png
 category: REST Assured
 prev: going-further-with-rest-assured-part-1-writing-and-using-test-data-in-your-framework
 ---
