@@ -18,3 +18,5 @@
 /2015/06/going-further-with-rest-assured-part-1-writing-and-using-test-data-in-your-framework/ /going-further-with-rest-assured-part-1-writing-and-using-test-data-in-your-framework
 /2015/06/rest-assured-extract-json-response/ /rest-assured-extract-json-response
 /2015/06/getting-up-and-running-with-rest-assured/ /getting-up-and-running-with-rest-assured
+# Redirect default Netlify subdomain to primary domain
+https://james-willett.netlify.com/* https://www.james-willett.com/:splat 301!
