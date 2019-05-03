@@ -2,11 +2,12 @@ module.exports = {
   siteMetadata: {
     title: "James Willett",
     description: "Blog for James Willett, Software Engineer & Web Entrepreneur",
-    siteUrl: "https://james-willett.netlify.com/",
+    siteUrl: "https://www.james-willett.com/",
     privacyPolicy: "https://www.iubenda.com/privacy-policy/43002998"
   },
   plugins: [
     "gatsby-plugin-typescript",
+    "gatsby-plugin-sitemap",
     "gatsby-plugin-react-helmet",
     {
       resolve: `gatsby-plugin-typography`,
