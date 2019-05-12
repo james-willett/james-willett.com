@@ -32,7 +32,7 @@ export function MetaComponent({
       <meta name="twitter:site" content="@tim_roes" />
       <meta name="twitter:creator" content="@tim_roes" />
       <script
-        src="https://my.hellobar.com/dda62609d0d048417d4d1f6c67f0dbfe7d51c801.js"
+        src="https://my.hellobar.com/963fde236d330ec398c695d7abba79ef39b05cba.js"
         type="text/javascript"
         charset="utf-8"
         async="async"
