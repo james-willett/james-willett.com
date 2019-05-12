@@ -4,6 +4,7 @@ date: 2019-05-12
 slug: scala-basics-values-variables-types
 image: ./scala-title.png
 category: Scala
+next: scala-basics-expressions
 ---
 
 Lets start our Scala journey by learning about values in Scala.
