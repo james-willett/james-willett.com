@@ -80,7 +80,7 @@ Lets talk for a moment about **Instructions** and **Expressions**, and the diffe
 - **Instructions** tell the computer to go and do something, for example print to the console or change the value of a variable. These are used in imperative languages such as Java or Python
 - **Expressions** something that has a value and/or a type. In Scala (and in functional programming in general) we will start to think in terms of Expressions.
 
-Everything in Scala is an [Expression](https://scala-lang.org/files/archive/spec/2.12/06-expressions.html). Only definitions such as of a _val_ or _class_ or _package_ are not expressions, everything else is.
+Everything in Scala is an [Expression](https://scala-lang.org/files/archive/spec/2.12/06-expressions.html). Only definitions such as _val_ or _class_ or _package_ are not expressions, everything else is.
 
 We can look at an **if** expression in Scala to see an example of this.
 
@@ -142,3 +142,5 @@ A couple of things to note about the above. Firstly, the code block is an _expre
 In this post we learned about basic expressions with numbers and booleans. We also learned that **IF** is an expression in Scala. Code blocks are also expressions, with the value of the block being the value of the last expression.
 
 We learned the difference between instructions (code that is executed, think of Java) and expressions (code that is evaluated). In Scala we will think in terms of expressions primarily.
+
+All the code for from this tutorial is available on [Github](https://github.com/james-willett/ScalaBlog/blob/master/src/scalaBasics/absoluteBasics/Expressions.scala)
