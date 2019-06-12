@@ -31,7 +31,7 @@ function HeaderComponent({ data, wide }: HeaderProps) {
         <Link
           to="/"
           className={css.header__homeLink}
-          aria-label="Homepage - Tim Roes"
+          aria-label="Homepage - James Willett"
           rel="home"
         >
           <Img

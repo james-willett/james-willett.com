@@ -5,6 +5,7 @@ slug: scala-basics-functions
 image: ../values-variables-types/scala-title.png
 category: Scala
 prev: scala-basics-expressions
+next: scala-basics-recursion
 ---
 
 [[info]]

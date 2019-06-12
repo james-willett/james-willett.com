@@ -5,6 +5,7 @@ slug: scala-basics-expressions
 image: ../values-variables-types/scala-title.png
 category: Scala
 prev: scala-basics-values-variables-types
+next: scala-basics-functions
 ---
 
 [[info]]
