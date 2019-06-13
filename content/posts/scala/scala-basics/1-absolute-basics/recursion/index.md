@@ -5,6 +5,7 @@ slug: scala-basics-recursion
 image: ../values-variables-types/scala-title.png
 category: Scala
 prev: scala-basics-functions
+next: scala-basics-call-by-name-or-value
 ---
 
 [[info]]
@@ -224,3 +225,5 @@ This post expanded on recursion in Scala, and focused particularly on tail recur
 ## Source Code
 
 As always, the source code for this post is available on [Github](https://github.com/james-willett/ScalaBlog/blob/master/src/scalaBasics/absoluteBasics/Recursion.scala).
+
+---

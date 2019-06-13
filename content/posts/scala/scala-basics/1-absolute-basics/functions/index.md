@@ -125,3 +125,5 @@ Also we looked at how functions can be declared within other functions, called *
 ## Source Code
 
 As always, the source code for this blog post is available on [Github](https://github.com/james-willett/ScalaBlog/blob/master/src/scalaBasics/absoluteBasics/Functions.scala)
+
+---

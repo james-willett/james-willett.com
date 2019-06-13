@@ -93,3 +93,9 @@ In this post you learned about values and variables in Scala, and the difference
 In Scala, you generally what to try and prefer to use VALS over VARS. If you are coming from an imperative (i.e. Java) programming background, this may seem difficult at first.
 
 We also learned that all vals and vars have types, whether we declare them explicitly or they are inferred by the compiler
+
+## Source Code
+
+As always, the source code for this post is available on [Github](https://github.com/james-willett/ScalaBlog/blob/master/src/scalaBasics/absoluteBasics/ValuesVariablesTypes.scala).
+
+---

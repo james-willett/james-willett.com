@@ -145,3 +145,9 @@ In this post we learned about basic expressions with numbers and booleans. We al
 We learned the difference between instructions (code that is executed, think of Java) and expressions (code that is evaluated). In Scala we will think in terms of expressions primarily.
 
 All the code for from this tutorial is available on [Github](https://github.com/james-willett/ScalaBlog/blob/master/src/scalaBasics/absoluteBasics/Expressions.scala)
+
+## Source Code
+
+As always, the source code for this post is available on [Github](https://github.com/james-willett/ScalaBlog/blob/master/src/scalaBasics/absoluteBasics/Expressions.scala).
+
+---
