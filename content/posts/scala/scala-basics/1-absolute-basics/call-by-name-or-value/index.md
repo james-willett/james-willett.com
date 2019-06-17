@@ -5,6 +5,7 @@ slug: scala-basics-call-by-name-or-value
 image: ../values-variables-types/scala-title.png
 category: Scala
 prev: scala-basics-recursion
+next: scala-basics-default-named-arguments
 ---
 
 [[info]]
