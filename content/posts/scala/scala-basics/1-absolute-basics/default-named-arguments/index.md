@@ -5,6 +5,7 @@ slug: scala-basics-default-named-arguments
 image: ../values-variables-types/scala-title.png
 category: Scala
 prev: scala-basics-call-by-name-or-value
+next: scala-basics-string-operations
 ---
 
 [[info]]
@@ -33,7 +34,7 @@ You could say that having the **acc: Int** parameter in our function signature p
 
 One way that we could get around this, is to wrap our _tailRecursiveFactorial_ function in another function. We did that in the [previous blog post on Recursion](./scala-basics-recursion). But this still adds a lot of unnecessary code to our project. There is a better way.
 
-## Default Values for Parameter in Function Signatures
+# Default Values for Parameter in Function Signatures
 
 We can provide the default value for the _acc_ parameter of the function in the signature, like so:
 
@@ -56,7 +57,7 @@ We can however still override the default value for the _acc_ parameter by provi
   val fact15 = tailRecursiveFactorial(15,2)
 ```
 
-## Problems with Default Parameters
+# Problems with Default Parameters
 
 So far, so good. But there are some challenges with default parameters that we need to be aware of.
 
@@ -93,7 +94,7 @@ This still doesn't help, when we supply a parameter the compiler has no way of k
   savePicture(800)
 ```
 
-## Named Arguments in Function Calls
+# Named Arguments in Function Calls
 
 To make this work, in Scala we can name our arguments as we supply them:
 
@@ -109,13 +110,13 @@ A handy side effect of being able to name arguments in Scala, means that we can 
 
 Being able to name arguments also makes our code a bit easier to read, especially for another person.
 
-## Summary
+# Summary
 
 In this post, we learned that when you mostly call a function with the same parameter you can supply a **default parameter** in the function signature.
 
 But you can't omit leading default arguments, or the compiler will get confused when you call the function. So we learned about **naming parameters**, and that we can then pass named parameters to our functions in any order.
 
-## Source Code
+# Source Code
 
 As always, the source code for this post is available on [Github](https://github.com/james-willett/ScalaBlog/blob/master/src/scalaBasics/absoluteBasics/DefaultArgs.scala).
 
