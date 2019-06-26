@@ -54,7 +54,7 @@ In other programming languages, you might think that you could print out the age
 println(person.age)
 ```
 
-But this won't work. In Scala, name and age are class parameters. But they are NOT class members, they cannot be accessed with dot notation. In other words, class parameters are not fields. Class parameters and class fields are two different things.
+But this won't work. In Scala, name and age are class parameters. But they are NOT class members, they cannot be accessed with dot notation. In other words, class parameters are not fields. [Class parameters and class fields](https://stackoverflow.com/questions/13549574/scala-what-is-the-real-difference-between-fields-in-a-class-and-parameters-in-t) are two different things.
 
 To convert a class parameter to a class field, you would add the **val** keyword before the parameter in the constructor:
 
@@ -114,13 +114,13 @@ Andrew says: Hi, Andrew
 
 Which is probably not what we wanted! Both of the **\$name** calls in the println statement resolve to the parameter that is supplied to the _method_. We actually wanted one of the parameters to resolve to the name of the person defined in the _class definition_.
 
-To achieve that, we can use the **this** keyword:
+To achieve that, we can use the [**this**](https://www.javatpoint.com/scala-this) keyword:
 
 ```scala
 def greet(name: String): Unit = println(s"${this.name} says: Hi, $name")
 ```
 
-Notice that the first call to **name** here is NOT a class field... but it is still available within methods of a class.
+Notice that the first call to **name** here is NOT a class field (i.e. **\${this.name}**)... but it is still available within methods of a class.
 
 # Overloading class methods
 
@@ -156,14 +156,165 @@ You could define another constructor one more level down. So a constructor with 
 def this() = this("Chris")
 ```
 
-This constructor calls the constructor above, which calls the primary constructor. In practice, overloaded or auxiliary constructors are limited in use. A more common and easier practice would be to simply supply default parameters in the class definition, as we discussed in (this blog post)[./scala-basics-default-named-arguments].
+This constructor calls the constructor above, which calls the primary constructor. In practice, [overloaded or auxiliary constructors](https://dzone.com/articles/auxiliary-constructor-in-scala) are limited in use. A more common and easier practice would be to simply supply default parameters in the class definition, as we discussed in this blog post on [default and named arguments](./scala-basics-default-named-arguments#default-values-for-parameter-in-function-signatures).
+
+# Further Example 1 - Writer and Novel Classes
+
+Let's write out a few more classes and instantiate them, to cement our understanding of object oriented concepts. We will write out 2 classes that are related, one for a writer and one for a novel.
+
+Our writer class looks like this. The class takes a **firstName** and **surname** as parameters in the constructor. It also takes a **year** for the writer's age, and we specify this with the '**val**' keyword. We will access this with dot notation in the next class in a moment:
+
+```scala
+class Writer(firstName: String, surname: String, val year: Int) {
+
+  def fullName: String = firstName + " " + surname
+
+}
+```
+
+You will notice that the class also includes a method in the body. This returns the writer's full name by concatenating the firstName and surname parameters with a space in the middle.
+
+Let's also make a class for a Novel like so. The class parameters are the name and year of types String and Int respectively. It also takes a 3rd parameter, author, which is of type **Writer**... i.e. the class we created previously.
+
+```scala
+class Novel(name: String, year: Int, author: Writer) {
+
+  def authorAge = year - author.year
+
+  def isWrittenBy(author: Writer) = author == this.author
+
+  def copy(newYear: Int): Novel = new Novel(name, newYear, author)
+}
+```
+
+This class has 3 methods, let's examine each one individually:
+
+- **authorAge** - Here we are returning the age of the author at the time the novel is written by subtracting the year of the novel by the year of the author. This is why we needed to use the 'val' keyword in the function definition of the year for the Writer class, so we can access it here.
+
+- **isWrittenBy(author: Writer)** - This is a boolean to check if the novel is written by the same author object supplied to the method call.
+
+- **copy(newYear: Int): Novel** - This method returns a brand new instance of a Novel, with the name and author from the Novel class as well as the **newYear** supplied to the method as the year
+
+Let's instantiate a couple of instances of our new classes, one author and one novel:
+
+```scala
+  val author = new Writer("Jimmy", "Stevens", 1967)
+  val novel = new Novel("My Great Book", 1988, author)
+```
+
+We can print out the author age:
+
+```scala
+println(novel.authorAge)
+```
+
+And we can check that the novel is written by the supplied author:
+
+```scala
+println(novel.isWrittenBy(author))
+```
+
+But note that this would return FALSE:
+
+```scala
+  val imposter = new Writer("Jimmy", "Stevens", 1967)
+  println(novel.isWrittenBy(imposter))
+```
+
+Even though the author has the same name and year of birth, to Scala this **imposter** is a different instance of the writer class originally supplied to the novel class.
+
+Finally this will return a brand new instance of a novel. We add the return type here to make sure of what is being returned, but Scala would infer this for us:
+
+```scala
+  val copyOfNovel: Novel = novel.copy(2001)
+```
+
+# Further Example 2 - Counter Class
+
+Let's look at another example with a Counter class. It contains methods to increment and decrement the counter by 1, if no int is supplied to those methods. We also have overloaded methods, that increment or decrement by the specified amount:
+
+```scala
+class Counter(val count: Int) {
+
+  def inc = new Counter(count + 1)
+  def dec = new Counter(count - 1)
+
+  // overloaded methods
+  def inc(n: Int) = new Counter(count + n)
+  def dec(n: Int) = new Counter(count - n)
+
+  def print = println(count)
+}
+```
+
+Note that when we increment or decrement the counter, we actually return a NEW instance of the counter class. This is because of [**IMMUTABILITY**](https://alvinalexander.com/scala/scala-idiom-immutable-code-functional-programming-immutability) - objects are fixed and cannot be modified, we have to return a new instance with the required values instead. This is an important concept to understand.
+
+## Increment with Recursion
+
+For illustrative purposes, we could actually make our overloaded methods recursive, such that the method increases or decreaees by 1 each time. The new recursive version of the class (just for incrementing) would look like this:
+
+```scala
+class Counter(val count: Int) {
+
+  def inc = new Counter(count + 1) {
+    println("incrementing")
+    new Counter(count + 1)
+  }
+
+  def inc(n: Int): Counter = {
+    if (n <= 0) this
+    else inc.inc(n-1)
+  }
+
+  def print = println(count)
+}
+```
+
+Let's talk through the recursive method (the 2nd method) in detail.
+
+- It takes a parameter of **n: Int**, and it returns a new instance of Counter.
+- Inside the body, if the value of **n** is less than or equal to 0 (i.e. we reached the end of the recursion), then we return **this** instance of the counter.
+- Else, we return a new counter by calling inc _without any parameters_... the value of the new count will be **count + 1**, as defined in the method above.
+- And straight away, on this new instance of counter, we call the overloaded method as well (i.e. **.inc(n-1)** ), to keep the recursion going.
+
+## Testing the Counter
+
+Lets instantiate a counter and play with it a bit:
+
+```scala
+  val counter = new Counter(0)
+```
+
+Firstly we can call **inc**, and then print out the value of inc.... note that we can CHAIN these calls, because the method call to **.inc** returns a _new instance of counter_. We can then call the print method of that new instance:
+
+```scala
+counter.inc.print
+```
+
+In much the same way, we can have multiple inc calls before the print. Remember, each call to inc returns a new instance of Counter:
+
+```scala
+counter.inc.inc.inc.print
+```
+
+Finally, we can call our overloaded inc method with a parameter to increment by, in this case 10. Each loop through the recursive function will print out "incrementing" to the console, and we finally print out the final value of the counter:
+
+```scala
+counter.inc(10).print
+```
+
+---
 
 # Summary
 
-This post introduced some of the basics of Object Oriented programming in Scala. We looked at defining and instantiating some basics classes, what can make up the body of a class, and how we can define methods (or functions) within that class. We also looked at how classes can have multiple constructors.
+This post introduced some of the basics of Object Oriented programming in Scala. We looked at:
+
+- Defining and instantiating some basics classes.
+- The differences between class parameters and class fields, and how you can differentiate between them with the keyword val.
+- How to define methods (or functions) within a class body.
+- Classes having multiple constructors.
+- Chaining method calls when we return a new instance of a class.
 
 # Source Code
 
 As always, the source code for this post is available on [Github](https://github.com/james-willett/ScalaBlog/blob/master/src/scalaBasics/objectOriented/OOBasics.scala).
-
----
