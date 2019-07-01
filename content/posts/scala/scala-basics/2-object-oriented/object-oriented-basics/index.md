@@ -4,6 +4,7 @@ date: 2019-06-21
 slug: scala-object-oriented-basics
 image: ../../1-absolute-basics/values-variables-types/scala-title.png
 category: Scala
+next: scala-method-notations
 ---
 
 [[info]]
