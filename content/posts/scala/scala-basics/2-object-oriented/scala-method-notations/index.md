@@ -5,6 +5,7 @@ slug: scala-method-notations
 image: ../../1-absolute-basics/values-variables-types/scala-title.png
 category: Scala
 prev: scala-object-oriented-basics
+next: scala-objects
 ---
 
 [[info]]
