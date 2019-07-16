@@ -1,14 +1,15 @@
 ---
-title: "Scala Objects"
+title: 'Scala Objects'
 date: 2019-07-02
 slug: scala-objects
 image: ../../1-absolute-basics/values-variables-types/scala-title.png
 category: Scala
 prev: scala-method-notations
+next: scala-inheritance-traits
 ---
 
 [[info]]
-| This post is part 3 of the Object Oriented Programming in Scala series.
+| This post is **part 3** of the Object Oriented Programming in Scala series.
 
 In this post we are going to do a deeper dive on **objects** in Scala. In the Scala world, objects are actually a _dedicated concept_. A fundamental aspect of objected oriented programming is [class level functionality](<https://en.wikipedia.org/wiki/Class_(computer_programming)>) - i.e. **functionality that does not depend on having an instance of a class**.
 
