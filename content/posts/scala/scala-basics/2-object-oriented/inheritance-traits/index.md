@@ -5,6 +5,7 @@ slug: scala-inheritance-traits
 image: ../../1-absolute-basics/values-variables-types/scala-title.png
 category: Scala
 prev: scala-objects
+next: scala-generics
 ---
 
 [[info]]
