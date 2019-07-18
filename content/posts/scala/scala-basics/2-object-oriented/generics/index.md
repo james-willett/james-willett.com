@@ -63,4 +63,306 @@ To use this method we can do the following. This will return a MyList of integer
 val emptyListOfIntegers = MyList.empty[Int]
 ```
 
-// DONE TO 12
+# The Variance Problem
+
+Now that we know a bit about generics in Scala, there is a hard question that we need to answer. This question is known as the variance problem.
+
+To explain this, let's first define a small class hierarchy:
+
+```scala
+class Animal
+class Cat extends Animal
+class Dog extends Animal
+```
+
+The variance problem question here is:
+
+> If Cat extends Animal, does a list of Cat also extend a list of Animal?
+
+In Scala generics, we can provide three different answers to this question, as we see fit.
+
+## Covariance
+
+If we say that **yes**, a list of Cats extends a List of Animals, then this is called **covariance**. To declare a covariant class in Scala we would do:
+
+```scala
+class CovariantList[+A]
+```
+
+In the square brackets for the type parameter we are putting **+A**. The PLUS symbol means that this is a covariant class.
+
+To use a covariant list would be in the same style that you would use Cats for Animals:
+
+```scala
+val animal: Animal = new Cat
+val animalList: CovariantList[Animal] = new CovariantList[Cat]
+```
+
+On the two line aboves, we first declare a new animal. We assign a new instance of a Cat (which is a subclass) to be the animal.
+We next declare an animalList, which is of type a covariant list of animals. We assign this list to be a new covariant list of cats.
+
+So given the above, the question is now:
+
+> Once we declare an animalList to be of type Animal, can we add any type of animal to it?
+
+For example, can we add a new dog to the list:
+
+```scala
+animalList.add(new Dog)
+```
+
+In theory we should be able to do this (i.e. add any type of animal). But adding a new Dog to a list of Cats would pollute the list.
+
+< ADD MORE HERE LATER ??> <It turns the list into a list of Animals>
+
+## Invariance
+
+If the answer to our original question is **No**, we want lists of Cats and lists of Animal to be two separate things, then we use **invariance**. You would write an invariant list by not specifying any signs (i.e. +) before or after the type parameter:
+
+```scala
+class InvariantList[A]
+```
+
+Invariant classes are each in their own world, you can't substitute one for another. So the following code wouldn't work:
+
+```scala
+val invariantAnimalList: InvariantList[Animal] = new InvariantList[Cat]
+```
+
+For this type of list you have to supply a list of Animals, nothing else will work.
+
+# Contra-variance
+
+The third answer that we can give to the question is to declare a **contra-variant** list. Contra-variance classes are defined with a minus sign before them:
+
+```scala
+class ContravariantList[-A]
+```
+
+To use a contra-variant list, we would define the type parameters in the opposite way to the Covariant list, i.e.:
+
+```scala
+val contravariantList: ContravariantList[Cat] = new ContravariantList[Animal]
+```
+
+If you look again at the Covariant list, you can replace a list of Cats with a list of Animals, because Cats are Animals. But in the contra-variant case, we are initially specifying to replace a list of Cats with a list of Animals, even though Cat is a subtype of Animal.
+
+The relationship is exactly opposite, and doesn't really make sense. How can you replace a list of Cats with a list of Animals? Because animals could also be Dogs etc.
+
+But instead of a ContravariantList class, lets create a class called **Trainer** - a class that trains animals:
+
+```scala
+class Trainer[-A]
+```
+
+Now if I say that I want a Trainer of Cat, but I am supplying a Trainer of Animal, this declaration on the right hand side is better because it can also train a Dog as well as a Cat.
+
+```scala
+val trainerOfCats: Trainer[Cat] = new Trainer[Animal]
+```
+
+And if we wanted a trainer of Dog, we could do:
+
+```scala
+val trainerOfDogs: Trainer[Dog] = new Trainer[Animal]
+```
+
+Hopefully with the above example, you can see where a contra-variant list makes a bit more sense.
+
+# Bounded Types
+
+**Bounded types** in Scala generics allow you to use generic classes only for certain types. Those types are are either a **subclass** or a **superclass** of a different type. For example:
+
+```scala
+class Cage[A <: Animal]
+```
+
+We define a class here called Cage. It has a type parameter of type A. We add a restriction in the form of the **<:** operator for the Animal type.
+
+Basically we are saying class Cage only accepts type parameters A that are **Subtypes** of Animal.
+
+Let's say that the class receives a parameter animal which is of type A, so our Cage class now looks like so:
+
+```scala
+class Cage[A <: Animal](animal: A)
+```
+
+If we now declare a val of cage, we can use the Cage generic class to put in a Dog:
+
+```scala
+val cage = new Cage(new Dog)
+```
+
+This is an acceptable type for the cage. But the following wouldn't work:
+
+```scala
+class Car
+val newCage = new Cage(new Car) // throws an error
+```
+
+The Car class does not conform to the expected type. Although the IDE will not pick this up, the compiler will throw an error if we try to run this:
+
+> Inferred type arguments do not conform to class Cage's type parameter bounds
+
+The above is an example of **upper bounded** types.
+
+We also have **lower bounded** types as well. Instead of <: you use **>:** , as you might expect. This is saying that Cage only accepts something that is a **supertype** of Animal.
+
+Bounded types play a key role in helping to solve the variance problem that we discussed previously.
+
+# Further Covariant Explanation
+
+Let's go back to the MyList that we introduced at the start of the post, and say that MyList is **covariant** in the type A:
+
+```scala
+class MyList[+A] {
+
+}
+```
+
+A natural method to add in the MyList type would be an **add** method:
+
+```scala
+class MyList[+A] {
+  def add(element: A): MyList[A] = ???
+}
+```
+
+But the above will not work, even though MyList is covariant and is generic. The error you get is:
+
+> Covariant type A occurs in contravariant position in type A of value element
+
+This error is actually the technical version of the question we asked earlier. If we want to define covariant lists we need to be able to answer the question:
+
+**If I have a list of Animals, which is in fact a List of Cats, what if I add a new Dog to it?**
+
+The answer is that if to a list of Cats I add a new Dog, _that will turn this new list into a list of Animals._ Adding a Dog to a list of Cats will turn it into something more _Generic_, i.e a list of Animals.
+
+Now that we know this, the technical implementation of the add method is as follows:
+
+```scala
+class MyList[+A] {
+  def add[B >: A](element: B): MyList[B] = ???
+}
+```
+
+Let's break this new method down carefully, because it is confusing at first:
+
+- After declaring the add method, in square brackets we say it will take a **type parameter** of B, that is a super type of A.
+- The **element** that will be passed into add with be of type B (not type A as previously)
+- At the end, we return a new MyList of type B
+
+So we are saying that, if to a list of **A**, we put in a **B** (which is a super type of A), then this list will turn into a MyList of **B**.
+
+In the example with cats and dogs, say that A = Cat and B = Dog. The Dog is also an Animal (i.e. the super class). If we add a Dog (which is actually an Animal) into a list of Cats, that will turn the list into a list of Animals.
+
+# Expanding the MyList class
+
+Now that we know a bit about Generics, we can go ahead and expand the MyList class that we started in the previous blog post to be generic.
+
+Let's start by adding the covariant type to the list, and substitute in the new type to the various methods:
+
+```scala
+abstract class MyList[+A] {
+  def head: A
+  def tail: MyList[A]
+  def isEmpty: Boolean
+  def add[B >: A](element: B): MyList[B]
+  def printElements: String
+  override def toString: String = "[" + printElements + "]"
+}
+```
+
+We changed the head, tail and add elements to this class when we made it covariant.
+
+The most complex change is to the add method. We added a type parameter of B, which is a super type of A, in the square brackets. Element is of type B, and the return type is a MyList of type B.
+
+## Modify the Cons class
+
+Lets now implement the newly modified abstract class in the Empty object and Cons class. We will start with Cons because it is a little bit easier to think about.
+
+MyList is covariant so that means Cons must be covariant as well, so we add +A in square brackets. In the class definition, the head will be of type A and the tail returns MyList[A]. Finally we also extend from MyList[A]:
+
+```scala
+class Cons[+A](h: A, t: MyList[A]) extends MyList[A] {
+  // class methods to follow
+}
+```
+
+For the class methods, head now returns type A and tail returns MyList of type A.
+
+he add method needs the new parameter B, which is a super type of A. The element is of type B, and the result is a MyList of type B. The implementation of the add method stays the same:
+
+```scala
+class Cons[+A](h: A, t: MyList[A]) extends MyList[A] {
+  def head: A = h
+  def tail: MyList[A] = t
+  def isEmpty: Boolean = false
+  def add[B >: A](element: B): MyList[B] = new Cons(element, this)
+
+  def printElements: String = {
+    if(t.isEmpty) "" + h
+    else h + " " + t.printElements
+  }
+}
+```
+
+## Modify the Empty Object
+
+Cons is now done, so let's next look at the Empty object. Empty should be a proper replacement of MyList of anything.
+
+Inside our test object, let's first try some examples. If we have a list of integers, we should be able to assign this to Empty. But we should also be able to do this if we have a list of strings:
+
+```scala
+object ListTest extends App {
+  val listOfIntegers: MyList[Int] = Empty
+  val listOfStrings: MyList[String] = Empty
+}
+```
+
+Remember that MyList is covariant. The Nothing type, which we learned about previously, is a proper substitution for _any type_.
+
+We can therefore make Empty extend from MyList\[Nothing].
+
+```scala
+object Empty extends MyList[Nothing] {
+  // object methods to follow
+}
+```
+
+The head method will return Nothing, and the tail will return a MyList of type nothing:
+
+```scala
+object Empty extends MyList[Nothing] {
+  def head: Nothing = throw new NoSuchElementException
+  def tail: MyList[Nothing] = throw new NoSuchElementException
+}
+```
+
+For the add method, we will need a type parameter of B which is a super type of **Nothing** (not of A). The element is of type B and the result is a MyList of type B. The final object looks like this:
+
+```scala
+object Empty extends MyList[Nothing] {
+  def head: Nothing = throw new NoSuchElementException
+  def tail: MyList[Nothing] = throw new NoSuchElementException
+  def isEmpty: Boolean = true
+  def add[B >: Nothing](element: B): MyList[B] = new Cons(element, Empty)
+
+  def printElements: String = ""
+}
+```
+
+Lets test our code to make sure that it runs well:
+
+```scala
+object ListTest extends App {
+  val listOfIntegers: MyList[Int] = new Cons(1, new Cons(2, new Cons(3, Empty)))
+  val listOfStrings: MyList[String] = new Cons("Hello", new Cons("Scala", Empty))
+  println(listOfIntegers.toString)
+  println(listOfStrings.toString)
+}
+```
+
+And it prints out the list of integers and strings as expected.
+
+// DONE TO 38
