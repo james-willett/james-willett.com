@@ -10,11 +10,13 @@ prev: scala-inheritance-traits
 [[info]]
 | This post is **part 5** of the Object Oriented Programming in Scala series.
 
-This blog post looks at Generics in Scala. It took me a while to get my head around a lot of these concepts, but hopefully this post will make things clear for you. So what exactly are Generics all about in Scala?
+This blog post looks at **Generics** in Scala. It took me a while to get my head around a lot of these concepts, but hopefully this post will make things clear for you. _So what exactly are Generics all about in Scala?_
 
-First let's consider that in the previous blog post, we implemented a linked list for integers. But of course the problem is that the list is very limited to only integers. If we wanted to make one for say String instead, we would need to duplicate the entire code. Enter generics to save the day.
+First let's consider that in the [previous blog post](/scala-inheritance-traits#detailed-example-of-inheritance--traits), we implemented a linked list for integers. But of course the problem is that the list is very limited to only _integers_. If we wanted to make one for say String instead, we would need to duplicate the entire code. _Enter generics to save the day._
 
-Collections are a powerful use case where we could store elements of a certain type. To do this in Scala Generics, we would define a class MyList parameterised with a Type A. The type in the square brackets is the generic type:
+# Introducing Generics in Scala
+
+[Collections](https://docs.scala-lang.org/overviews/collections/overview.html) are a powerful use case where we could store elements of a certain type. To do this in Scala Generics, we would define a class **MyList** parameterised with a **Type A**. The type in the square brackets is the _generic type_:
 
 ```scala
 class MyList[A] {
@@ -22,14 +24,14 @@ class MyList[A] {
 }
 ```
 
-Once you define it, you can use the type A inside the class definition. When you later use the MyList type, you can do the following for a new MyList of type Int or String:
+Once you define it, you can use the type A inside the class definition. When you later use the MyList class, you can do the following for a new MyList of type Int or String:
 
 ```scala
 val listOfIntegers = new MyList[Int]
 val listOfStrings = new MyList[String]
 ```
 
-So class MyList parameterised with A, is a GENERIC CLASS. The Type A is the name of a parameter. You can give it whatever name you want, but the general convention is to use a single letter.
+So class MyList parameterised with A, is a [Generic Class](https://docs.scala-lang.org/tour/generic-classes.html). The Type A is the name of a parameter. You can give it whatever name you want, but the general convention is to use a single letter.
 
 You can also have a class with multiple type parameters, i.e.:
 
@@ -45,7 +47,7 @@ trait SomeTrait[A]
 
 # Generic Methods
 
-Let's define a companion object (LINK TO THAT POST) for the MyList class. Note that objects **cannot** be type parameterised. Inside the object we will define a method that when given a type parameter will construct an empty MyList parameterised with that type:
+Let's define a [companion object](/scala-objects#companion-objects) for the MyList class. **Note that objects cannot be type parameterised**. Inside the object we will define a method that when given a type parameter will construct an empty MyList parameterised with that type:
 
 ```scala
 object MyList {
@@ -53,9 +55,9 @@ object MyList {
 }
 ```
 
-When you declare the type parameter A after empty, you can then use it in the function definition. For now, we will assume that this function doesn't do anything and will return Nothing.
+When you declare the type parameter A after empty, you can then use it in the function definition. For now, we will assume that this function doesn't do anything and will return [Nothing](https://www.scala-lang.org/api/2.9.1/scala/Nothing.html).
 
-So the object MyList, which is a companion for MyList defined above, has a generic method called empty which takes a type parameter of A, and returns a MyList of A.
+So the object MyList, which is a companion for the MyList class defined above, has a generic method called **empty** which takes a type parameter of A, and returns a MyList of A.
 
 To use this method we can do the following. This will return a MyList of integers:
 
@@ -65,7 +67,7 @@ val emptyListOfIntegers = MyList.empty[Int]
 
 # The Variance Problem
 
-Now that we know a bit about generics in Scala, there is a hard question that we need to answer. This question is known as the variance problem.
+Now that we know a bit about generics in Scala, there is a hard question that we need to answer. This question is known as the [variance problem](https://www.geeksforgeeks.org/scala-variances/).
 
 To explain this, let's first define a small class hierarchy:
 
@@ -81,9 +83,9 @@ The variance problem question here is:
 
 In Scala generics, we can provide three different answers to this question, as we see fit.
 
-## Covariance
+## 1. Covariance
 
-If we say that **yes**, a list of Cats extends a List of Animals, then this is called **covariance**. To declare a covariant class in Scala we would do:
+If we say that **yes**, _a list of Cats extends a List of Animals_, then this is called **covariance**. To declare a covariant class in Scala we would do:
 
 ```scala
 class CovariantList[+A]
@@ -113,7 +115,7 @@ animalList.add(new Dog)
 
 In theory we should be able to do this (i.e. add any type of animal). But adding a new Dog to a list of Cats would pollute the list.
 
-< ADD MORE HERE LATER ??> <It turns the list into a list of Animals>
+(If you want to skip ahead, the answer to how Scala solves this problem is [explained below](/scala-generics#further-covariant-explanation).)
 
 ## Invariance
 
@@ -131,31 +133,35 @@ val invariantAnimalList: InvariantList[Animal] = new InvariantList[Cat]
 
 For this type of list you have to supply a list of Animals, nothing else will work.
 
-# Contra-variance
+This is the default behavior in Scala.
 
-The third answer that we can give to the question is to declare a **contra-variant** list. Contra-variance classes are defined with a minus sign before them:
+# Contravariance
+
+The third answer that we can give to the question is to declare a **contravariant** list. Contra-variance classes are defined with a minus sign before them:
 
 ```scala
 class ContravariantList[-A]
 ```
 
-To use a contra-variant list, we would define the type parameters in the opposite way to the Covariant list, i.e.:
+To use a contravariant list, we would define the type parameters in the opposite way to the Covariant list, i.e.:
 
 ```scala
 val contravariantList: ContravariantList[Cat] = new ContravariantList[Animal]
 ```
 
-If you look again at the Covariant list, you can replace a list of Cats with a list of Animals, because Cats are Animals. But in the contra-variant case, we are initially specifying to replace a list of Cats with a list of Animals, even though Cat is a subtype of Animal.
+If you look again at the [Covariant list](/scala-generics#1-covariance), you can replace a list of Cats with a list of Animals, because Cats are Animals.
+
+But in the contravariant case, we are initially specifying to replace a list of Cats with a list of Animals, even though Cat is a subtype of Animal.
 
 The relationship is exactly opposite, and doesn't really make sense. How can you replace a list of Cats with a list of Animals? Because animals could also be Dogs etc.
 
-But instead of a ContravariantList class, lets create a class called **Trainer** - a class that trains animals:
+Lets think about it another way. Instead of a ContravariantList class, lets create a class called **Trainer** - a class that trains animals:
 
 ```scala
 class Trainer[-A]
 ```
 
-Now if I say that I want a Trainer of Cat, but I am supplying a Trainer of Animal, this declaration on the right hand side is better because it can also train a Dog as well as a Cat.
+Now if I say that I want a Trainer of **Cat**, but I am supplying a Trainer of **Animal**, this declaration on the right hand side is better because it can also train a Dog as well as a Cat.
 
 ```scala
 val trainerOfCats: Trainer[Cat] = new Trainer[Animal]
@@ -167,11 +173,11 @@ And if we wanted a trainer of Dog, we could do:
 val trainerOfDogs: Trainer[Dog] = new Trainer[Animal]
 ```
 
-Hopefully with the above example, you can see where a contra-variant list makes a bit more sense.
+Hopefully with the above example, you can see where a contravariant list makes a bit more sense.
 
 # Bounded Types
 
-**Bounded types** in Scala generics allow you to use generic classes only for certain types. Those types are are either a **subclass** or a **superclass** of a different type. For example:
+[Bounded types](https://apiumhub.com/tech-blog-barcelona/scala-type-bounds/) in Scala generics allow you to _use generic classes only for certain types_. Those types are are either a **subclass** or a **superclass** of a different type. For example:
 
 ```scala
 class Cage[A <: Animal]
@@ -206,11 +212,11 @@ The Car class does not conform to the expected type. Although the IDE will not p
 
 The above is an example of **upper bounded** types.
 
-We also have **lower bounded** types as well. Instead of <: you use **>:** , as you might expect. This is saying that Cage only accepts something that is a **supertype** of Animal.
+We also have **lower bounded** types as well. Instead of <: you use >: , as you might expect. This is saying that Cage only accepts something that is a **supertype** of Animal.
 
 Bounded types play a key role in helping to solve the variance problem that we discussed previously.
 
-# Further Covariant Explanation
+# Making MyList Covariant
 
 Let's go back to the MyList that we introduced at the start of the post, and say that MyList is **covariant** in the type A:
 
@@ -236,7 +242,9 @@ This error is actually the technical version of the question we asked earlier. I
 
 **If I have a list of Animals, which is in fact a List of Cats, what if I add a new Dog to it?**
 
-The answer is that if to a list of Cats I add a new Dog, _that will turn this new list into a list of Animals._ Adding a Dog to a list of Cats will turn it into something more _Generic_, i.e a list of Animals.
+The answer is that if to a list of Cats I add a new Dog, _that will turn this new list into a list of Animals._
+
+Adding a Dog to a list of Cats will turn it into something more _Generic_, i.e a list of Animals.
 
 Now that we know this, the technical implementation of the add method is as follows:
 
@@ -249,7 +257,7 @@ class MyList[+A] {
 Let's break this new method down carefully, because it is confusing at first:
 
 - After declaring the add method, in square brackets we say it will take a **type parameter** of B, that is a super type of A.
-- The **element** that will be passed into add with be of type B (not type A as previously)
+- The **element** that will be passed into add will be of type B (not type A as previously)
 - At the end, we return a new MyList of type B
 
 So we are saying that, if to a list of **A**, we put in a **B** (which is a super type of A), then this list will turn into a MyList of **B**.
@@ -261,6 +269,21 @@ In the example with cats and dogs, say that A = Cat and B = Dog. The Dog is also
 Now that we know a bit about Generics, we can go ahead and expand the MyList class that we started in the previous blog post to be generic.
 
 Let's start by adding the covariant type to the list, and substitute in the new type to the various methods:
+
+**BEFORE**:
+
+```scala
+abstract class MyList {
+  def head: Int
+  def tail: MyList
+  def isEmpty: Boolean
+  def add(element: Int): MyList
+  def printElements: String
+  override def toString: String = "[" + printElements + "]"
+}
+```
+
+**AFTER**:
 
 ```scala
 abstract class MyList[+A] {
@@ -281,6 +304,22 @@ The most complex change is to the add method. We added a type parameter of B, wh
 
 Lets now implement the newly modified abstract class in the Empty object and Cons class. We will start with Cons because it is a little bit easier to think about.
 
+For reference, this is what the Cons class looked like originally:
+
+```scala
+class Cons(h: Int, t: MyList) extends MyList {
+  def head: Int = h
+  def tail: MyList = t
+  def isEmpty: Boolean = false
+  def add(element: Int): MyList = new Cons(element, this)
+
+  def printElements: String = {
+    if(t.isEmpty) "" + h
+    else h + " " + t.printElements
+  }
+}
+```
+
 MyList is covariant so that means Cons must be covariant as well, so we add +A in square brackets. In the class definition, the head will be of type A and the tail returns MyList[A]. Finally we also extend from MyList[A]:
 
 ```scala
@@ -291,7 +330,7 @@ class Cons[+A](h: A, t: MyList[A]) extends MyList[A] {
 
 For the class methods, head now returns type A and tail returns MyList of type A.
 
-he add method needs the new parameter B, which is a super type of A. The element is of type B, and the result is a MyList of type B. The implementation of the add method stays the same:
+The add method needs the new parameter B, which is a super type of A. The element is of type B, and the result is a MyList of type B. The implementation of the add method stays the same:
 
 ```scala
 class Cons[+A](h: A, t: MyList[A]) extends MyList[A] {
@@ -317,6 +356,19 @@ Inside our test object, let's first try some examples. If we have a list of inte
 object ListTest extends App {
   val listOfIntegers: MyList[Int] = Empty
   val listOfStrings: MyList[String] = Empty
+}
+```
+
+For reference, this is what the Empty object looked like before:
+
+```scala
+object Empty extends MyList {
+  def head: Int = throw new NoSuchElementException
+  def tail: MyList = throw new NoSuchElementException
+  def isEmpty: Boolean = true
+  def add(element: Int): MyList = new Cons(element, Empty)
+
+  def printElements: String = ""
 }
 ```
 
@@ -365,4 +417,60 @@ object ListTest extends App {
 
 And it prints out the list of integers and strings as expected.
 
-// DONE TO 38
+# Summary
+
+In this post, we learned how to use **Generics** in Scala. Generics allow us to use the same code on many (potentially unrelated) types.
+
+You declare a generic by defining a **type parameter** in between **square brackets**. It works for classes and for traits, e.g:
+
+```scala
+trait List[T] {
+  def add(elem: T)
+}
+```
+
+We also learned how to use **generic methods**. This means adding the type parameter in square brackets of the method definition. This allows you to use the type parameter for the rest of the method signature:
+
+```scala
+object List {
+  def single[A](element: A): List[A] = ???
+}
+```
+
+You can define types with multiple type parameters, and you can name type parameters with whatever you want:
+
+```scala
+trait Map[Key, Value] {
+  // ...
+}
+```
+
+We also learned about an important problem in type signatures, which is the **Variance Problem**. This basically says that:
+
+> "if B extends A, should List\[B] extend List\[A]?"
+
+There are 3 possible options:
+
+- 1. Yes - **Covariant**:
+
+```scala
+trait List[+A]
+```
+
+- 2. No - **Invariant** (which is the default):
+
+```scala
+trait List[A]
+```
+
+- 3. Opposite - **Contra-variant**:
+
+```scala
+trait List[-A]
+```
+
+Finally we learned about **Bounded types**, which are defined by the less than or equal sign ( <: ) for upper bounds, or >: for lower bounds.
+
+# Source Code
+
+As always, the source code for this post is available on [Github](https://github.com/james-willett/ScalaBlog/blob/master/src/scalaBasics/objectOriented/Generics.scala).
