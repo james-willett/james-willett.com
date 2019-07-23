@@ -5,6 +5,7 @@ slug: scala-generics
 image: ../../1-absolute-basics/values-variables-types/scala-title.png
 category: Scala
 prev: scala-inheritance-traits
+next: scala-anonymous-classes
 ---
 
 [[info]]
