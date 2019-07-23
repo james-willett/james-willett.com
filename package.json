@@ -45,7 +45,6 @@
     "gatsby-transformer-remark": "^2.6.9",
     "gatsby-transformer-sharp": "^2.2.4",
     "less": "^3.8.1",
-    "lodash": "^4.17.15",
     "prism-themes": "^1.0.1",
     "prismjs": "^1.17.1",
     "react": "^16.7.0",
