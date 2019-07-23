@@ -10,8 +10,6 @@
     "serve": "gatsby serve"
   },
   "dependencies": {
-    "@babel/core": "^7.4.5",
-    "@babel/plugin-transform-react-constant-elements": "^7.0.0-rc.1",
     "@types/classnames": "^2.2.8",
     "@types/node": "^10.14.8",
     "@types/react-helmet": "^5.0.8",
@@ -60,6 +58,8 @@
     "terser": "3.14.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-transform-react-constant-elements": "^7.5.0",
     "@svgr/webpack": "^2.4.1"
   }
 }
