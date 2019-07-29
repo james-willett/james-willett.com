@@ -1,12 +1,12 @@
-import React from "react";
-import Helmet from "react-helmet";
-import { StaticQuery, graphql } from "gatsby";
+import React from 'react'
+import Helmet from 'react-helmet'
+import { StaticQuery, graphql } from 'gatsby'
 
 interface MetaComponentProps {
-  pageTitle?: string;
-  description?: string;
-  siteTitle: string;
-  canonical: string;
+  pageTitle?: string
+  description?: string
+  siteTitle: string
+  canonical: string
 }
 
 export function MetaComponent({
@@ -29,8 +29,8 @@ export function MetaComponent({
 
       {/* Twitter meta tags (that are not already covered by OpenGraph) */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content="@tim_roes" />
-      <meta name="twitter:creator" content="@tim_roes" />
+      <meta name="twitter:site" content="@james_willett1" />
+      <meta name="twitter:creator" content="@james_willett1" />
       <script
         src="https://my.hellobar.com/963fde236d330ec398c695d7abba79ef39b05cba.js"
         type="text/javascript"
@@ -38,10 +38,10 @@ export function MetaComponent({
         async="async"
       />
     </Helmet>
-  );
+  )
 }
 
-export const Meta = (props: Omit<MetaComponentProps, "siteTitle">) => (
+export const Meta = (props: Omit<MetaComponentProps, 'siteTitle'>) => (
   <StaticQuery
     query={graphql`
       query {
@@ -56,4 +56,4 @@ export const Meta = (props: Omit<MetaComponentProps, "siteTitle">) => (
       <MetaComponent siteTitle={data.site.siteMetadata.title} {...props} />
     )}
   />
-);
+)

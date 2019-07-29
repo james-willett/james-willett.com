@@ -1,98 +1,99 @@
 module.exports = {
   siteMetadata: {
-    title: "James Willett",
-    description: "Blog for James Willett, Software Engineer & Web Entrepreneur",
-    siteUrl: "https://www.james-willett.com/",
-    privacyPolicy: "https://www.iubenda.com/privacy-policy/43002998"
+    title: 'James Willett',
+    description: 'Blog for James Willett, Software Engineer & Web Entrepreneur',
+    siteUrl: 'https://www.james-willett.com/',
+    privacyPolicy: 'https://www.iubenda.com/privacy-policy/43002998'
   },
   plugins: [
-    "gatsby-plugin-typescript",
-    "gatsby-plugin-sitemap",
-    "gatsby-plugin-react-helmet",
+    'gatsby-plugin-typescript',
+    'gatsby-plugin-sitemap',
+    `gatsby-plugin-playground`,
+    'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/utils/typography.js`
       }
     },
-    "gatsby-plugin-less",
-    "gatsby-plugin-sharp",
-    "gatsby-plugin-svgr",
+    'gatsby-plugin-less',
+    'gatsby-plugin-sharp',
+    'gatsby-plugin-svgr',
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: "posts",
+        name: 'posts',
         path: `${__dirname}/content/posts/`
       }
     },
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: "images",
+        name: 'images',
         path: `${__dirname}/src/images/`
       }
     },
     {
-      resolve: "gatsby-transformer-remark",
+      resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
-          "gatsby-remark-autolink-headers",
+          'gatsby-remark-autolink-headers',
           {
-            resolve: "gatsby-remark-custom-blocks",
+            resolve: 'gatsby-remark-custom-blocks',
             options: {
               blocks: {
                 info: {
-                  classes: "info-block",
-                  title: "optional"
+                  classes: 'info-block',
+                  title: 'optional'
                 },
                 warn: {
-                  classes: "warning-block",
-                  title: "optional"
+                  classes: 'warning-block',
+                  title: 'optional'
                 }
               }
             }
           },
           {
-            resolve: "gatsby-remark-images",
+            resolve: 'gatsby-remark-images',
             options: {
               withWebp: true
             }
           },
           {
-            resolve: "gatsby-remark-prismjs",
+            resolve: 'gatsby-remark-prismjs',
             options: {
               noInlineHighlight: true
             }
           },
-          "gatsby-remark-external-links",
-          "gatsby-remark-copy-linked-files",
-          "gatsby-remark-smartypants"
+          'gatsby-remark-external-links',
+          'gatsby-remark-copy-linked-files',
+          'gatsby-remark-smartypants'
         ]
       }
     },
-    "gatsby-transformer-sharp",
-    "gatsby-plugin-catch-links",
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-catch-links',
     {
-      resolve: "gatsby-plugin-google-analytics",
+      resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: "UA-77002717-1",
+        trackingId: 'UA-77002717-1',
         head: false,
         anonymize: true,
         respectDNT: true
       }
     },
     {
-      resolve: "gatsby-plugin-manifest",
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        name: "James Willett",
-        short_name: "James Willett",
-        start_url: "/",
-        background_color: "#f7f0eb",
-        theme_color: "#00705f",
-        display: "minimal-ui",
-        icon: "src/images/logo.png"
+        name: 'James Willett',
+        short_name: 'James Willett',
+        start_url: '/',
+        background_color: '#f7f0eb',
+        theme_color: '#00705f',
+        display: 'minimal-ui',
+        icon: 'src/images/logo.png'
       }
     },
-    "gatsby-plugin-offline"
+    'gatsby-plugin-offline'
   ]
-};
+}
