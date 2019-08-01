@@ -5,6 +5,7 @@ slug: scala-anonymous-classes
 image: ../../1-absolute-basics/values-variables-types/scala-title.png
 category: Scala
 prev: scala-generics
+next: scala-covariant-generic-list
 ---
 
 [[info]]
