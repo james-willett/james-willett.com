@@ -3,9 +3,10 @@ import Helmet from 'react-helmet'
 import { Page } from '../components'
 import { graphql } from 'gatsby'
 
-import css from './index.module.less'
+import css from './homepage.module.less'
 
 export default function homepage({ data }) {
+  console.log(data)
   return (
     <Page
       wide={true}

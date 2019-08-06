@@ -1,4 +1,4 @@
-@import (reference) "../../styles/variables.less";
+@import (reference) '../../styles/variables.less';
 
 .header {
   background-color: white;
@@ -12,7 +12,7 @@
   padding: 0 @content-margin;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  // justify-content: space-between;
   align-items: center;
 }
 
@@ -44,4 +44,70 @@
   text-decoration: none;
   font-size: 1.4em;
   color: @brand-color;
+}
+
+.nav-links {
+  list-style-type: none;
+  transition: @mainTransition;
+  height: 0;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 576px) {
+  .navbar {
+    padding: 0 2rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .menu-btn {
+    display: none;
+  }
+  .nav-center {
+    // max-width: 1170px;
+    // margin: 0 auto;
+    // display: flex;
+    // justify-content: space-between;
+    // align-items: center;
+  }
+  .nav-links {
+    height: auto;
+    display: flex;
+  }
+}
+
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+}
+.menu-btn {
+  background: transparent;
+  border: none;
+  outline: none;
+}
+.menu-btn:hover {
+  cursor: pointer;
+}
+.menu-icon {
+  color: @primaryColor;
+  font-size: 1.5rem;
+}
+
+.show-nav {
+  height: 216px;
+}
+.nav-links a {
+  display: block;
+  padding: 1rem 1.25rem;
+  text-decoration: none;
+  text-transform: capitalize;
+  color: @mainBlack;
+  transition: @mainTransition;
+  font-weight: bold;
+  letter-spacing: @mainSpacing;
+}
+.nav-links a:hover {
+  color: @primaryColor;
 }

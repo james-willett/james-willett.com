@@ -49,6 +49,7 @@
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-helmet": "^5.2.1",
+    "react-icons": "^3.7.0",
     "react-svg-loader": "^3.0.3",
     "react-typography": "^0.16.13",
     "typescript": "^3.5.1",
