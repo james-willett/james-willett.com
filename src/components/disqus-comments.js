@@ -1,16 +1,12 @@
-import React from "react";
-import Helmet from "react-helmet";
+import React from 'react'
+import Helmet from 'react-helmet'
 
-import css from "./disqus-comments.module.less";
+import css from './disqus-comments.module.less'
 
 // @ts-ignore
-import { DiscussionEmbed } from "disqus-react";
+import { DiscussionEmbed } from 'disqus-react'
 
-interface DisqusProps {
-  url: string;
-}
-
-export function DisqusComments({ url }: DisqusProps) {
+function DisqusComments({ url }) {
   return (
     <div className={css.discussion}>
       <Helmet>
@@ -20,5 +16,7 @@ export function DisqusComments({ url }: DisqusProps) {
       </Helmet>
       <DiscussionEmbed shortname="james-willett" config={{ url }} />
     </div>
-  );
+  )
 }
+
+export default DisqusComments

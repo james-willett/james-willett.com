@@ -1,75 +1,21 @@
-import React from "react";
-import { graphql } from "gatsby";
-import { FixedObject } from "gatsby-image";
-import Helmet from "react-helmet";
-import { DisqusComments, Page, Pagination, RelatedPosts } from "../components";
-import css from "./post.module.less";
-import { ReactComponent as CalendarIcon } from "../icons/calendar.svg";
-import { ReactComponent as ClockIcon } from "../icons/clock.svg";
+import React from 'react'
+import { graphql } from 'gatsby'
+import { FixedObject } from 'gatsby-image'
+import Helmet from 'react-helmet'
+import DisqusComments from '../components/disqus-comments'
+import Page from '../components/page'
+import Pagination from '../components/pagination'
+import RelatedPosts from '../components/related-posts'
+import css from './post.module.less'
+import { ReactComponent as CalendarIcon } from '../icons/calendar.svg'
+import { ReactComponent as ClockIcon } from '../icons/clock.svg'
 
-import "prism-themes/themes/prism-a11y-dark.css";
+import 'prism-themes/themes/prism-a11y-dark.css'
 
-interface PageInfo {
-  slug: string;
-  title: string;
-  canonical: string;
-}
-
-interface PostProps {
-  pageContext: {
-    canonical: string;
-    category?: string;
-    next?: PageInfo;
-    prev?: PageInfo;
-  };
-  data: {
-    post: {
-      id: string;
-      html: string;
-      timeToRead: number;
-      frontmatter: {
-        title: string;
-        date: string;
-        shortDate: string;
-        longDate: string;
-        summary?: string;
-        image: null | {
-          publicURL: string;
-        };
-      };
-    };
-    site: {
-      siteMetadata: {
-        siteUrl: string;
-      };
-    };
-    relatedPosts: {
-      edges: Array<{
-        node: {
-          fields: {
-            slug: string;
-          };
-          timeToRead: string;
-          frontmatter: {
-            title: string;
-            slug: string;
-            date: string;
-            image: null | {
-              childImageSharp: {
-                fixed: FixedObject;
-              };
-            };
-          };
-        };
-      }>;
-    };
-  };
-}
-
-export default ({ pageContext, data }: PostProps) => {
-  const { post, relatedPosts } = data;
-  const { html, timeToRead, frontmatter: meta } = post;
-  const { canonical, next, prev } = pageContext;
+export default ({ pageContext, data }) => {
+  const { post, relatedPosts } = data
+  const { html, timeToRead, frontmatter: meta } = post
+  const { canonical, next, prev } = pageContext
   return (
     <Page title={meta.title} canonical={canonical} description={meta.summary}>
       <Helmet>
@@ -100,7 +46,7 @@ export default ({ pageContext, data }: PostProps) => {
           </time>
           <time
             aria-label={`Estimated reading time: ${timeToRead} minute${
-              timeToRead !== 1 ? "s" : ""
+              timeToRead !== 1 ? 's' : ''
             }`}
             dateTime={`P${timeToRead}M`}
             className={css.post__metaItem}
@@ -118,8 +64,8 @@ export default ({ pageContext, data }: PostProps) => {
       <RelatedPosts categoryLabel={pageContext.category} posts={relatedPosts} />
       <DisqusComments url={pageContext.canonical} />
     </Page>
-  );
-};
+  )
+}
 
 export const query = graphql`
   query($slug: String!, $category: String) {
@@ -171,4 +117,4 @@ export const query = graphql`
       }
     }
   }
-`;
+`

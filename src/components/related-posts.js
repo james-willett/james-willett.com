@@ -1,17 +1,12 @@
-import React from 'react';
+import React from 'react'
 
-import { PostCard } from './postcard';
+import PostCard from './postcard'
 
-import css from './related-posts.module.less';
+import css from './related-posts.module.less'
 
-interface RelatedPostsProps {
-  categoryLabel?: string;
-  posts: any; // TODO
-}
-
-export function RelatedPosts({ categoryLabel, posts }: RelatedPostsProps) {
+function RelatedPosts({ categoryLabel, posts }) {
   if (!categoryLabel) {
-    return null;
+    return null
   }
 
   return (
@@ -19,12 +14,17 @@ export function RelatedPosts({ categoryLabel, posts }: RelatedPostsProps) {
       <div className={css.relatedPosts__title}>
         <div className={css.relatedPosts__titleText}>
           Read more
-          {categoryLabel && <React.Fragment> about <strong>{categoryLabel}</strong></React.Fragment>}
+          {categoryLabel && (
+            <React.Fragment>
+              {' '}
+              about <strong>{categoryLabel}</strong>
+            </React.Fragment>
+          )}
         </div>
       </div>
       <div className={css.relatedPosts__listContainer}>
         <div className={css.relatedPosts__list}>
-          { posts.edges.map(({ node }: any) => (
+          {posts.edges.map(({ node }) => (
             <PostCard
               className={css.relatedPosts__postlink}
               slug={node.fields.slug}
@@ -35,5 +35,7 @@ export function RelatedPosts({ categoryLabel, posts }: RelatedPostsProps) {
         </div>
       </div>
     </nav>
-  );
+  )
 }
+
+export default RelatedPosts

@@ -1,10 +1,9 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import { Page } from '../components'
+import Page from '../components/page'
 import { graphql } from 'gatsby'
 
 import css from './homepage.module.less'
-import css2 from './tag.module.less'
 
 export default function homepage({ data }) {
   console.log(data)

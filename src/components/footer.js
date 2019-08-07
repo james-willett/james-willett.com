@@ -1,9 +1,9 @@
-import React from "react";
-import { StaticQuery, graphql } from "gatsby";
+import React from 'react'
+import { StaticQuery, graphql } from 'gatsby'
 
-import css from "./footer.module.less";
+import css from './footer.module.less'
 
-const FooterComponent: React.SFC<{ privacyUrl: string }> = props => {
+const FooterComponent = props => {
   return (
     <footer className={css.footer}>
       <a
@@ -15,10 +15,10 @@ const FooterComponent: React.SFC<{ privacyUrl: string }> = props => {
         Privacy Policy
       </a>
     </footer>
-  );
-};
+  )
+}
 
-export const Footer = () => (
+const Footer = () => (
   <StaticQuery
     query={graphql`
       query {
@@ -33,4 +33,6 @@ export const Footer = () => (
       <FooterComponent privacyUrl={data.site.siteMetadata.privacyPolicy} />
     )}
   />
-);
+)
+
+export default Footer

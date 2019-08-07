@@ -7,23 +7,23 @@ import { FaAlignRight } from 'react-icons/fa'
 import links from './constants/links'
 import socialIcons from './constants/social-icons'
 
-interface HeaderProps {
-  wide?: boolean
-  data: {
-    site: {
-      siteMetadata: {
-        title: string
-      }
-    }
-    logo: {
-      childImageSharp: {
-        fixed: FixedObject
-      }
-    }
-  }
-}
+// interface HeaderProps {
+//   wide?: boolean
+//   data: {
+//     site: {
+//       siteMetadata: {
+//         title: string
+//       }
+//     }
+//     logo: {
+//       childImageSharp: {
+//         fixed: FixedObject
+//       }
+//     }
+//   }
+// }
 
-function HeaderComponent({ data, wide }: HeaderProps) {
+export function HeaderComponent() {
   const [isOpen, setNav] = useState(false)
   const toggleNav = () => {
     setNav(isOpen => !isOpen)
@@ -38,7 +38,7 @@ function HeaderComponent({ data, wide }: HeaderProps) {
             aria-label="Homepage - James Willett"
             rel="home"
           >
-            {data.site.siteMetadata.title}
+            James Willett
           </Link>
           <button type="button" className={css.logoBtn} onClick={toggleNav}>
             <FaAlignRight className={css.logoIcon} />
@@ -76,7 +76,7 @@ function HeaderComponent({ data, wide }: HeaderProps) {
   )
 }
 
-export const Header = (props: Omit<HeaderProps, 'data'>) => (
+const Header = props => (
   <StaticQuery
     query={graphql`
       query {
@@ -97,3 +97,5 @@ export const Header = (props: Omit<HeaderProps, 'data'>) => (
     render={data => <HeaderComponent data={data} {...props} />}
   />
 )
+
+export default Header

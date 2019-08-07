@@ -2,19 +2,12 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
-interface MetaComponentProps {
-  pageTitle?: string
-  description?: string
-  siteTitle: string
-  canonical: string
-}
-
 export function MetaComponent({
   pageTitle,
   description,
   siteTitle,
   canonical
-}: MetaComponentProps) {
+}) {
   return (
     <Helmet>
       <link rel="canonical" href={canonical} />
@@ -41,7 +34,7 @@ export function MetaComponent({
   )
 }
 
-export const Meta = (props: Omit<MetaComponentProps, 'siteTitle'>) => (
+const Meta = props => (
   <StaticQuery
     query={graphql`
       query {
@@ -57,3 +50,5 @@ export const Meta = (props: Omit<MetaComponentProps, 'siteTitle'>) => (
     )}
   />
 )
+
+export default Meta

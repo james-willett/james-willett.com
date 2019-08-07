@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('path')
 
 module.exports = async function createPages({ graphql, actions }) {
   const { data } = await graphql(`
@@ -22,53 +22,57 @@ module.exports = async function createPages({ graphql, actions }) {
         }
       }
     }
-  `);
+  `)
 
   const titles = data.allMarkdownRemark.edges.reduce((prev, { node }) => {
-    prev[node.frontmatter.slug] = node.frontmatter.title;
-    return prev;
-  }, {});
+    prev[node.frontmatter.slug] = node.frontmatter.title
+    return prev
+  }, {})
 
   data.allMarkdownRemark.edges.forEach(({ node }) => {
-    const { slug, next, prev, category } = node.frontmatter;
+    const { slug, next, prev, category } = node.frontmatter
 
     // Calculate full canonical URL for that page:
-    const canonical = `${data.site.siteMetadata.siteUrl}/${slug}`;
+    const canonical = `${data.site.siteMetadata.siteUrl}/${slug}`
 
-    let nextPost;
+    let nextPost
     if (next) {
       if (!titles[next]) {
-        throw new Error(`Could not find next article with slug ${next} for article ${slug}.`);
+        throw new Error(
+          `Could not find next article with slug ${next} for article ${slug}.`
+        )
       }
       nextPost = {
         slug: next,
         canonical: `${data.site.siteMetadata.siteUrl}/${next}`,
-        title: titles[next],
-      };
+        title: titles[next]
+      }
     }
 
-    let prevPost;
+    let prevPost
     if (prev) {
       if (!titles[prev]) {
-        throw new Error(`Could not find prev article with slug ${prev} for article ${slug}.`);
+        throw new Error(
+          `Could not find prev article with slug ${prev} for article ${slug}.`
+        )
       }
       prevPost = {
         slug: prev,
         canonical: `${data.site.siteMetadata.siteUrl}/${prev}`,
-        title: titles[prev],
-      };
+        title: titles[prev]
+      }
     }
 
     actions.createPage({
       path: slug,
-      component: path.resolve(__dirname, '../src/templates/post.tsx'),
+      component: path.resolve(__dirname, '../src/templates/post.js'),
       context: {
         slug,
         canonical,
         category,
         next: nextPost,
-        prev: prevPost,
+        prev: prevPost
       }
-    });
-  });
+    })
+  })
 }

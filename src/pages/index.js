@@ -1,45 +1,13 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import { Page, PostCard } from '../components'
+import Page from '../components/page'
+import PostCard from '../components/postcard'
 import { graphql } from 'gatsby'
 import { FixedObject } from 'gatsby-image'
 
 import css from './index.module.less'
 
-// Must match the result of the below graphql query
-interface IndexData {
-  allMarkdownRemark: {
-    posts: Array<{
-      node: {
-        fields: {
-          slug: string
-        }
-        timeToRead: string
-        frontmatter: {
-          title: string
-          date: string
-          image: null | {
-            childImageSharp: {
-              fixed: FixedObject
-            }
-          }
-        }
-      }
-    }>
-  }
-  site: {
-    siteMetadata: {
-      description: string
-      siteUrl: string
-    }
-  }
-}
-
-interface IndexPageProps {
-  data: IndexData
-}
-
-export default ({ data }: IndexPageProps) => {
+export default ({ data }) => {
   return (
     <Page
       wide={true}
