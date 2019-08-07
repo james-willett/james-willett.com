@@ -1,6 +1,7 @@
 ---
-title: "Scala Basics - Call by Name or Value"
+title: 'Scala Basics - Call by Name or Value'
 date: 2019-06-13
+tags: [tag1, tag2, tag3, tag4]
 slug: scala-basics-call-by-name-or-value
 image: ../values-variables-types/scala-title.png
 category: Scala

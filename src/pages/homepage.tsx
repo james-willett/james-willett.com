@@ -4,6 +4,7 @@ import { Page } from '../components'
 import { graphql } from 'gatsby'
 
 import css from './homepage.module.less'
+import css2 from './tag.module.less'
 
 export default function homepage({ data }) {
   console.log(data)

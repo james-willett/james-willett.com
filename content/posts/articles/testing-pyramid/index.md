@@ -1,6 +1,7 @@
 ---
-title: "The Evolution of the Testing Pyramid"
+title: 'The Evolution of the Testing Pyramid'
 date: 2016-09-27
+tags: [tag1, tag2, tag3, tag4]
 slug: the-evolution-of-the-testing-pyramid
 image: ./TestPyramidTitleImage-768x384.png
 category: Articles

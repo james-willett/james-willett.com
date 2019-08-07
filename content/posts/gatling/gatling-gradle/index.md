@@ -1,6 +1,7 @@
 ---
-title: "Running Gatling through Gradle – Complete Beginner’s Guide"
+title: 'Running Gatling through Gradle – Complete Beginner’s Guide'
 date: 2017-04-12
+tags: [tag1, tag2, tag3, tag4]
 slug: running-gatling-through-gradle
 image: ./GatlingBlue.png
 category: Gatling

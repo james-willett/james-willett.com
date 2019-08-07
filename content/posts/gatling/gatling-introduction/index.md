@@ -1,6 +1,7 @@
 ---
-title: "Gating Introduction – High Level Overview of the Stress Test Tool"
+title: 'Gating Introduction – High Level Overview of the Stress Test Tool'
 date: 2017-08-07
+tags: [tag1, tag2, tag3, tag4]
 slug: gatling-introduction
 image: ./GatlingLime.png
 category: Gatling

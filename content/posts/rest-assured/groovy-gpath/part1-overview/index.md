@@ -1,6 +1,7 @@
 ---
-title: "Groovy GPath in REST Assured – Part 1: Overview of Groovy"
+title: 'Groovy GPath in REST Assured – Part 1: Overview of Groovy'
 date: 2017-05-06
+tags: [tag1, tag2, tag3, tag4]
 slug: groovy-gpath-in-rest-assured-part1-overview
 image: ./restAssuredPurple.png
 category: REST Assured

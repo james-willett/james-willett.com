@@ -1,6 +1,7 @@
 ---
-title: "Scala Basics - String Operations"
+title: 'Scala Basics - String Operations'
 date: 2019-06-18
+tags: [tag1, tag2, tag3, tag4]
 slug: scala-basics-string-operations
 image: ../values-variables-types/scala-title.png
 category: Scala

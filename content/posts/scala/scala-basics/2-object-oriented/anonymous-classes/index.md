@@ -1,6 +1,7 @@
 ---
 title: 'Anonymous Classes in Scala'
 date: 2019-07-23
+tags: [tag1, tag2, tag3, tag4]
 slug: scala-anonymous-classes
 image: ../../1-absolute-basics/values-variables-types/scala-title.png
 category: Scala

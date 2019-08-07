@@ -1,6 +1,7 @@
 ---
 title: Extracting a JSON Response with REST Assured
 date: 2015-06-16
+tags: [tag1, tag2, tag3, tag4]
 slug: rest-assured-extract-json-response
 summary: |
   How to extract a JSON response in REST Assured and then use that response later on in your tests

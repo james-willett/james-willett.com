@@ -1,6 +1,7 @@
 ---
 title: 'Scala Objects'
 date: 2019-07-02
+tags: [tag1, tag2, tag3, tag4]
 slug: scala-objects
 image: ../../1-absolute-basics/values-variables-types/scala-title.png
 category: Scala

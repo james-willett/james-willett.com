@@ -1,6 +1,7 @@
 ---
-title: "Method Notations in Scala"
+title: 'Method Notations in Scala'
 date: 2019-06-28
+tags: [tag1, tag2, tag3, tag4]
 slug: scala-method-notations
 image: ../../1-absolute-basics/values-variables-types/scala-title.png
 category: Scala

@@ -1,6 +1,7 @@
 ---
-title: "Scala Basics - Default and Named Arguments"
+title: 'Scala Basics - Default and Named Arguments'
 date: 2019-06-14
+tags: [tag1, tag2, tag3, tag4]
 slug: scala-basics-default-named-arguments
 image: ../values-variables-types/scala-title.png
 category: Scala

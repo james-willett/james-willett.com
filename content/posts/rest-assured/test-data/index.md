@@ -1,6 +1,7 @@
 ---
-title: "Using Test Data in your REST Assured Framework"
+title: 'Using Test Data in your REST Assured Framework'
 date: 2015-06-17
+tags: [tag1, tag2, tag3, tag4]
 slug: going-further-with-rest-assured-part-1-writing-and-using-test-data-in-your-framework
 image: ./restAssuredGreen.png
 category: REST Assured

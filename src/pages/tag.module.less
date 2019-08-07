@@ -1,0 +1,42 @@
+// @import (reference) '../../style/index.less';
+
+.card {
+  .flex-center();
+  .frame-medium();
+  .heading(h2, 1em * 1.8);
+  justify-content: left;
+  flex-wrap: nowrap;
+  height: auto;
+  transition: 0.5s background-color;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  @media @mobile {
+    margin: 0em;
+  }
+}
+
+.cover {
+  margin: 0em 9px;
+  @width: 10%;
+  min-width: @width;
+  margin-right: 18px * 2;
+  // @media @mobile {
+  //     min-width: @width * 2.5;
+  // }
+  // @media @tablet {
+  //     min-width: @width * 1.7;
+  // }
+}
+
+.content {
+  h2 {
+    font-family: 'CustomBoldFont', sans-serif;
+  }
+  h2,
+  p {
+    margin-top: 0em;
+    margin-bottom: 9px;
+    text-align: left;
+  }
+}

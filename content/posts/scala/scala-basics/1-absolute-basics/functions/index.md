@@ -1,6 +1,7 @@
 ---
-title: "Scala Basics - Functions"
+title: 'Scala Basics - Functions'
 date: 2019-06-07
+tags: [tag1, tag2, tag3, tag4]
 slug: scala-basics-functions
 image: ../values-variables-types/scala-title.png
 category: Scala

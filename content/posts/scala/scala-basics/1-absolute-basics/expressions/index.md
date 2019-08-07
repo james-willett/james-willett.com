@@ -1,6 +1,7 @@
 ---
-title: "Scala Basics - Expressions"
+title: 'Scala Basics - Expressions'
 date: 2019-05-13
+tags: [tag1, tag2, tag3, tag4]
 slug: scala-basics-expressions
 image: ../values-variables-types/scala-title.png
 category: Scala

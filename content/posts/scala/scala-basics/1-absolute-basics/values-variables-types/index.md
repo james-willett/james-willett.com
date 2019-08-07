@@ -1,6 +1,7 @@
 ---
-title: "Scala Basics - Values, Variables and Types"
+title: 'Scala Basics - Values, Variables and Types'
 date: 2019-05-12
+tags: [tag1, tag2, tag3, tag4]
 slug: scala-basics-values-variables-types
 image: ./scala-title.png
 category: Scala

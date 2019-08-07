@@ -1,13 +1,12 @@
 import React from 'react'
-import Helmet from 'react-helmet'
-import { Page, PostCard } from '../components'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import { FixedObject } from 'gatsby-image'
+import { Page } from '../components'
+import * as Utils from '../utils/utils'
+import Config from '../../config'
+// import style from './tag.module.less'
 
-import css from './index.module.less'
-
-// Must match the result of the below graphql query
-interface IndexData {
+interface TagData {
   allMarkdownRemark: {
     posts: Array<{
       node: {
@@ -18,6 +17,7 @@ interface IndexData {
         frontmatter: {
           title: string
           date: string
+          tags: Array<string>
           image: null | {
             childImageSharp: {
               fixed: FixedObject
@@ -35,33 +35,39 @@ interface IndexData {
   }
 }
 
-interface IndexPageProps {
-  data: IndexData
+interface TagPageProps {
+  data: TagData
 }
 
-export default ({ data }: IndexPageProps) => {
+export default ({ data }: TagPageProps) => {
+  const rawTags = data.allMarkdownRemark.posts
+    .map(edge => edge.node.frontmatter.tags)
+    .reduce((prev, curr) => prev.concat(curr))
+  const tags = rawTags
+    .filter((tag, index) => index === rawTags.indexOf(tag))
+    .sort() // remove duplicates and sort values
+  const tagPage = Config.pages.tag
+  console.log(data)
+  console.log(rawTags)
+  console.log(tags)
   return (
     <Page
       wide={true}
-      canonical={data.site.siteMetadata.siteUrl}
-      description={data.site.siteMetadata.description}
+      canonical="replace me"
+      description="All tags present on the site"
     >
-      <Helmet>
-        <meta property="og:type" content="website" />
-      </Helmet>
-      <nav aria-label="Posts">
-        <ul className={css.postlist}>
-          {data.allMarkdownRemark.posts.map(({ node: post }) => (
-            <li key={post.fields.slug} className={css.postlist__entry}>
-              <PostCard
-                slug={post.fields.slug}
-                timeToRead={post.timeToRead}
-                {...post.frontmatter}
-              />
-            </li>
-          ))}
-        </ul>
-      </nav>
+      hello world
+      <div>
+        {tags.map(tag => (
+          <Link
+            to={Utils.resolvePageUrl(tagPage, tag)}
+            className={style.card}
+            key={tag}
+          >
+            Link goes here!
+          </Link>
+        ))}
+      </div>
     </Page>
   )
 }
@@ -78,6 +84,7 @@ export const query = graphql`
           frontmatter {
             title
             date(formatString: "MMM D, YYYY")
+            tags
             image {
               childImageSharp {
                 fixed(width: 350) {

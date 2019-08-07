@@ -1,6 +1,7 @@
 ---
 title: ResponseSpecBuilder and RequestSpecBuilder in REST Assured
 date: 2015-07-23
+tags: [tag1, tag2, tag3, tag4]
 slug: specification-re-use-in-rest-assured-with-responsespecbuilder-and-requestspecbuilder
 image: ./restAssuredOrange.png
 category: REST Assured

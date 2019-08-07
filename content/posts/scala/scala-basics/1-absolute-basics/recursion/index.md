@@ -1,6 +1,7 @@
 ---
-title: "Scala Basics - Recursion"
+title: 'Scala Basics - Recursion'
 date: 2019-06-10
+tags: [tag1, tag2, tag3, tag4]
 slug: scala-basics-recursion
 image: ../values-variables-types/scala-title.png
 category: Scala

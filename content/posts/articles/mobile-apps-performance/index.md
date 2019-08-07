@@ -1,6 +1,7 @@
 ---
-title: "Considerations when Performance Testing Native Mobile Applications"
+title: 'Considerations when Performance Testing Native Mobile Applications'
 date: 2015-08-10
+tags: [tag1, tag2, tag3, tag4]
 slug: considerations-when-performance-testing-native-mobile-applications
 image: ./mobileAppTitle.png
 category: Articles
