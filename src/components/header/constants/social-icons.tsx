@@ -1,17 +1,17 @@
 import React from 'react'
-import { FaFacebook, FaTwitterSquare, FaSquarespace } from 'react-icons/fa'
+import { FaYoutube, FaTwitterSquare, FaGithub } from 'react-icons/fa'
 
 export default [
   {
-    icon: <FaFacebook />,
-    url: 'https://twitter.com'
-  },
-  {
     icon: <FaTwitterSquare />,
-    url: 'https://twitter.com'
+    url: 'https://twitter.com/james_willett1'
   },
   {
-    icon: <FaSquarespace />,
-    url: 'https://twitter.com'
+    icon: <FaGithub />,
+    url: 'https://github.com/james-willett'
+  },
+  {
+    icon: <FaYoutube />,
+    url: 'https://www.youtube.com/channel/UCWznCtwNQeqrgZUSWss4XJw'
   }
 ]
