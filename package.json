@@ -52,7 +52,6 @@
     "react-icons": "^3.7.0",
     "react-svg-loader": "^3.0.3",
     "react-typography": "^0.16.13",
-    "typescript": "^3.5.1",
     "typography": "^0.16.19",
     "typography-theme-stow-lake": "^0.16.19"
   },
