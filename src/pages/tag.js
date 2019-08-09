@@ -1,29 +1,29 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
-import { FixedObject } from 'gatsby-image'
+import Image from 'gatsby-image'
 import Page from '../components/page'
-// import * as Utils from '../utils/utils'
-// import Config from '../../config'
+import Utils from '../utils/utils'
+import Config from '../../config'
 import style from './tag.module.less'
 
 export default ({ data }) => {
-  // const rawTags = data.allMarkdownRemark.posts
-  //   .map(edge => edge.node.frontmatter.tags)
-  //   .reduce((prev, curr) => prev.concat(curr))
-  // const tags = rawTags
-  //   .filter((tag, index) => index === rawTags.indexOf(tag))
-  //   .sort() // remove duplicates and sort values
-  // const tagPage = Config.pages.tag
-  // console.log(data)
-  // console.log(rawTags)
-  // console.log(tags)
+  const rawTags = data.allMarkdownRemark.posts
+    .map(edge => edge.node.frontmatter.tags)
+    .reduce((prev, curr) => prev.concat(curr))
+  const tags = rawTags
+    .filter((tag, index) => index === rawTags.indexOf(tag))
+    .sort() // remove duplicates and sort values
+  const tagPage = Config.pages.tag
+  console.log(data)
+  console.log(rawTags)
+  console.log(tags)
   return (
     <Page
       wide={true}
       canonical="replace me"
       description="All tags present on the site"
     >
-      {/* hello world
+      hello world
       <div>
         {tags.map(tag => (
           <Link
@@ -31,10 +31,24 @@ export default ({ data }) => {
             className={style.card}
             key={tag}
           >
-            Link goes here!
+            <div className={style.cover}>
+              <Image
+                fluid={
+                  data.allFile.edges.find(edge => edge.node.name === tag).node
+                    .childImageSharp.fluid
+                }
+              />
+            </div>
+            <div className={style.content}>
+              <h2>{Config.tags[tag].name || Utils.capitalize(tag)}</h2>
+              <p>{Config.tags[tag].description}</p>
+              <label>{`${
+                rawTags.filter(sTag => sTag === tag).length
+              } Posts`}</label>
+            </div>
           </Link>
         ))}
-      </div> */}
+      </div>
       hello
     </Page>
   )
@@ -64,10 +78,16 @@ export const query = graphql`
         }
       }
     }
-    site {
-      siteMetadata {
-        description
-        siteUrl
+    allFile(filter: { relativeDirectory: { eq: "tags" } }) {
+      edges {
+        node {
+          name
+          childImageSharp {
+            fluid(maxWidth: 400) {
+              ...GatsbyImageSharpFluid_tracedSVG
+            }
+          }
+        }
       }
     }
   }

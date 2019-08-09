@@ -20,6 +20,24 @@ module.exports = {
     rss: '/rss.xml'
   },
   tags: {
+    tag1: {
+      name: 'Tag 1',
+      description:
+        'Node.js is a tool for executing JavaScript in a variety of environments.'
+    },
+    tag2: {
+      name: 'Tag 2',
+      description:
+        'Node.js is a tool for executing JavaScript in a variety of environments.'
+    },
+    tag3: {
+      name: 'Tag 3',
+      description:
+        'Node.js is a tool for executing JavaScript in a variety of environments.'
+    },
+    tag4: {
+      name: 'Tag 4'
+    },
     angular: {
       description: 'Angular is an open source web application platform.'
     },

@@ -1,32 +1,32 @@
-// @import (reference) '../../style/index.less';
+@import (reference) '../styles/index.less';
 
 .card {
-  // .flex-center();
-  // .frame-medium();
-  // .heading(h2, 1em * 1.8);
+  .flex-center();
+  .frame-medium();
+  .heading(h2, @font-size * 1.8);
   justify-content: left;
   flex-wrap: nowrap;
   height: auto;
-  transition: 0.5s background-color;
+  transition: @transition-time background-color;
   &:hover {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: @color-transparent-darker;
   }
-  // @media @mobile {
-  //   margin: 0em;
-  // }
+  @media @mobile {
+    margin: @margin-zero;
+  }
 }
 
 .cover {
-  margin: 0em 9px;
+  margin: @margin-zero @margin-small;
   @width: 10%;
   min-width: @width;
-  margin-right: 18px * 2;
-  // @media @mobile {
-  //     min-width: @width * 2.5;
-  // }
-  // @media @tablet {
-  //     min-width: @width * 1.7;
-  // }
+  margin-right: @margin-medium * 2;
+  @media @mobile {
+    min-width: @width * 2.5;
+  }
+  @media @tablet {
+    min-width: @width * 1.7;
+  }
 }
 
 .content {
@@ -35,8 +35,8 @@
   }
   h2,
   p {
-    margin-top: 0em;
-    margin-bottom: 9px;
+    margin-top: @margin-zero;
+    margin-bottom: @margin-small;
     text-align: left;
   }
 }
