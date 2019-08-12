@@ -1,5 +1,8 @@
 const path = require('path')
 
+const config = require('../config')
+const utils = require('../src/utils/utils')
+
 module.exports = async function createPages({ graphql, actions }) {
   const { data } = await graphql(`
     {
@@ -8,7 +11,7 @@ module.exports = async function createPages({ graphql, actions }) {
           siteUrl
         }
       }
-      allMarkdownRemark {
+      allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
         edges {
           node {
             frontmatter {
@@ -17,12 +20,37 @@ module.exports = async function createPages({ graphql, actions }) {
               category
               next
               prev
+              tags
             }
+            fileAbsolutePath
           }
         }
       }
     }
   `)
+
+  /* Tag pages */
+  const regexForIndex = /index\.md$/
+  const defaultPosts = data.allMarkdownRemark.edges.filter(
+    ({ node: { fileAbsolutePath } }) => fileAbsolutePath.match(regexForIndex)
+  )
+
+  const allTags = []
+  defaultPosts.forEach(({ node }) => {
+    node.frontmatter.tags.forEach(tag => {
+      if (allTags.indexOf(tag) === -1) allTags.push(tag)
+    })
+  })
+
+  allTags.forEach(tag => {
+    actions.createPage({
+      path: utils.resolvePageUrl(config.pages.tag, tag),
+      component: path.resolve('src/templates/tag.js'),
+      context: {
+        tag: tag
+      }
+    })
+  })
 
   const titles = data.allMarkdownRemark.edges.reduce((prev, { node }) => {
     prev[node.frontmatter.slug] = node.frontmatter.title
