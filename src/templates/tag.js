@@ -3,10 +3,11 @@ import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
 import PostList from '../components/post-list/post-list'
-import Page from '../components/page'
+import Layout from '../components/layout/layout'
 import style from './tag.module.less'
 import Config from '../../config'
 import Utils from '../utils/utils'
+import SEO from '../components/seo/seo'
 
 const TagPage = ({ data, pageContext }) => {
   const tag = pageContext.tag
@@ -16,11 +17,13 @@ const TagPage = ({ data, pageContext }) => {
     .childImageSharp.fluid
 
   return (
-    <Page
-      wide={true}
-      canonical="replace me"
-      description={`All posts about ${tagName}`}
-    >
+    <Layout>
+      <SEO
+        title={tagName}
+        description={`All posts about ${tagName}`}
+        path={Utils.resolvePageUrl(tagPagePath, tag)}
+        keywords={[tagName]}
+      />
       <div className={style.heading}>
         <div>
           <h1>{tagName}</h1>
@@ -30,7 +33,7 @@ const TagPage = ({ data, pageContext }) => {
         </div>
       </div>
       <PostList posts={data.allMarkdownRemark.edges} />
-    </Page>
+    </Layout>
   )
 }
 

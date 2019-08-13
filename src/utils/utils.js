@@ -9,6 +9,7 @@ const Utils = {
   resolveUrl: (...paths) => {
     return paths.reduce((resolvedUrl, path) => {
       let urlPath = path.toString().trim()
+      console.log('hello baby 1')
       if (urlPath)
         resolvedUrl +=
           (resolvedUrl === '' ? '' : '/') + urlPath.replace(/^\/|\/$/g, '')
@@ -23,6 +24,7 @@ const Utils = {
    */
   resolvePageUrl: (...path) => {
     let resolvedUrl = Utils.resolveUrl(...path)
+    console.log('hello baby 2')
     return resolvedUrl + '/'
   },
   /**

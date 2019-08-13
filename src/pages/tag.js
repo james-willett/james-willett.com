@@ -1,7 +1,8 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Image from 'gatsby-image'
-import Page from '../components/page'
+import Layout from '../components/layout/layout'
+import SEO from '../components/seo/seo'
 import Utils from '../utils/utils'
 import Config from '../../config'
 import style from './tag.module.less'
@@ -18,12 +19,12 @@ export default ({ data }) => {
   console.log(rawTags)
   console.log(tags)
   return (
-    <Page
-      wide={true}
-      canonical="replace me"
-      description="All tags present on the site"
-    >
-      hello world
+    <Layout title="Blog Posts!">
+      <SEO
+        title="Tags"
+        description="All present tags in the site"
+        path={tagPage}
+      />
       <div>
         {tags.map(tag => (
           <Link
@@ -49,8 +50,7 @@ export default ({ data }) => {
           </Link>
         ))}
       </div>
-      hello
-    </Page>
+    </Layout>
   )
 }
 
