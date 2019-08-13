@@ -20,7 +20,7 @@ const Pagination = ({ next, prev }) => {
     <div className={containerClass}>
       {next && (
         <Link
-          to={next.slug}
+          to={`/${next.slug}`}
           rel="next"
           className={className(css.pagination__link, css.pagination__linkNext)}
         >
@@ -33,7 +33,7 @@ const Pagination = ({ next, prev }) => {
       )}
       {prev && (
         <Link
-          to={prev.slug}
+          to={`/${prev.slug}`}
           rel="prev"
           className={className(css.pagination__link, css.pagination__linkprev)}
         >

@@ -14,7 +14,7 @@ const PostList = ({ posts }) => (
       return (
         <div key={title} className={style.post}>
           <div className={style.cover}>
-            <Link to={Utils.resolvePageUrl(slug)}>
+            <Link to={`/${Utils.resolvePageUrl(slug)}`}>
               <Img
                 fluid={image.childImageSharp.fluid}
                 title={title}
@@ -23,7 +23,7 @@ const PostList = ({ posts }) => (
             </Link>
           </div>
           <div className={style.content}>
-            <Link to={Utils.resolvePageUrl(slug)}>
+            <Link to={`/${Utils.resolvePageUrl(slug)}`}>
               {date ? <label>{date}</label> : null}
               <h2>{title}</h2>
               <p>{summary}</p>

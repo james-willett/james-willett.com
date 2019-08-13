@@ -12,7 +12,7 @@ import { ReactComponent as ClockIcon } from '../icons/clock.svg'
 function PostCard(props) {
   const linkClass = className(css.postcard, props.className)
   return (
-    <Link to={props.slug} className={linkClass}>
+    <Link to={`/${props.slug}`} className={linkClass}>
       {props.image ? (
         <Img
           fixed={props.image.childImageSharp.fixed}
