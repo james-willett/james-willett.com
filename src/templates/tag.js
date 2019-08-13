@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
+import PostList from '../components/post-list/post-list'
 import Page from '../components/page'
 import style from './tag.module.less'
 import Config from '../../config'
@@ -28,7 +29,7 @@ const TagPage = ({ data, pageContext }) => {
           <Img fluid={tagImage} />
         </div>
       </div>
-      {/* <PostList posts={data.allMarkdownRemark.edges} /> */}
+      <PostList posts={data.allMarkdownRemark.edges} />
     </Page>
   )
 }
