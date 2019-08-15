@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "title": "Rest Assured Fundamentals",
+    "img": "../images/courses/RestAssuredFundamentals.jpg",
+    "summary": "Get up and running with REST Assured in no time by following this course. Hey let me add in a bit more text here to strecth things out a bit more lol",
+    "info": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur, nam omnis error corrupti eum assumenda enim odit architecto corporis. Sequi"
+  },
+  {
+    "id": "2",
+    "title": "Gatling Fundamentals for Stress, Load & Performance Testing",
+    "img": "../images/courses/GatlingFundamentalsTitle.jpg",
+    "summary": "Learn the open source Gatling tool and how to stress and load test any application!",
+    "info": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur, nam omnis error corrupti eum assumenda enim odit architecto corporis. Sequi"
+  },
+  {
+    "id": "3",
+    "title": "Test course!",
+    "img": "../images/courses/react.png",
+    "summary": "Learn the open source Gatling tool and how to stress and load test any application! Learn the open source Gatling tool and how to stress and load test any application!",
+    "info": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur, nam omnis error corrupti eum assumenda enim odit architecto corporis. Sequi"
+  }
+]
