@@ -7,11 +7,11 @@ import style from '../post-list/post-list.module.less'
 const Courses = ({ courses }) => (
   <div className={style.container}>
     {courses.map((course, index) => {
-      const { id, title, img, summary, info } = course.node
+      const { id, title, img, summary, info, slug } = course.node
       return (
         <div key={title} className={style.post}>
           <div className={style.cover}>
-            <Link to="/">
+            <Link to={`courses/${Utils.resolvePageUrl(slug)}`}>
               <Img
                 fluid={img.childImageSharp.fluid}
                 title={title}
@@ -20,7 +20,7 @@ const Courses = ({ courses }) => (
             </Link>
           </div>
           <div className={style.content}>
-            <Link to="/">
+            <Link to={`courses/${Utils.resolvePageUrl(slug)}`}>
               <h2>{title}</h2>
               <p>{summary}</p>
             </Link>

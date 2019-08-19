@@ -23,6 +23,7 @@ export const query = graphql`
           title
           summary
           info
+          slug
           img {
             childImageSharp {
               fluid(maxWidth: 600) {
