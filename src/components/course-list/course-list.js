@@ -11,7 +11,7 @@ const Courses = ({ courses }) => (
       return (
         <div key={title} className={style.post}>
           <div className={style.cover}>
-            <Link to={`courses/${Utils.resolvePageUrl(slug)}`}>
+            <Link to={`/courses/${Utils.resolvePageUrl(slug)}`}>
               <Img
                 fluid={img.childImageSharp.fluid}
                 title={title}
@@ -20,7 +20,7 @@ const Courses = ({ courses }) => (
             </Link>
           </div>
           <div className={style.content}>
-            <Link to={`courses/${Utils.resolvePageUrl(slug)}`}>
+            <Link to={`/courses/${Utils.resolvePageUrl(slug)}`}>
               <h2>{title}</h2>
               <p>{summary}</p>
             </Link>
