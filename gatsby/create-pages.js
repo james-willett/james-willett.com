@@ -6,6 +6,14 @@ const utils = require('../src/utils/utils')
 module.exports = async function createPages({ graphql, actions }) {
   const { data } = await graphql(`
     {
+      courses: allCourseDetailsJson {
+        totalCount
+        edges {
+          node {
+            slug
+          }
+        }
+      }
       site {
         siteMetadata {
           siteUrl
@@ -28,6 +36,20 @@ module.exports = async function createPages({ graphql, actions }) {
       }
     }
   `)
+
+  /* Course pages */
+  data.courses.edges.forEach(({ node }) => {
+    actions.createPage({
+      path: `courses/${node.slug}`,
+      component: path.resolve(
+        __dirname,
+        '../src/templates/course/course-template.js'
+      ),
+      context: {
+        slug: node.slug
+      }
+    })
+  })
 
   /* Tag pages */
   const regexForIndex = /index\.md$/
