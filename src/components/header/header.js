@@ -7,22 +7,6 @@ import { FaAlignRight } from 'react-icons/fa'
 import links from './constants/links'
 import socialIcons from './constants/social-icons'
 
-// interface HeaderProps {
-//   wide?: boolean
-//   data: {
-//     site: {
-//       siteMetadata: {
-//         title: string
-//       }
-//     }
-//     logo: {
-//       childImageSharp: {
-//         fixed: FixedObject
-//       }
-//     }
-//   }
-// }
-
 export function HeaderComponent() {
   const [isOpen, setNav] = useState(false)
   const toggleNav = () => {

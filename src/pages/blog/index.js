@@ -1,11 +1,11 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Image from 'gatsby-image'
-import Layout from '../components/layout/layout'
-import SEO from '../components/seo/seo'
-import Utils from '../utils/utils'
-import Config from '../../config'
-import style from './tag.module.less'
+import Layout from '../../components/layout/layout'
+import SEO from '../../components/seo/seo'
+import Utils from '../../utils/utils'
+import Config from '../../../config'
+import style from './blog.module.less'
 
 export default ({ data }) => {
   const rawTags = data.allMarkdownRemark.posts
@@ -15,14 +15,11 @@ export default ({ data }) => {
     .filter((tag, index) => index === rawTags.indexOf(tag))
     .sort() // remove duplicates and sort values
   const tagPage = Config.pages.tag
-  console.log(data)
-  console.log(rawTags)
-  console.log(tags)
   return (
-    <Layout title="Blog Posts!">
+    <Layout title="Blog Categories">
       <SEO
-        title="Tags"
-        description="All present tags in the site"
+        title="Blog Tags"
+        description="All present categories and subsequent tags in the site"
         path={tagPage}
       />
       <div>

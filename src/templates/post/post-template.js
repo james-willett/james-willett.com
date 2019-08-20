@@ -1,14 +1,15 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { FixedObject } from 'gatsby-image'
-import Helmet from 'react-helmet'
-import DisqusComments from '../components/disqus-comments'
-import Page from '../components/page'
-import Pagination from '../components/pagination'
-import RelatedPosts from '../components/related-posts'
+import SEO from '../../components/seo/seo'
+import DisqusComments from '../../components/disqus-comments'
+import Page from '../../components/page'
+import Pagination from '../../components/pagination'
+import RelatedPosts from '../../components/related-posts'
 import css from './post.module.less'
-import { ReactComponent as CalendarIcon } from '../icons/calendar.svg'
-import { ReactComponent as ClockIcon } from '../icons/clock.svg'
+import { ReactComponent as CalendarIcon } from '../../icons/calendar.svg'
+import { ReactComponent as ClockIcon } from '../../icons/clock.svg'
+import Utils from '../../utils/utils'
+import Config from '../../../config'
 
 import 'prism-themes/themes/prism-a11y-dark.css'
 
@@ -16,28 +17,29 @@ export default ({ pageContext, data }) => {
   const { post, relatedPosts } = data
   const { html, timeToRead, frontmatter: meta } = post
   const { canonical, next, prev } = pageContext
+
+  const { title, date, tags, category, image, slug, summary } = meta
+  const img = image.childImageSharp.fluid
+  const imgUrl = Utils.resolveUrl(Config.siteUrl, img.src)
   return (
-    <Page title={meta.title} canonical={canonical} description={meta.summary}>
-      <Helmet>
-        <meta property="og:type" content="article" />
-        <meta property="article:published_time" content={meta.date} />
-        {pageContext.category && (
-          <meta property="article:section" content={pageContext.category} />
-        )}
-        {meta.image && (
-          <meta
-            property="og:image"
-            content={`${data.site.siteMetadata.siteUrl}${meta.image.publicURL}`}
-          />
-        )}
-        {prev && <link rel="prev" href={prev.canonical} />}
-        {next && <link rel="next" href={next.canonical} />}
-      </Helmet>
+    <Page>
+      <SEO
+        title={title}
+        description={summary}
+        date={date}
+        path={slug}
+        next={next}
+        prev={prev}
+        contentType="article"
+        imageUrl={imgUrl}
+        keywords={tags}
+        category={category}
+      />
       <article className={css.post}>
         <h1 className={css.post__title}>{meta.title}</h1>
         <div className={css.post__meta}>
           <time
-            dateTime={meta.date}
+            dateTime={date}
             aria-label={`Written on ${meta.longDate}`}
             className={css.post__metaItem}
           >
@@ -75,12 +77,21 @@ export const query = graphql`
       timeToRead
       frontmatter {
         title
+        tags
+        category
+        summary
+        slug
         date(formatString: "YYYY-MM-DD")
         shortDate: date(formatString: "MMM D, YYYY", locale: "en")
         longDate: date(formatString: "MMMM D, YYYY", locale: "en")
         summary
         image {
           publicURL
+          childImageSharp {
+            fluid(maxWidth: 1000) {
+              ...GatsbyImageSharpFluid_tracedSVG
+            }
+          }
         }
       }
     }

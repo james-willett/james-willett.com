@@ -15,8 +15,8 @@ function Page({ children, title, description, canonical, wide }) {
         bodyAttributes={{ class: css.page }}
         htmlAttributes={{ lang: 'en' }}
       />
-      <Meta pageTitle={title} description={description} canonical={canonical} />
-      <Header wide={wide} />
+      {/* <Meta pageTitle={title} description={description} canonical={canonical} /> */}
+      <Header />
       <main role="main" className={css.page__main}>
         {children}
       </main>

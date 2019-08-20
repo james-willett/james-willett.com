@@ -115,7 +115,10 @@ module.exports = async function createPages({ graphql, actions }) {
 
     actions.createPage({
       path: slug,
-      component: path.resolve(__dirname, '../src/templates/post.js'),
+      component: path.resolve(
+        __dirname,
+        '../src/templates/post/post-template.js'
+      ),
       context: {
         slug,
         canonical,

@@ -36,7 +36,10 @@ export default ({ data }) => {
 
 export const query = graphql`
   {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      limit: 10
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
       posts: edges {
         node {
           fields {

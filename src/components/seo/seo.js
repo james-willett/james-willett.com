@@ -10,12 +10,15 @@ import Utils from '../../utils/utils'
 function SEO({
   title,
   description,
+  date,
   path,
+  next,
+  prev,
   lang,
+  category,
   keywords,
   contentType,
   imageUrl,
-  translations,
   meta
 }) {
   return (
@@ -26,13 +29,8 @@ function SEO({
           keywords && keywords.length > 0
             ? { name: 'keywords', content: keywords.join(', ') }
             : []
-        const pageUrl = Utils.resolvePageUrl(
-          Config.siteUrl,
-          Config.pathPrefix,
-          path
-        )
+        const pageUrl = Utils.resolvePageUrl(Config.siteUrl, path)
         const metaImageUrl = Utils.resolveUrl(
-          Config.siteUrl,
           imageUrl ? imageUrl : data.file.childImageSharp.fixed.src
         )
 
@@ -43,6 +41,8 @@ function SEO({
             meta={
               [
                 { name: 'description', content: description }, // Page description
+                { property: 'article:published_time', content: date },
+                { property: 'article:section', content: category },
                 /* Open Graph */
                 { property: 'og:title', content: title },
                 { property: 'og:type', content: contentType || 'website' },
@@ -66,22 +66,11 @@ function SEO({
             }
             link={[
               { rel: 'canonical', href: pageUrl } // Canonical url
-            ]
-              // Translated versions of page
-              .concat(
-                translations
-                  ? translations.map(obj => ({
-                      rel: 'alternate',
-                      hreflang: obj.hreflang,
-                      href: Utils.resolvePageUrl(
-                        Config.siteUrl,
-                        Config.pathPrefix,
-                        obj.path
-                      )
-                    }))
-                  : []
-              )}
-          />
+            ]}
+          >
+            {prev && <link rel="prev" href={prev.canonical} />}
+            {next && <link rel="next" href={next.canonical} />}
+          </Helmet>
         )
       }}
     />
@@ -96,12 +85,6 @@ SEO.propTypes = {
   contentType: PropTypes.oneOf(['article', 'website']),
   imageUrl: PropTypes.string,
   keywords: PropTypes.arrayOf(PropTypes.string),
-  translations: PropTypes.arrayOf(
-    PropTypes.shape({
-      hreflang: PropTypes.string.isRequired,
-      path: PropTypes.string.isRequired
-    })
-  ),
   meta: PropTypes.arrayOf(
     PropTypes.shape({
       property: PropTypes.string.isRequired,
