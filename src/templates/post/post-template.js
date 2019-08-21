@@ -1,11 +1,12 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
 import SEO from '../../components/seo/seo'
 import DisqusComments from '../../components/disqus-comments'
 import Page from '../../components/page'
 import Pagination from '../../components/pagination'
 import RelatedPosts from '../../components/related-posts'
-import css from './post.module.less'
+import style from './post.module.less'
 import { ReactComponent as CalendarIcon } from '../../icons/calendar.svg'
 import { ReactComponent as ClockIcon } from '../../icons/clock.svg'
 import Utils from '../../utils/utils'
@@ -35,15 +36,18 @@ export default ({ pageContext, data }) => {
         keywords={tags}
         category={category}
       />
-      <article className={css.post}>
-        <h1 className={css.post__title}>{meta.title}</h1>
-        <div className={css.post__meta}>
+      <article className={style.post}>
+        <div className={style.cover}>
+          <Img fluid={img} title={summary} alt={title} />
+        </div>
+        <h1 className={style.post__title}>{meta.title}</h1>
+        <div className={style.post__meta}>
           <time
             dateTime={date}
             aria-label={`Written on ${meta.longDate}`}
-            className={css.post__metaItem}
+            className={style.post__metaItem}
           >
-            <CalendarIcon className={css.post__metaIcon} aria-hidden="true" />
+            <CalendarIcon className={style.post__metaIcon} aria-hidden="true" />
             {meta.shortDate}
           </time>
           <time
@@ -51,14 +55,14 @@ export default ({ pageContext, data }) => {
               timeToRead !== 1 ? 's' : ''
             }`}
             dateTime={`P${timeToRead}M`}
-            className={css.post__metaItem}
+            className={style.post__metaItem}
           >
-            <ClockIcon className={css.post__metaIcon} aria-hidden="true" />
+            <ClockIcon className={style.post__metaIcon} aria-hidden="true" />
             {timeToRead} min read
           </time>
         </div>
         <div
-          className={css.post__content}
+          className={style.post__content}
           dangerouslySetInnerHTML={{ __html: html }}
         />
         <Pagination next={next} prev={prev} />

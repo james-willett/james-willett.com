@@ -3,7 +3,7 @@ title: 'Covariant Generic List in Scala'
 date: 2019-07-27
 tags: [tag1, tag2, tag3, tag4]
 slug: scala-covariant-generic-list
-image: ../../1-absolute-basics/values-variables-types/scala-title.png
+image: ./preview.png
 category: Scala
 prev: scala-generics
 ---
