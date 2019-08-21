@@ -4,8 +4,8 @@ date: 2019-07-19
 tags: [tag1, tag2, tag3, tag4]
 slug: scala-generics
 summary: |
-  How to extract a JSON response in REST Assured and then use that response later on in your tests
-image: ../../1-absolute-basics/values-variables-types/scala-title.png
+  In this post we will look at the concept of generics in Scala, and how we can use them on multiple (potentially unrelated) data types
+image: ./generics-cover.png
 category: Scala
 prev: scala-inheritance-traits
 next: scala-anonymous-classes

@@ -3,7 +3,8 @@ title: 'Anonymous Classes in Scala'
 date: 2019-07-23
 tags: [tag1, tag2, tag3, tag4]
 slug: scala-anonymous-classes
-image: ../../1-absolute-basics/values-variables-types/scala-title.png
+image: ./anonymous-classes-cover.png
+summary: Follow up your learnings of inheritance and traits in Scala with an in-depth look at Anonymous Classes
 category: Scala
 prev: scala-generics
 ---

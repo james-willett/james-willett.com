@@ -3,7 +3,8 @@ title: 'Covariant Generic List in Scala'
 date: 2019-07-27
 tags: [tag1, tag2, tag3, tag4]
 slug: scala-covariant-generic-list
-image: ./preview.png
+summary: Expand on the MyList application developed previously, turning it into a complete covariant generic list
+image: ./generic-list-cover.png
 category: Scala
 prev: scala-generics
 ---

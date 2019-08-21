@@ -1,12 +1,13 @@
 ---
-title: 'Scala Basics - Default and Named Arguments'
+title: 'Default and Named Arguments in Scala'
 date: 2019-06-14
 tags: [tag1, tag2, tag3, tag4]
-slug: scala-basics-default-named-arguments
-image: ../values-variables-types/scala-title.png
+slug: scala-default-named-arguments
+image: ./default-named-args-cover.png
+summary: A look at specifying default arguments in Scala functions, and naming arguments when calling functions.
 category: Scala
-prev: scala-basics-call-by-name-or-value
-next: scala-basics-string-operations
+prev: scala-call-by-name-or-value
+next: scala-string-operations
 ---
 
 [[info]]

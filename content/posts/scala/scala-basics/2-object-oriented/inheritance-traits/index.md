@@ -3,7 +3,8 @@ title: 'Inheritance and Traits in Scala'
 date: 2019-07-15
 tags: [tag1, tag2, tag3, tag4]
 slug: scala-inheritance-traits
-image: ../../1-absolute-basics/values-variables-types/scala-title.png
+image: ./inheritance-traits-cover.png
+summary: See how to use inheritance and traits in Scala, including how to use constructors and access modifiers
 category: Scala
 prev: scala-objects
 next: scala-generics

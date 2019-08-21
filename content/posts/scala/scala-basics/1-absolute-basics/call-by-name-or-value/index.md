@@ -1,12 +1,13 @@
 ---
-title: 'Scala Basics - Call by Name or Value'
+title: 'Call by Name or Value in Scala'
 date: 2019-06-13
 tags: [tag1, tag2, tag3, tag4]
-slug: scala-basics-call-by-name-or-value
-image: ../values-variables-types/scala-title.png
+slug: scala-call-by-name-or-value
+image: ./call-name-value-cover.png
+summary: This blog post looks at calling Scala functions either by name or by value and the difference between the two methods.
 category: Scala
-prev: scala-basics-recursion
-next: scala-basics-default-named-arguments
+prev: scala-recursion
+next: scala-default-named-arguments
 ---
 
 [[info]]

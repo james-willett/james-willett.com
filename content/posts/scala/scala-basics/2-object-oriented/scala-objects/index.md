@@ -3,7 +3,8 @@ title: 'Scala Objects'
 date: 2019-07-02
 tags: [tag1, tag2, tag3, tag4]
 slug: scala-objects
-image: ../../1-absolute-basics/values-variables-types/scala-title.png
+image: ./scala-objects.png
+summary: A deeper dive on objects in Scala, including how they can be used to replace the traditional "static" keyword from Java
 category: Scala
 prev: scala-method-notations
 next: scala-inheritance-traits
