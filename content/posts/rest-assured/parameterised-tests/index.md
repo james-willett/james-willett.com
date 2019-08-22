@@ -4,6 +4,7 @@ date: 2015-06-18
 tags: [tag1, tag2, tag3, tag4]
 slug: rest-assured-parameterised-testing-junitparams
 image: ./parameterised-tests-cover.png
+summary: An example of how to execute parameterised testing in REST Assured using JUnit Params
 category: REST Assured
 prev: rest-assured-test-data
 ---

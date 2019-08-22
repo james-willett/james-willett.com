@@ -4,6 +4,7 @@ date: 2017-05-06
 tags: [tag1, tag2, tag3, tag4]
 slug: groovy-gpath-in-rest-assured-part1-overview
 image: ./part1-overview-cover.png
+summary: Kicking off this seris on using Gpath in REST Assured with a brief look at the Groovy language"
 category: REST Assured
 next: rest-assured-gpath-json
 ---

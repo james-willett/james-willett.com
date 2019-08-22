@@ -5,6 +5,7 @@ tags: [tag1, tag2, tag3, tag4]
 slug: rest-assured-gpath-json
 image: ./part2-json-cover.png
 category: REST Assured
+summary: Numerous detailed JSON examples of using Groovy GPath in REST Assured
 prev: groovy-gpath-in-rest-assured-part1-overview
 next: rest-assured-gpath-xml
 ---

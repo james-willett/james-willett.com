@@ -4,6 +4,7 @@ date: 2015-06-17
 tags: [tag1, tag2, tag3, tag4]
 slug: rest-assured-test-data
 image: ./test-data-cover.png
+summary: A look at one way of using JSON test data in your REST Assured tests
 category: REST Assured
 next: rest-assured-parameterised-testing-junitparams
 ---

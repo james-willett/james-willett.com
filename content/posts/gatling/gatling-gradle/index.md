@@ -4,6 +4,7 @@ date: 2017-04-12
 tags: [tag1, tag2, tag3, tag4]
 slug: running-gatling-through-gradle
 image: ./gatling-gradle-cover.png
+summary: Learn how to run Gatling through the Gradle build tool in this detailed blog post
 category: Gatling
 next: gatling-introduction
 ---

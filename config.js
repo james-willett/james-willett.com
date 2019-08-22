@@ -40,6 +40,10 @@ module.exports = {
     angular: {
       description: 'Angular is an open source web application platform.'
     },
+    all: {
+      name: 'All Posts',
+      description: 'All posts on the website.'
+    },
     electron: {
       description:
         'Electron is a framework for building cross-platform desktop applications with web technology.'
@@ -64,6 +68,20 @@ module.exports = {
     },
     sass: {
       description: 'Sass is a stable extension to classic CSS.'
+    },
+    scala: {
+      name: 'Scala - All Posts',
+      description:
+        'Scala is a general-purpose programming language providing support for functional programming and a strong static type system.'
+    },
+    scala_basics_series: {
+      name: 'Scala: The Absolute Basics - Post Series',
+      description:
+        'Scala is a general-purpose programming language providing support for functional programming and a strong static type system.'
+    },
+    scala_oo_series: {
+      name: 'Scala: Object Oriented Programming - Post Series',
+      description: 'A series of posts on Object Oriented Programming in Scala'
     },
     typescript: {
       description:

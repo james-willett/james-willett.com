@@ -4,6 +4,7 @@ date: 2015-06-15
 tags: [tag1, tag2, tag3, tag4]
 slug: getting-up-and-running-with-rest-assured
 image: ./up-and-running-cover.png
+summary: In this post we introduced REST Assured for the first time and walk you through getting up and running
 category: REST Assured
 next: rest-assured-extract-json-response
 ---

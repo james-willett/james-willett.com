@@ -4,6 +4,7 @@ date: 2017-08-16
 tags: [tag1, tag2, tag3, tag4]
 slug: intellij-fiddler
 image: ./IntellijFiddlerTitle.png
+summary: Short post on how to capture HTTP traffic directly running in the Intellij IDE with Fiddler
 category: Articles
 ---
 

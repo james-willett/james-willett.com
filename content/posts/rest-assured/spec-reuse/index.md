@@ -2,7 +2,8 @@
 title: Specification Re-use in REST Assured
 date: 2015-07-23
 tags: [tag1, tag2, tag3, tag4]
-slug: specification-re-use-in-rest-assured-with-responsespecbuilder-and-requestspecbuilder
+slug: specification-reuse-rest-assured
+summary: How to use RequestSpecBuilder and ResponseSpecBuild in REST Assured
 image: ./spec-reuse-title.png
 category: REST Assured
 ---

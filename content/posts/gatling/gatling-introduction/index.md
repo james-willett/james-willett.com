@@ -4,6 +4,7 @@ date: 2017-08-07
 tags: [tag1, tag2, tag3, tag4]
 slug: gatling-introduction
 image: ./gatling-intro-cover.png
+summary: An introduction to the Gatling stress testing tool, including a look at some of the key features
 category: Gatling
 prev: running-gatling-through-gradle
 ---
