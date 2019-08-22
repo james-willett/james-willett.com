@@ -2,10 +2,10 @@
 title: 'Using Test Data in your REST Assured Framework'
 date: 2015-06-17
 tags: [tag1, tag2, tag3, tag4]
-slug: going-further-with-rest-assured-part-1-writing-and-using-test-data-in-your-framework
-image: ./restAssuredGreen.png
+slug: rest-assured-test-data
+image: ./test-data-cover.png
 category: REST Assured
-next: going-further-with-rest-assured-part-2-parameterised-testing-with-junitparams
+next: rest-assured-parameterised-testing-junitparams
 ---
 
 In the [previous blog post](http://james-willett.com/2015/06/extracting-a-json-response-with-rest-assured/) we looked at how we can extract data from an API call directly into our tests using Rest-Assured and had a look at a couple of basic tests that we could execute against that data. One small issue with the previous post is that we did not have an actual API that we could use (unless you happened to have access to one), but I wanted to demonstrate how the extracting functionality worked and how we can convert the response into a String. In this post, we will simply copy / paste the JSON directly into the IDE in a String and use that for our examples.

@@ -3,7 +3,7 @@ title: 'Groovy GPath in REST Assured – Part 2: GPath JSON'
 date: 2017-05-23
 tags: [tag1, tag2, tag3, tag4]
 slug: rest-assured-gpath-json
-image: ./restAssuredVelvet.png
+image: ./part2-json-cover.png
 category: REST Assured
 prev: groovy-gpath-in-rest-assured-part1-overview
 next: rest-assured-gpath-xml

@@ -1,11 +1,11 @@
 ---
-title: 'Parameterised Testing with JUnitParams in REST Assured'
+title: 'Parameterised Testing in REST Assured with JUnitParams'
 date: 2015-06-18
 tags: [tag1, tag2, tag3, tag4]
-slug: going-further-with-rest-assured-part-2-parameterised-testing-with-junitparams
-image: ./restAssuredGrey.png
+slug: rest-assured-parameterised-testing-junitparams
+image: ./parameterised-tests-cover.png
 category: REST Assured
-prev: going-further-with-rest-assured-part-1-writing-and-using-test-data-in-your-framework
+prev: rest-assured-test-data
 ---
 
 In [part 1 of this series on Going Further with Rest-Assured](http://james-willett.com/2015/06/going-further-with-rest-assured-part-1-writing-and-using-test-data-in-your-framework/), we looked at creating classes for our test data within our test code and then saw how we can put that data into a Java Map. We also took some example JSON and used Rest-Assured to create another Map of that data, so that we can compare the two. This post will follow on directly from the last one and will talk about how we can use the JUnitParams library to execute parameterised tests.

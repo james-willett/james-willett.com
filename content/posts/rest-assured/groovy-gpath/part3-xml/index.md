@@ -3,7 +3,7 @@ title: 'Groovy GPath in REST Assured – Part 3: GPath XML'
 date: 2017-08-17
 tags: [tag1, tag2, tag3, tag4]
 slug: rest-assured-gpath-xml
-image: ./restAssuredSky.png
+image: ./part3-xml-cover.png
 category: REST Assured
 prev: rest-assured-gpath-json
 ---

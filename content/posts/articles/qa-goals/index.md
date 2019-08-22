@@ -3,7 +3,7 @@ title: 'Goal & Objective Setting for a QA Performance Review / Appraisal'
 date: 2016-04-26
 tags: [tag1, tag2, tag3, tag4]
 slug: goal-objective-setting-for-a-qa-performance-review-appraisal
-image: ./qaGoalsTitle.png
+image: ./qa-goals-cover.png
 category: Articles
 ---
 
