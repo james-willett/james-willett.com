@@ -1,43 +1,57 @@
 import React from 'react'
-import Helmet from 'react-helmet'
-import Page from '../components/page'
+import Layout from '../components/layout/layout'
+import { graphql, Link } from 'gatsby'
+import tempImage from '../images/logo.png'
 import PostCard from '../components/postcard'
-import { graphql } from 'gatsby'
-import { FixedObject } from 'gatsby-image'
 
-import css from './index.module.less'
+import style from './homepage.module.less'
 
-export default ({ data }) => {
+export default function homepage({ data }) {
+  console.log(data)
   return (
-    <Page
-      wide={true}
-      canonical={data.site.siteMetadata.siteUrl}
-      description={data.site.siteMetadata.description}
-    >
-      <Helmet>
-        <meta property="og:type" content="website" />
-      </Helmet>
-      <nav aria-label="Posts">
-        <ul className={css.postlist}>
-          {data.allMarkdownRemark.posts.map(({ node: post }) => (
-            <li key={post.fields.slug} className={css.postlist__entry}>
-              <PostCard
-                slug={post.fields.slug}
-                timeToRead={post.timeToRead}
-                {...post.frontmatter}
-              />
-            </li>
-          ))}
-        </ul>
-      </nav>
-    </Page>
+    <Layout>
+      <div className={style.container}>
+        <div className={style.banner}>Hi, I'm James Willett</div>
+        <div className={style.introText}>
+          <div className={style.introImage}>
+            <img src={tempImage} />
+          </div>
+          <p>
+            Welcome to my personal website, where I blog about my experiences in
+            Software Development. The majority of posts on this blog are about
+            <b> Scala, Gatling</b> and <b>REST Assured.</b>
+          </p>
+          <p>
+            If you use any of the above tools, I am sure you will find content
+            on my site that is helpful to you. Be sure to check out the{' '}
+            <Link to="/courses">courses</Link> page for details of my latest
+            courses on Udemy.
+          </p>
+        </div>
+        <hr />
+        <div className={style.banner}>Latest Blog Posts</div>
+        <nav aria-label="Posts">
+          <ul className={style.postlist}>
+            {data.allMarkdownRemark.posts.map(({ node: post }) => (
+              <li key={post.fields.slug} className={style.postlist__entry}>
+                <PostCard
+                  slug={post.fields.slug}
+                  timeToRead={post.timeToRead}
+                  {...post.frontmatter}
+                />
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </Layout>
   )
 }
 
 export const query = graphql`
   {
     allMarkdownRemark(
-      limit: 10
+      limit: 6
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       posts: edges {
