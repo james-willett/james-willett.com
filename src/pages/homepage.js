@@ -1,8 +1,8 @@
 import React from 'react'
-import Helmet from 'react-helmet'
 import Layout from '../components/layout/layout'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import tempImage from '../images/logo.png'
+import PostCard from '../components/postcard'
 
 import style from './homepage.module.less'
 
@@ -13,21 +13,36 @@ export default function homepage({ data }) {
       <div className={style.container}>
         <div className={style.banner}>Hi, I'm James Willett</div>
         <div className={style.introText}>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
-            ut dolorem iste at, sequi ipsa delectus deleniti perspiciatis illo
-            repellendus.
-          </p>
           <div className={style.introImage}>
             <img src={tempImage} />
           </div>
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Necessitatibus, vel earum ipsam quia ex eveniet perferendis
-            assumenda impedit non ullam aut quisquam delectus placeat, beatae
-            nulla reiciendis nihil, expedita sit.
+            Welcome to my personal website, where I blog about my experiences in
+            Software Development. The majority of posts on this blog are about
+            <b> Scala, Gatling</b> and <b>REST Assured.</b>
+          </p>
+          <p>
+            If you use any of the above tools, I am sure you will find content
+            on my site that is helpful to you. Be sure to check out the{' '}
+            <Link to="/courses">courses</Link> page for details of my latest
+            courses on Udemy.
           </p>
         </div>
+        <hr />
+        <div className={style.banner}>Latest Blog Posts</div>
+        <nav aria-label="Posts">
+          <ul className={style.postlist}>
+            {data.allMarkdownRemark.posts.map(({ node: post }) => (
+              <li key={post.fields.slug} className={style.postlist__entry}>
+                <PostCard
+                  slug={post.fields.slug}
+                  timeToRead={post.timeToRead}
+                  {...post.frontmatter}
+                />
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
     </Layout>
   )
@@ -35,6 +50,30 @@ export default function homepage({ data }) {
 
 export const query = graphql`
   {
+    allMarkdownRemark(
+      limit: 6
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      posts: edges {
+        node {
+          fields {
+            slug
+          }
+          timeToRead
+          frontmatter {
+            title
+            date(formatString: "MMM D, YYYY")
+            image {
+              childImageSharp {
+                fixed(width: 350) {
+                  ...GatsbyImageSharpFixed_withWebp
+                }
+              }
+            }
+          }
+        }
+      }
+    }
     site {
       siteMetadata {
         description
