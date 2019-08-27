@@ -44,9 +44,19 @@ module.exports = {
       name: 'All Posts',
       description: 'All posts on the website.'
     },
+    articles: {
+      name: 'Articles',
+      description:
+        'General articles written by me on Software testing & development'
+    },
     electron: {
       description:
         'Electron is a framework for building cross-platform desktop applications with web technology.'
+    },
+    gatling: {
+      name: 'Gatling',
+      description:
+        'Gatling is an open-source load testing tool for web applications, designed for DevOps and Continuous Integration'
     },
     javascript: {
       description:
@@ -90,6 +100,11 @@ module.exports = {
     react: {
       description:
         'React is an open source JavaScript library used for designing user interfaces.'
+    },
+    restassured: {
+      name: 'REST Assured',
+      description:
+        'Testing and validation of REST services in Java is harder than in dynamic languages such as Ruby and Groovy. REST Assured brings the simplicity of using these languages into the Java domain.'
     },
     vuejs: {
       name: 'Vue.js',

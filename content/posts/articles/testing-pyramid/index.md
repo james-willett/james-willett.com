@@ -1,9 +1,9 @@
 ---
 title: 'The Evolution of the Testing Pyramid'
 date: 2016-09-27
-tags: [tag1, tag2, tag3, tag4]
+tags: [tag1, all, articles]
 slug: the-evolution-of-the-testing-pyramid
-summary: A comprehensive look at the traditional system testing pyramid and how it has evolved over the years
+summary: A comprehensive look at the traditional system testing pyramid, from how it originated to how it has evolved over the years
 image: ./TestPyramidTitleImage-768x384.png
 category: Articles
 ---

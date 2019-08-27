@@ -1,7 +1,7 @@
 ---
 title: 'Debug Gatling Performance Test Scripts – 5 Essential Methods'
 date: 2018-05-10
-tags: [tag1, tag2, tag3, tag4]
+tags: [tag1, all, gatling]
 slug: debug-gatling
 summary: A look at multiple different ways of debugging your Gatling load test scripts
 image: ./debug-gatling-cover.png
@@ -10,7 +10,7 @@ category: Gatling
 
 You might be recently starting out writing Gatling scripts. Or you might be a seasoned expert. Either way, it’s important to be able to debug Gatling scripts in an efficient manner. This post will help you to do that.
 
-It’s not immediately obvious how to enable debugging in Gatling. It’e even more difficult if you are only starting out using the tool. But fear not! This post will guide you through.
+It’s not immediately obvious how to enable debugging in Gatling. It’s even more difficult if you are only starting out using the tool. But fear not! This post will guide you through.
 
 Before we start, I suggest you read through my Gatling through Gradle post. Following these instructions will get you setup with Gatling in the Intellij IDE. From here, you can start to debug Gatling scripts.
 

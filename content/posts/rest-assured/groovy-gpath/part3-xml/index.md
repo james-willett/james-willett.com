@@ -1,7 +1,7 @@
 ---
 title: 'Groovy GPath in REST Assured – Part 3: GPath XML'
 date: 2017-08-17
-tags: [tag1, tag2, tag3, tag4]
+tags: [tag1, all, restassured]
 slug: rest-assured-gpath-xml
 image: ./part3-xml-cover.png
 summary: In this final post in our series on Groovy GPath in REST Assured, we look at examples with XML

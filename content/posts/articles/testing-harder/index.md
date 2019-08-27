@@ -1,7 +1,7 @@
 ---
 title: '8 Reasons why Software Testing is Harder than Development'
 date: 2016-10-27
-tags: [tag1, tag2, tag3, tag4]
+tags: [tag1, all, articles]
 slug: 8-reasons-why-software-testing-is-harder-than-development
 summary: A potentially controversial article on why software testing could be considered to be harder than software development
 image: ./TestingHarder.png

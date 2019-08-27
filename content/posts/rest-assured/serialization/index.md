@@ -1,7 +1,7 @@
 ---
 title: REST Assured ObjectMapper Serialization with JSON and XML
 date: 2015-12-15
-tags: [tag1, tag2, tag3, tag4]
+tags: [tag1, all, restassured]
 slug: rest-assured-serialization-with-json-and-xml
 summary: How to serialize a POJO (Plain old Java Object) and send that in your API call in REST Assured
 image: ./serialization-cover.png
