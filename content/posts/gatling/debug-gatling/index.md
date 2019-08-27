@@ -1,7 +1,7 @@
 ---
 title: 'Debug Gatling Performance Test Scripts – 5 Essential Methods'
 date: 2018-05-10
-tags: [tag1, all, gatling]
+tags: [all, gatling]
 slug: debug-gatling
 summary: A look at multiple different ways of debugging your Gatling load test scripts
 image: ./debug-gatling-cover.png

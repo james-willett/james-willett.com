@@ -1,7 +1,7 @@
 ---
 title: 'Generics in Scala'
 date: 2019-07-19
-tags: [tag1, all, scala, scala_oo_series]
+tags: [all, scala, scala_oo_series]
 slug: scala-generics
 summary: |
   In this post we will look at the concept of generics in Scala, and how we can use them on multiple (potentially unrelated) data types

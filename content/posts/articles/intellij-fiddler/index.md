@@ -1,7 +1,7 @@
 ---
 title: 'Running Intellij traffic through Fiddler'
 date: 2017-08-16
-tags: [tag1, all, articles]
+tags: [all, articles]
 slug: intellij-fiddler
 image: ./IntellijFiddlerTitle.png
 summary: Short post on how to capture HTTP traffic directly running in the Intellij IDE with Fiddler - a handy technique for debugging problems

@@ -1,7 +1,7 @@
 ---
 title: 'Using Test Data in your REST Assured Framework'
 date: 2015-06-17
-tags: [tag1, all, restassured]
+tags: [all, restassured]
 slug: rest-assured-test-data
 image: ./test-data-cover.png
 summary: A look at one way of using JSON test data in your REST Assured tests
