@@ -1,10 +1,10 @@
 ---
 title: 'String Operations in Scala'
 date: 2019-06-18
-tags: [tag1, tag2, tag3, tag4]
+tags: [tag1, all, scala, scala_basics_series]
 slug: scala-string-operations
 image: ./string-operations-cover.png
-summary: In this final post of the series, we focus on some of the main operations used to manipulate strings in Scala
+summary: In this final post of the series, we focus on some of the main operations used to manipulate strings in Scala. Some operations are borrowed from Java, whilst others are exclusive to Scala
 category: Scala
 prev: scala-default-named-arguments
 ---

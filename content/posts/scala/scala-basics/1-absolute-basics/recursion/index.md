@@ -1,10 +1,10 @@
 ---
 title: 'Recursion in Scala'
 date: 2019-06-10
-tags: [tag1, tag2, tag3, tag4]
+tags: [tag1, all, scala, scala_basics_series]
 slug: scala-recursion
 image: ./recursion-cover.png
-summary: In this blog post we will explore stack and tail recursion in Scala, including examples of both methods
+summary: In this blog post we will explore stack and tail recursion in Scala, including examples of both methods. If you haven't seen recursion before this post should be of help to you!
 category: Scala
 prev: scala-functions
 next: scala-call-by-name-or-value

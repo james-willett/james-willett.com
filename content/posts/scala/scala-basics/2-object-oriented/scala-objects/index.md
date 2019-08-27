@@ -1,7 +1,7 @@
 ---
 title: 'Scala Objects'
 date: 2019-07-02
-tags: [tag1, tag2, tag3, tag4]
+tags: [tag1, all, scala, scala_oo_series]
 slug: scala-objects
 image: ./scala-objects.png
 summary: A deeper dive on objects in Scala, including how they can be used to replace the traditional "static" keyword from Java

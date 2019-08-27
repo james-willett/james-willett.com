@@ -1,7 +1,7 @@
 ---
 title: 'Functions in Scala'
 date: 2019-06-07
-tags: [tag1, tag2, tag3, tag4]
+tags: [tag1, all, scala, scala_basics_series]
 slug: scala-functions
 image: ./functions-cover.png
 summary: No doubt you will have heard of functions from other programming languages, but in this post we introduce them in Scala

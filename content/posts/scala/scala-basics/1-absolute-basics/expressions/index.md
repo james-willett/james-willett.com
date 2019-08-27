@@ -1,7 +1,7 @@
 ---
 title: 'Expressions in Scala'
 date: 2019-05-13
-tags: [tag1, tag2, tag3, tag4]
+tags: [tag1, all, scala, scala_basics_series]
 slug: scala-expressions
 image: ./expressions-cover.png
 summary: Discussion on expressions, one of the fundamental building blocks in Scala. Includes a look at relational operators and loops

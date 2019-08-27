@@ -1,7 +1,7 @@
 ---
 title: 'Call by Name or Value in Scala'
 date: 2019-06-13
-tags: [tag1, tag2, tag3, tag4]
+tags: [tag1, all, scala, scala_basics_series]
 slug: scala-call-by-name-or-value
 image: ./call-name-value-cover.png
 summary: This blog post looks at calling Scala functions either by name or by value and the difference between the two methods.

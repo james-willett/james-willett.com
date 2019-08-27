@@ -1,10 +1,10 @@
 ---
 title: 'Inheritance and Traits in Scala'
 date: 2019-07-15
-tags: [tag1, tag2, tag3, tag4]
+tags: [tag1, all, scala, scala_oo_series]
 slug: scala-inheritance-traits
 image: ./inheritance-traits-cover.png
-summary: See how to use inheritance and traits in Scala, including how to use constructors and access modifiers
+summary: See how to use inheritance and traits in Scala, including how to use constructors and access modifiers. The concept of inheritance is similar in Scala to other languages
 category: Scala
 prev: scala-objects
 next: scala-generics
