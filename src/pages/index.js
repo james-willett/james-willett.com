@@ -4,7 +4,7 @@ import { graphql, Link } from 'gatsby'
 import tempImage from '../images/logo.png'
 import PostCard from '../components/postcard'
 
-import style from './homepage.module.less'
+import style from './index.module.less'
 
 export default function homepage({ data }) {
   console.log(data)
