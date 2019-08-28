@@ -2,12 +2,12 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
-import PostList from '../components/post-list/post-list'
-import Layout from '../components/layout/layout'
+import PostList from '../../components/post-list/post-list'
+import Layout from '../../components/layout/layout'
 import style from './tag.module.less'
-import Config from '../../config'
-import Utils from '../utils/utils'
-import SEO from '../components/seo/seo'
+import Config from '../../../config'
+import Utils from '../../utils/utils'
+import SEO from '../../components/seo/seo'
 
 const TagPage = ({ data, pageContext }) => {
   const tag = pageContext.tag

@@ -14,18 +14,18 @@ export default ({ data }) => {
   const tags = rawTags
     .filter((tag, index) => index === rawTags.indexOf(tag))
     .sort() // remove duplicates and sort values
-  const tagPage = Config.pages.tag
+  const blogPage = Config.pages.blog
   return (
     <Layout title="Blog Categories">
       <SEO
-        title="Blog Tags"
+        title="Blog"
         description="All present categories and subsequent tags in the site"
-        path={tagPage}
+        path={blogPage}
       />
       <div>
         {tags.map(tag => (
           <Link
-            to={`/${Utils.resolvePageUrl(tagPage, tag)}`}
+            to={`/${Utils.resolvePageUrl(blogPage, tag)}`}
             className={style.card}
             key={tag}
           >

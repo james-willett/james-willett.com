@@ -10,7 +10,7 @@ const FooterComponent = props => {
         href={props.privacyUrl}
         className={css.footer__link}
         target="_blank"
-        rel="noopener nofollow"
+        rel="noopener nofollow noreferrer"
       >
         Privacy Policy
       </a>

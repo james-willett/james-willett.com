@@ -1,7 +1,5 @@
 import React from 'react'
-
-import PostCard from './postcard'
-
+import PostCard from '../postcard/postcard'
 import css from './related-posts.module.less'
 
 function RelatedPosts({ categoryLabel, posts }) {

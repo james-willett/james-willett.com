@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Img, { FixedObject } from 'gatsby-image'
+import Img from 'gatsby-image'
 import className from 'classnames'
 
 import css from './postcard.module.less'
 
-import { ReactComponent as BannerPlaceholder } from '../images/banner-placeholder.svg'
-import { ReactComponent as CalendarIcon } from '../icons/calendar.svg'
-import { ReactComponent as ClockIcon } from '../icons/clock.svg'
+import { ReactComponent as BannerPlaceholder } from '../../images/banner-placeholder.svg'
+import { ReactComponent as CalendarIcon } from '../../images/icons/calendar.svg'
+import { ReactComponent as ClockIcon } from '../../images/icons/clock.svg'
 
 function PostCard(props) {
   const linkClass = className(css.postcard, props.className)

@@ -7,7 +7,7 @@ import style from '../post-list/post-list.module.less'
 const Courses = ({ courses }) => (
   <div className={style.container}>
     {courses.map((course, index) => {
-      const { id, title, img, summary, info, slug } = course.node
+      const { title, img, summary, slug } = course.node
       return (
         <div key={title} className={style.post}>
           <div className={style.cover}>

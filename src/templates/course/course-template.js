@@ -6,7 +6,7 @@ import Heading from './heading/heading'
 import Content from './content/content'
 
 const CourseTemplate = ({ data }) => {
-  const { id, title, summary, link, info } = data.course.edges[0].node
+  const { title, summary, link, info } = data.course.edges[0].node
   const img = data.course.edges[0].node.img.childImageSharp.fluid
   return (
     <Layout>

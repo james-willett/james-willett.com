@@ -3,13 +3,12 @@ import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import SEO from '../../components/seo/seo'
 import DisqusComments from '../../components/disqus-comments/disqus-comments'
-import Page from '../../components/blog-layout/page'
 import Layout from '../../components/layout/layout'
-import Pagination from '../../components/pagination'
-import RelatedPosts from '../../components/related-posts'
+import Pagination from '../../components/pagination/pagination'
+import RelatedPosts from '../../components/related-posts/related-posts'
 import style from './post.module.less'
-import { ReactComponent as CalendarIcon } from '../../icons/calendar.svg'
-import { ReactComponent as ClockIcon } from '../../icons/clock.svg'
+import { ReactComponent as CalendarIcon } from '../../images/icons/calendar.svg'
+import { ReactComponent as ClockIcon } from '../../images/icons/clock.svg'
 import Utils from '../../utils/utils'
 import Config from '../../../config'
 
@@ -18,7 +17,7 @@ import 'prism-themes/themes/prism-a11y-dark.css'
 export default ({ pageContext, data }) => {
   const { post, relatedPosts } = data
   const { html, timeToRead, frontmatter: meta } = post
-  const { canonical, next, prev } = pageContext
+  const { next, prev } = pageContext
 
   const { title, date, tags, category, image, slug, summary } = meta
   const img = image.childImageSharp.fluid

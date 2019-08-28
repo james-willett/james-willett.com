@@ -1,8 +1,8 @@
 import React from 'react'
 import className from 'classnames'
 import { Link } from 'gatsby'
-import { ReactComponent as NextIcon } from '../icons/next.svg'
-import { ReactComponent as PrevIcon } from '../icons/prev.svg'
+import { ReactComponent as NextIcon } from '../../images/icons/next.svg'
+import { ReactComponent as PrevIcon } from '../../images/icons/prev.svg'
 
 import css from './pagination.module.less'
 

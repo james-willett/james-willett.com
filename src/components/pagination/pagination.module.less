@@ -1,4 +1,4 @@
-@import (reference) "../styles/variables.less";
+@import (reference) '../../styles/variables.less';
 
 .pagination {
   display: flex;
@@ -22,7 +22,6 @@
 
   @media @medium {
     flex: 1 1 100%;
-
   }
 }
 
@@ -36,7 +35,7 @@
 
   @media @medium {
     justify-content: flex-end;
-    border-bottom: 1px solid #EEE;
+    border-bottom: 1px solid #eee;
     padding: 0.5em 0;
     margin-bottom: 0.5em;
   }
@@ -47,7 +46,8 @@
   color: #707070;
   transition: color 0.2s ease;
 
-  .pagination__link:hover &, .pagination__link:focus & {
+  .pagination__link:hover &,
+  .pagination__link:focus & {
     color: @brand-color;
   }
 }
@@ -55,10 +55,11 @@
 .pagination__icon {
   width: 3em;
   height: 3em;
-  fill: #CCC;
+  fill: #ccc;
   transition: fill 0.2s ease;
 
-  .pagination__link:hover &, .pagination__link:focus & {
+  .pagination__link:hover &,
+  .pagination__link:focus & {
     fill: @brand-color;
   }
 }

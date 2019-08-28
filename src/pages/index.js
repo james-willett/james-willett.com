@@ -2,7 +2,7 @@ import React from 'react'
 import Layout from '../components/layout/layout'
 import { graphql, Link } from 'gatsby'
 import tempImage from '../images/logo.png'
-import PostCard from '../components/postcard'
+import PostCard from '../components/postcard/postcard'
 import SEO from '../components/seo/seo'
 
 import style from './index.module.less'
@@ -12,7 +12,7 @@ export default function homepage({ data }) {
   return (
     <Layout>
       <SEO
-        title="James Willett"
+        title="Homepage"
         description="Blog of James Willett"
         path="/"
         keywords={['scala', 'gatling', 'blog']}
@@ -21,7 +21,7 @@ export default function homepage({ data }) {
         <div className={style.banner}>Hi, I'm James Willett</div>
         <div className={style.introText}>
           <div className={style.introImage}>
-            <img src={tempImage} />
+            <img src={tempImage} alt="James Willett Headshot" />
           </div>
           <p>
             Welcome to my personal website, where I blog about my experiences in

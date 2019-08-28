@@ -66,8 +66,8 @@ module.exports = async function createPages({ graphql, actions }) {
 
   allTags.forEach(tag => {
     actions.createPage({
-      path: utils.resolvePageUrl(config.pages.tag, tag),
-      component: path.resolve('src/templates/tag.js'),
+      path: utils.resolvePageUrl(config.pages.blog, tag),
+      component: path.resolve('src/templates/tag/tag.js'),
       context: {
         tag: tag
       }
