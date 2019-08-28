@@ -53,11 +53,12 @@
     "react-icons": "^3.7.0",
     "react-svg-loader": "^3.0.3",
     "react-typography": "^0.16.19",
+    "terser": "^4.2.1",
     "typography": "^0.16.19",
     "typography-theme-stow-lake": "^0.16.19"
   },
   "resolutions": {
-    "terser": "3.14.1"
+    "terser": "4.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
