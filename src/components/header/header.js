@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-import className from 'classnames'
-import Img, { FixedObject } from 'gatsby-image'
 import { Link, StaticQuery, graphql } from 'gatsby'
 import css from './header.module.less'
 import { FaAlignRight } from 'react-icons/fa'

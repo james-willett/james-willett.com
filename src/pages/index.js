@@ -3,6 +3,7 @@ import Layout from '../components/layout/layout'
 import { graphql, Link } from 'gatsby'
 import tempImage from '../images/logo.png'
 import PostCard from '../components/postcard'
+import SEO from '../components/seo/seo'
 
 import style from './index.module.less'
 
@@ -10,6 +11,12 @@ export default function homepage({ data }) {
   console.log(data)
   return (
     <Layout>
+      <SEO
+        title="James Willett"
+        description="Blog of James Willett"
+        path="/"
+        keywords={['scala', 'gatling', 'blog']}
+      />
       <div className={style.container}>
         <div className={style.banner}>Hi, I'm James Willett</div>
         <div className={style.introText}>

@@ -2,8 +2,9 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import SEO from '../../components/seo/seo'
-import DisqusComments from '../../components/disqus-comments'
-import Page from '../../components/page'
+import DisqusComments from '../../components/disqus-comments/disqus-comments'
+import Page from '../../components/blog-layout/page'
+import Layout from '../../components/layout/layout'
 import Pagination from '../../components/pagination'
 import RelatedPosts from '../../components/related-posts'
 import style from './post.module.less'
@@ -23,7 +24,7 @@ export default ({ pageContext, data }) => {
   const img = image.childImageSharp.fluid
   const imgUrl = Utils.resolveUrl(Config.siteUrl, img.src)
   return (
-    <Page>
+    <Layout>
       <SEO
         title={title}
         description={summary}
@@ -69,7 +70,7 @@ export default ({ pageContext, data }) => {
       </article>
       <RelatedPosts categoryLabel={pageContext.category} posts={relatedPosts} />
       <DisqusComments url={pageContext.canonical} />
-    </Page>
+    </Layout>
   )
 }
 

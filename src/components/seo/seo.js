@@ -70,6 +70,12 @@ function SEO({
           >
             {prev && <link rel="prev" href={prev.canonical} />}
             {next && <link rel="next" href={next.canonical} />}
+            <script
+              src="https://my.hellobar.com/963fde236d330ec398c695d7abba79ef39b05cba.js"
+              type="text/javascript"
+              charset="utf-8"
+              async="async"
+            />
           </Helmet>
         )
       }}
