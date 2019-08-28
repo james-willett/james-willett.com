@@ -6,7 +6,7 @@ slug: scala-covariant-generic-list
 summary: Expand on the MyList application developed previously, turning it into a complete covariant generic list. This in-depth post covers a lot of ground previously seen in our journey up till now
 image: ./generic-list-cover.png
 category: Scala
-prev: scala-generics
+prev: scala-anonymous-classes
 ---
 
 [[info]]

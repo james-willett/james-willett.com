@@ -7,6 +7,7 @@ image: ./anonymous-classes-cover.png
 summary: Follow up your learnings of inheritance and traits in Scala with an in-depth look at Anonymous Classes. Includes how the compiler instantiates anonymous classes
 category: Scala
 prev: scala-generics
+next: scala-covariant-generic-list
 ---
 
 [[info]]
