@@ -5466,7 +5466,7 @@ gatsby-plugin-feed@^2.2.2:
     lodash.merge "^4.6.2"
     rss "^1.2.2"
 
-gatsby-plugin-google-analytics@^2.0.20:
+gatsby-plugin-google-analytics@^2.1.12:
   version "2.1.12"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-google-analytics/-/gatsby-plugin-google-analytics-2.1.12.tgz#a31950e95106d0c6947a96a6e072e524e9f9cdc3"
   integrity sha512-MenBMjzW4Ck8ane2Rk5131+DlVk1MpOz20x3woJb+LIFu7oAevSrDKK9P2+5U58p+suSMRbeRPkUXR27rIflYg==
@@ -5580,7 +5580,7 @@ gatsby-plugin-typescript@^2.0.15:
     "@babel/runtime" "^7.5.5"
     babel-plugin-remove-graphql-queries "^2.7.5"
 
-gatsby-plugin-typography@^2.2.5:
+gatsby-plugin-typography@^2.3.5:
   version "2.3.5"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-typography/-/gatsby-plugin-typography-2.3.5.tgz#8fde4e48ae3f9648666de0035c325c50ad4b0673"
   integrity sha512-Pmt1BKDesqo44mmvA5M/NXwg2mH4V23mfb72Hwhlg6VHzOHA78F5jyahavejnEuSnl84WyLyKhJ6lxfcEdYh+w==
@@ -5767,7 +5767,7 @@ gatsby-transformer-sharp@^2.1.21:
     semver "^5.7.1"
     sharp "^0.23.0"
 
-gatsby@^2.8.5:
+gatsby@^2.14.2:
   version "2.14.2"
   resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.14.2.tgz#d9ec4c1b3935a67f38a950724f75c9d620a91817"
   integrity sha512-SI1pqc87Qpy9Y2awAp4dxBQcY9X0WX4ksMleNtsnp5zlO0IXINDdo6Oz4BV9LcHxaZuqs5XNclApeJJLSW3tJw==
@@ -10527,7 +10527,7 @@ react-svg-loader@^3.0.3:
     loader-utils "^1.2.3"
     react-svg-core "^3.0.3"
 
-react-typography@^0.16.13:
+react-typography@^0.16.19:
   version "0.16.19"
   resolved "https://registry.yarnpkg.com/react-typography/-/react-typography-0.16.19.tgz#5736b47961dcf6b9605b6fa38d41980db2588e28"
   integrity sha512-kV2qLEsdm0x9P4YXQEDVc88tDb4Vg0h/vdVZGgbqaRn8ERvNzV76JHUeOby3vvcUYU5MPd5Kz5DPH9Bhp4I/iw==
