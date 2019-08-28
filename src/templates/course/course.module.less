@@ -1,0 +1,19 @@
+@import (reference) '../../styles/index.less';
+
+.container {
+  margin: auto;
+  @media @desktop {
+    width: 80%;
+  }
+}
+
+.content {
+  background-color: @post-theme;
+  box-shadow: @post-article-box-shadow;
+  color: @post-text;
+  box-sizing: border-box;
+  padding: @padding-medium;
+  @media @desktop {
+    padding: @padding-medium * 2 @padding-medium * 4;
+  }
+}

@@ -1,8 +1,10 @@
 ---
-title: "Goal & Objective Setting for a QA Performance Review / Appraisal"
+title: 'Goal & Objective Setting for a QA Performance Review / Appraisal'
 date: 2016-04-26
+tags: [all, articles]
 slug: goal-objective-setting-for-a-qa-performance-review-appraisal
-image: ./qaGoalsTitle.png
+summary: Some ideas and considerations for goal and objective setting tailored for a Quality Assurance Engineer
+image: ./qa-goals-cover.png
 category: Articles
 ---
 

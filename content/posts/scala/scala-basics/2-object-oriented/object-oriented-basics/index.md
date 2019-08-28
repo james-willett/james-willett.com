@@ -1,8 +1,10 @@
 ---
-title: "Object Oriented Basics in Scala"
+title: 'Object Oriented Basics in Scala'
 date: 2019-06-21
+tags: [all, scala, scala_oo_series]
 slug: scala-object-oriented-basics
-image: ../../1-absolute-basics/values-variables-types/scala-title.png
+image: ./oo-basics-cover.png
+summary: We set the scene and start our look at objected oriented programming in Scala by exploring some of the basics in this post.
 category: Scala
 next: scala-method-notations
 ---

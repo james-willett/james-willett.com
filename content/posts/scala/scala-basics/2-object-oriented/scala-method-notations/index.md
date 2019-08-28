@@ -1,8 +1,10 @@
 ---
-title: "Method Notations in Scala"
+title: 'Method Notations in Scala'
 date: 2019-06-28
+tags: [all, scala, scala_oo_series]
 slug: scala-method-notations
-image: ../../1-absolute-basics/values-variables-types/scala-title.png
+image: ./method-notations-cover.png
+summary: In Scala there are numerous method notations and shorthand ways of writing method calls, we will look at a few of them in this post
 category: Scala
 prev: scala-object-oriented-basics
 next: scala-objects

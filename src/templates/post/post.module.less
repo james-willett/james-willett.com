@@ -1,0 +1,49 @@
+@import (reference) '../../styles/variables.less';
+@import (reference) '../../styles/content.less';
+@import (reference) '../../styles/blocks.less';
+
+.post {
+  .content-block();
+}
+
+.cover {
+  width: 80%;
+  box-shadow: none;
+  margin: auto;
+  margin-top: 1rem;
+}
+
+.post__title {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.post__meta {
+  color: #737373;
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+}
+
+.post__metaIcon {
+  fill: #737373;
+  width: 1em;
+  height: 1em;
+  margin: 0 0.2em;
+  vertical-align: middle;
+  position: relative;
+  top: -0.15em;
+}
+
+.post__metaItem + .post__metaItem {
+  margin-left: 0.5em;
+}
+
+.post__content {
+  .content();
+  .blocks();
+
+  margin-top: 1em;
+}

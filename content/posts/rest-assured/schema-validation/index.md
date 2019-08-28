@@ -1,8 +1,10 @@
 ---
 title: REST Assured Schema Validation for JSON and XML
 date: 2017-12-21
+tags: [all, restassured]
 slug: rest-assured-schema-validation-json-xml
-image: ./restAssuredStripeBlue.png
+image: ./schema-validation-cover.png
+summary: How to use schema validation for both JSON and XML in REST Assured
 category: REST Assured
 ---
 

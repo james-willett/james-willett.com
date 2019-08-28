@@ -1,0 +1,60 @@
+@import (reference) '../../../styles/index.less';
+
+.container {
+  .heading(h1, @font-size * 3, @post-title);
+  .heading(h2, @font-size * 2.4, @post-title);
+  .heading(h3, @font-size * 1.8, @post-title);
+  article {
+    overflow-x: auto;
+    line-height: 1.6;
+  }
+  h1,
+  h2,
+  h3,
+  strong,
+  th {
+    font-family: 'CustomBoldFont', sans-serif;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-align: left;
+  }
+  h1,
+  h2 {
+    border-bottom: 1px solid @color-transparent;
+  }
+}
+
+.enrollButton {
+  text-align: center;
+  button {
+    color: #fff;
+    background-color: #21ba45;
+    text-shadow: none;
+    background-image: none;
+    display: block;
+    width: 100%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    min-height: 1rem;
+    outline: 0;
+    border: none;
+    margin: 0 0.25em 0 0;
+    padding: 0.8em 1.5em;
+    margin-bottom: 30px;
+    text-transform: none;
+    font-weight: 700;
+    line-height: 1em;
+    font-style: normal;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 0.29rem;
+  }
+  button:hover {
+    background-color: #16ab39;
+  }
+}

@@ -1,8 +1,11 @@
 ---
 title: 'Generics in Scala'
 date: 2019-07-19
+tags: [all, scala, scala_oo_series]
 slug: scala-generics
-image: ../../1-absolute-basics/values-variables-types/scala-title.png
+summary: |
+  In this post we will look at the concept of generics in Scala, and how we can use them on multiple (potentially unrelated) data types
+image: ./generics-cover.png
 category: Scala
 prev: scala-inheritance-traits
 next: scala-anonymous-classes

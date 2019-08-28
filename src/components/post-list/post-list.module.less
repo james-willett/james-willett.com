@@ -1,0 +1,62 @@
+@import (reference) '../../styles/index.less';
+
+.container {
+  .flex-center();
+  justify-content: center;
+  flex-direction: column;
+  @media @mobile {
+    flex-direction: column;
+  }
+}
+
+.post {
+  .flex-center();
+  .frame-small();
+  flex-wrap: initial;
+  flex-direction: row;
+  width: 100%;
+  box-sizing: border-box;
+  &:hover {
+    > div:first-child > a > div {
+      transform: scale(1.1) !important;
+    }
+  }
+  @media @mobile {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+.cover {
+  overflow: hidden;
+  margin: @margin-small;
+  width: 40%;
+  min-width: 40%;
+  box-shadow: @box-shadow-cover;
+  & > a > div {
+    transition: @transition-time transform;
+  }
+  @media @mobile {
+    min-width: 100%;
+    width: 100%;
+  }
+}
+
+.content {
+  .frame-small();
+  text-align: center;
+  h1 {
+    font-size: @font-size * 2.3;
+  }
+  h2,
+  p {
+    margin: @margin-small @margin-zero @margin-zero @margin-zero;
+  }
+  h2 {
+    text-shadow: @text-shadow-title;
+    font-size: @font-size * 3.3;
+  }
+  p {
+    .frame-small();
+  }
+}

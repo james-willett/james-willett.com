@@ -1,8 +1,10 @@
 ---
 title: 'Covariant Generic List in Scala'
 date: 2019-07-27
+tags: [all, scala, scala_oo_series]
 slug: scala-covariant-generic-list
-image: ../../1-absolute-basics/values-variables-types/scala-title.png
+summary: Expand on the MyList application developed previously, turning it into a complete covariant generic list. This in-depth post covers a lot of ground previously seen in our journey up till now
+image: ./generic-list-cover.png
 category: Scala
 prev: scala-anonymous-classes
 ---

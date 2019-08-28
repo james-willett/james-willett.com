@@ -1,8 +1,10 @@
 ---
-title: "Getting up and Running with Rest-Assured"
+title: 'Getting up and Running with Rest-Assured'
 date: 2015-06-15
+tags: [all, restassured]
 slug: getting-up-and-running-with-rest-assured
-image: ./restAssuredLime.png
+image: ./up-and-running-cover.png
+summary: In this post we introduced REST Assured for the first time and walk you through getting up and running
 category: REST Assured
 next: rest-assured-extract-json-response
 ---

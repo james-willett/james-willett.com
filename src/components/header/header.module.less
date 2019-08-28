@@ -1,45 +1,96 @@
-@import (reference) "../../styles/variables.less";
+@import (reference) '../../styles/variables.less';
 
-.header {
-  background-color: white;
-  border-bottom: 1px solid #eee;
-  line-height: 3em;
-  padding: 4px 0;
-}
-
-.header__content {
-  max-width: 1000px;
-  padding: 0 @content-margin;
-  margin: 0 auto;
+.nav-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem 1.25rem;
+}
+.nav-header a:hover {
+  color: @brand-color-faded;
+  transition: @mainTransition;
+}
+.logo-btn {
+  background: transparent;
+  border: none;
+  outline: none;
+}
+.logo-btn:hover {
+  cursor: pointer;
+}
+.logo-icon {
+  color: @brand-color;
+  font-size: 1.5rem;
 }
 
-.header__content--wide {
-  max-width: none;
+.nav-links {
+  list-style-type: none;
+  transition: @mainTransition;
+  height: 0;
+  overflow: hidden;
+  margin: auto;
+  margin-top: 16px;
+  padding-top: auto;
+}
+.show-nav {
+  height: 216px;
+}
+.nav-links a {
+  display: block;
+  padding: 1rem 1.25rem;
+  text-decoration: none;
+  text-transform: capitalize;
+  color: @brand-color;
+  transition: @mainTransition;
+  font-weight: bold;
+  letter-spacing: @mainSpacing;
+}
+.nav-links a:hover {
+  color: @brand-color-faded;
+}
+.nav-social-links {
+  display: none;
 }
 
-.header__logo {
-  display: flex;
-  margin: 0 8px 0 0;
+@media screen and (min-width: 576px) {
+  .navbar {
+    padding: 0 2rem;
+    border-bottom: 1px solid #eaeaea;
+  }
 }
 
-.header__logo img {
-  border-radius: 50%;
-  width: 42px;
-  height: 42px;
-  margin: 0;
-}
-
-.header__socialLinks {
-  flex: 0 0 auto;
-  display: flex;
+@media screen and (min-width: 992px) {
+  .logo-btn {
+    display: none;
+  }
+  .nav-center {
+    max-width: 1470px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav-links {
+    height: auto;
+    display: flex;
+  }
+  .nav-social-links {
+    display: flex;
+    line-height: 0;
+  }
+  .nav-social-links a {
+    color: @brand-color;
+    margin: 0 0.5rem;
+    font-size: 1.5rem;
+    transition: @mainTransition;
+  }
+  .nav-social-links a:hover {
+    color: @brand-color-faded;
+    transform: translateY(-5px);
+  }
 }
 
 .header__homeLink {
-  display: flex;
-  align-items: center;
   font-weight: 700;
   text-decoration: none;
   font-size: 1.4em;

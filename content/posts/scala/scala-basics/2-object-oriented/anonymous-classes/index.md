@@ -1,8 +1,10 @@
 ---
 title: 'Anonymous Classes in Scala'
 date: 2019-07-23
+tags: [all, scala, scala_oo_series]
 slug: scala-anonymous-classes
-image: ../../1-absolute-basics/values-variables-types/scala-title.png
+image: ./anonymous-classes-cover.png
+summary: Follow up your learnings of inheritance and traits in Scala with an in-depth look at Anonymous Classes. Includes how the compiler instantiates anonymous classes
 category: Scala
 prev: scala-generics
 next: scala-covariant-generic-list

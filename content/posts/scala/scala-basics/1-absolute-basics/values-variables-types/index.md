@@ -1,10 +1,12 @@
 ---
-title: "Scala Basics - Values, Variables and Types"
+title: 'Values, Variables and Types in Scala'
 date: 2019-05-12
-slug: scala-basics-values-variables-types
-image: ./scala-title.png
+tags: [all, scala, scala_basics_series]
+slug: scala-values-variables-types
+image: ./values-variables-types-cover.png
+summary: In this the first post on our series of the absolute basics in Scala, we look at values, variables and types - the initial building blocks to get familiar with
 category: Scala
-next: scala-basics-expressions
+next: scala-expressions
 ---
 
 Lets start our Scala journey by learning about values in Scala.

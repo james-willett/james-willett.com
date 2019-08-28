@@ -1,11 +1,13 @@
 ---
-title: "Scala Basics - Expressions"
+title: 'Expressions in Scala'
 date: 2019-05-13
-slug: scala-basics-expressions
-image: ../values-variables-types/scala-title.png
+tags: [all, scala, scala_basics_series]
+slug: scala-expressions
+image: ./expressions-cover.png
+summary: Discussion on expressions, one of the fundamental building blocks in Scala. Includes a look at relational operators and loops
 category: Scala
-prev: scala-basics-values-variables-types
-next: scala-basics-functions
+prev: scala-values-variables-types
+next: scala-functions
 ---
 
 [[info]]

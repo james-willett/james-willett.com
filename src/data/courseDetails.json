@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "title": "Rest Assured Fundamentals",
+    "img": "../images/courses/RestAssuredFundamentals.jpg",
+    "slug": "rest-assured-fundamentals",
+    "summary": "Get up and running with REST Assured in no time by following this course. Hey let me add in a bit more text here to strecth things out a bit more lol",
+    "link": "https://www.udemy.com/rest-assured-fundamentals/?couponCode=TECHIETESTER",
+    "info": "<p>This course on <b>REST Assured</b> assumes that you have some basic knowledge of Java and API testing, and cuts through all the filler of other courses to get you up and running with REST Assured very quickly. Even if you have very little knowledge of Java and APi testing, you can still follow along with this course.</p> \n <p>The course makes use of two different API applications to test against, including one that was created specifically for this course and supports both <b>JSON</b> and <b>XML</b> queries.</p> <p>If you want a course that will get you up and running with REST Assured and learning the fundamentals of this awesome DSL for Java API Testing, this is the course for you.</p>"
+  },
+  {
+    "id": "2",
+    "title": "Gatling Fundamentals for Stress, Load & Performance Testing",
+    "img": "../images/courses/GatlingFundamentalsTitle.jpg",
+    "slug": "gatling-fundamentals",
+    "summary": "Learn the open source Gatling tool and how to stress and load test any application!",
+    "link": "https://www.udemy.com/gatling-fundamentals/?couponCode=JAMESW",
+    "info": "<p>In this course, you will learn the fundamentals of using the Gatling stress testing tool - an extremely powerful, open-source performance testing tool in heavy demand in the software industry today. Write many Gatling scripts from scratch against a target application included with this course, all with guidance.</p> <p><b>Why Gatling?</b></p><ul><li>Extremely powerful and flexible performance testing solution</li><li>Open source tool, so no cost to use it</li><li>Performance testers with Gatling experience are in high demand - yet few Engineers know this tool</li></ul><p><b>Why this course?</b></p><ul><li>Learn all aspects of Gatling including:<ul><li>Gatling Installation & Configuration, both standalone and in an IDE</li><li>Using the Recorder to record your user journey</li><li>Writing Gatling load test scripts</li><li>Analyzing test results</li></ul></li><li>See how to write many scripts from scratch to become familiar with the process, each script teaches a new concept</li><li>Although Gatling is pure Scala code, I will show you why the excellent Gatling DSL means that no knowledge of Scala is required to succeed with Gatling</li><liResources for learning Gatling are scarce. It can be overwhelming and intimidating trying to learn this tool on your own from scratch. This course is designed to address that</li></ul><p><b>What are the benefits of taking this course?</b></p><ul><li>Have fun whilst learning a valuable skill & tool</li><li>Command a higher salary</li><li>Improve your skills and offering as a developer and tester</li></ul><p>This course is for any Developer or Quality Engineer that wants to learn how to use Gatling for adding performance and stress tests to their test suite.</p><p>No prior knowledge of performance testing or software development is required, as I will be walking you through the entire process. However, any prior knowledge or experience that you do have in these domains  will be of benefit and will naturally aid your learning.</p><p>If you want to add an awesome, fully open source performance testing tool that is in high demand across a wide range of software development roles to your skillset, this is the course for you.</p>"
+  }
+]

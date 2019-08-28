@@ -1,11 +1,13 @@
 ---
-title: "Scala Basics - Functions"
+title: 'Functions in Scala'
 date: 2019-06-07
-slug: scala-basics-functions
-image: ../values-variables-types/scala-title.png
+tags: [all, scala, scala_basics_series]
+slug: scala-functions
+image: ./functions-cover.png
+summary: No doubt you will have heard of functions from other programming languages, but in this post we introduce them in Scala
 category: Scala
-prev: scala-basics-expressions
-next: scala-basics-recursion
+prev: scala-expressions
+next: scala-recursion
 ---
 
 [[info]]
