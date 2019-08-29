@@ -8,6 +8,7 @@ module.exports = {
   plugins: [
     'gatsby-plugin-typescript',
     'gatsby-plugin-sitemap',
+    `gatsby-plugin-transition-link`,
     `gatsby-plugin-playground`,
     'gatsby-plugin-react-helmet',
     {
