@@ -7,6 +7,7 @@ summary: Expand on the MyList application developed previously, turning it into 
 image: ./generic-list-cover.png
 category: Scala
 prev: scala-anonymous-classes
+next: scala-case-classes
 ---
 
 [[info]]
