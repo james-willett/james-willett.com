@@ -35,7 +35,7 @@ According to the [official Gatling site](http://gatling.io/) – “Gatling is a
 
 Gatling is built on top of a toolkit called Akka. Akka is a toolkit for building highly concurrent, distributed and resilient message-driven applications for Java and Scala. Read more about [Akka](http://akka.io/) on the official site.
 
-Since Gatling is using Akka’s message driven architecture, it is able to run thousands of virtual users on a single machine. This is because Akka overrides the JVM limitation of handling many threads. Virtual users in Gatling are threads not messages.
+Since Gatling is using Akka’s message driven architecture, it is able to run thousands of virtual users on a single machine. This is because Akka overrides the JVM limitation of handling many threads. Virtual users in Gatling are messages not threads.
 
 Gatling’s asynchronous architecture gives a huge scaling advantage over traditional thread based load testing tools such as JMeter and LoadRunner. It is no where near as easy to scale to thousands of users with these other tools.
 
