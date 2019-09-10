@@ -7,6 +7,7 @@ summary: Case classes are a small but very powerful feature of Scala. They are a
 image: ./case-classes-cover.png
 category: Scala
 prev: scala-covariant-generic-list
+next: scala-exceptions
 ---
 
 [[info]]
