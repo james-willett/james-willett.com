@@ -11,7 +11,7 @@ next: scala-case-classes
 ---
 
 [[info]]
-| This post is **part 7** of the Object Oriented Programming in Scala series.
+| This post is **part 7** of the _Object Oriented Programming in Scala_ series. You can view [all the posts in the series](../blog/scala_oo_series) here.
 
 In this post, we are going to expand heavily on the functionality of the MyList application that we started developing in [previous posts](/scala-generics#expanding-the-mylist-class) in this series. The overall goal is to turn MyList into a complete **covariant generic list**.
 

@@ -11,9 +11,7 @@ next: scala-recursion
 ---
 
 [[info]]
-| This post introduces _Functions_ in Scala for the first time
-| You should be able to follow along with the code examples either in the Scala REPL or Scala Playground of any IDE.
-| Alternatively you can use [ScalaFiddle](https://scalafiddle.io/) to follow along in your browser
+| This post is **part 3** of the _Scala - The Absolute Basics_ series. You can view [all the posts in the series](../blog/scala_basics_series) here.
 
 ## A Basic Function
 

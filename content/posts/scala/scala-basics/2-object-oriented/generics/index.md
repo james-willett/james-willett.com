@@ -12,7 +12,7 @@ next: scala-anonymous-classes
 ---
 
 [[info]]
-| This post is **part 5** of the Object Oriented Programming in Scala series.
+| This post is **part 5** of the _Object Oriented Programming in Scala_ series. You can view [all the posts in the series](../blog/scala_oo_series) here.
 
 This blog post looks at **Generics** in Scala. It took me a while to get my head around a lot of these concepts, but hopefully this post will make things clear for you. _So what exactly are Generics all about in Scala?_
 

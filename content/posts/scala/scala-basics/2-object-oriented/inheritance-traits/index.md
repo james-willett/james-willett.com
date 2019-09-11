@@ -11,7 +11,7 @@ next: scala-generics
 ---
 
 [[info]]
-| This post is **part 4** of the Object Oriented Programming in Scala series.
+| This post is **part 4** of the _Object Oriented Programming in Scala_ series. You can view [all the posts in the series](../blog/scala_oo_series) here.
 
 In this blog post we will discuss **Inheritance** and **Traits** in Scala. There is nothing particularly different here in Scala compared to other languages, but it is important to understand the concepts and syntax well. Let's dive straight in and show a very simple example of Inheritance.
 

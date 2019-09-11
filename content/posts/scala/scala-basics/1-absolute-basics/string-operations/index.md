@@ -7,13 +7,11 @@ image: ./string-operations-cover.png
 summary: In this final post of the series, we focus on some of the main operations used to manipulate strings in Scala. Some operations are borrowed from Java, whilst others are exclusive to Scala
 category: Scala
 prev: scala-default-named-arguments
+next: scala-object-oriented-overview
 ---
 
 [[info]]
-| This blog post focuses on some of the main operations used to manipulate strings in Scala
-| You should be able to follow along with the code examples either in the Scala REPL or Scala Playground of any IDE.
-| Alternatively you can use [ScalaFiddle](https://scalafiddle.io/) to follow along in your browser.
-| The source code for the examples in this post is available on [Github](https://github.com/james-willett/ScalaBlog/blob/master/src/scalaBasics/absoluteBasics/StringOperations.scala).
+| This post is **part 7** of the _Scala - The Absolute Basics_ series. You can view [all the posts in the series](../blog/scala_basics_series) here.
 
 This is the final blog post in this series on some of the absolute basics of Scala. In it, we will look at some of the most common operations that are used to manipulate strings in Scala. Some of these operations are taken from Java, whilst others are exclusive to Scala.
 
@@ -188,6 +186,8 @@ One thing to note with raw interpolators is that injected variables DO get escap
 In this post we looked at some of the most common string operations that are used in Scala. Some of these operators come from Java (remember Scala runs on the JVM), whilst others are exclusive to Scala.
 
 This post concludes our series on the absolute basics of Scala.
+
+Be sure to check out the next series - [Object Oriented Programming in Scala](./scala-object-oriented-overview).
 
 # Source code
 

@@ -7,7 +7,11 @@ image: ./values-variables-types-cover.png
 summary: In this the first post on our series of the absolute basics in Scala, we look at values, variables and types - the initial building blocks to get familiar with
 category: Scala
 next: scala-expressions
+prev: scala-absolute-basics-overview
 ---
+
+[[info]]
+| This post is **part 1** of the _Scala - The Absolute Basics_ series. You can view [all the posts in the series](../blog/scala_basics_series) here.
 
 Lets start our Scala journey by learning about values in Scala.
 

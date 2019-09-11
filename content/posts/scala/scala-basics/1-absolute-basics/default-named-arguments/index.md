@@ -11,10 +11,7 @@ next: scala-string-operations
 ---
 
 [[info]]
-| This blog post looks at specifying default arguments in Scala functions, and naming arguments when calling functions.
-| You should be able to follow along with the code examples either in the Scala REPL or Scala Playground of any IDE.
-| Alternatively you can use [ScalaFiddle](https://scalafiddle.io/) to follow along in your browser.
-| The source code for the examples in this post is available on [Github](https://github.com/james-willett/ScalaBlog/blob/master/src/scalaBasics/absoluteBasics/DefaultArgs.scala).
+| This post is **part 6** of the _Scala - The Absolute Basics_ series. You can view [all the posts in the series](../blog/scala_basics_series) here.
 
 In our previous blog post on [Recursion in Scala functions](./scala-basics-recursion), we wrote a tail recursive factorial function that looked like this:
 

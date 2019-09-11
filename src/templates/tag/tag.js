@@ -44,7 +44,7 @@ export const pageQuery = graphql`
         frontmatter: { tags: { in: [$tag] } }
         fileAbsolutePath: { regex: "/index.md$/" }
       }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { fields: [frontmatter___date], order: ASC }
     ) {
       edges {
         node {

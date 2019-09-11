@@ -11,10 +11,7 @@ next: scala-default-named-arguments
 ---
 
 [[info]]
-| This blog post looks at calling Scala functions either by **Name** or by **Value** and the difference between the two methods.
-| You should be able to follow along with the code examples either in the Scala REPL or Scala Playground of any IDE.
-| Alternatively you can use [ScalaFiddle](https://scalafiddle.io/) to follow along in your browser.
-| The source code for the examples in this post is available on [Github](https://github.com/james-willett/ScalaBlog/blob/master/src/scalaBasics/absoluteBasics/CBNvsCBV.scala).
+| This post is **part 5** of the _Scala - The Absolute Basics_ series. You can view [all the posts in the series](../blog/scala_basics_series) here.
 
 There are two ways of calling functions in Scala, either **call by name** or **call by value**. Let's dive straight into an example so that we can examine the difference:
 

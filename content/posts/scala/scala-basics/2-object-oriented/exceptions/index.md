@@ -10,7 +10,7 @@ prev: scala-case-classes
 ---
 
 [[info]]
-| This post is **part 9** of the Object Oriented Programming in Scala series.
+| This post is **part 9** of the _Object Oriented Programming in Scala_ series. You can view [all the posts in the series](../blog/scala_oo_series) here.
 
 When it comes to dealing with Exceptions in Scala, know that we are dealing with a JVM concept. Or to put it another way, exceptions in Scala are actually just taken from Java.
 
@@ -25,7 +25,7 @@ val x: String = null
 println(x.length) // this will crash with a null pointer exception
 ```
 
-When we run this code, it will crash with the famous null pointer exception. What happens here, is when the **length** method is called on x (which has been set to **null**), a null pointer exception is thrown and our application crashes because there is nothing to catch the exception.
+When we run this code, it will crash with the famous [null pointer exception](https://stackoverflow.com/questions/218384/what-is-a-nullpointerexception-and-how-do-i-fix-it). What happens here, is when the **length** method is called on x (which has been set to **null**), a null pointer exception is thrown and our application crashes because there is nothing to catch the exception.
 
 # Throwing Exceptions in Scala
 
@@ -39,13 +39,13 @@ throw new NullPointerException
 
 With this line, we are intentionally throwing an exception and crashing our program when this line is executed.
 
-Like everything else in Scala, throwing an exception is an EXPRESSION, so it could actually be assigned to something, e.g:
+Like everything else in Scala, throwing an exception is an [expression](./scala-expressions/), so it could actually be assigned to something, e.g:
 
 ```scala
 val someWeirdValue = throw new NullPointerException
 ```
 
-If we look at the type of **someWeirdValue** in the compiler (by hovering over it), we can see that it is of type 'Nothing' . So the variable doesn't actually hold the value of nothing, but it can be assigned to point to something.
+If we look at the type of **someWeirdValue** in the compiler (by hovering over it), we can see that it is of type [Nothing](https://medium.com/@juntomioka/what-is-scalas-nothing-type-for-6d1a1d4bcc02) . So the variable doesn't actually hold the value of _Nothing_, but it can be assigned to point to something.
 
 We could explicitly set the type of **someWeirdValue** to a String. This is also fine, because _Nothing_ is a valid substitute for any type:
 
@@ -55,22 +55,22 @@ val someWeirdValue: String = throw new NullPointerException
 
 ## Exceptions are Classes
 
-If you have never dealt with Java or the JVM before, you might wonder why we have the **new** keyword here when throwing the exception. The answer is that _exceptions are actually instances of classes_. **NullPointException** is a class. We instantiate it, and throw an _instance_ of it.
+If you have never dealt with Java or the JVM before, you might wonder why we have the **new** keyword here when throwing the exception. The answer is that [exceptions are actually instances of classes](https://docs.oracle.com/javase/specs/jls/se7/html/jls-11.html). **NullPointException** is a class. We instantiate it, and throw an _instance_ of it.
 
-The property of a class to be throwable is restricted by that class extending (or deriving from) the 'Throwable' type. All throwable classes extend the 'Throwable' class.
+The property of a class to be throwable is restricted by that class extending (or deriving from) the [Throwable](https://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html) type. All throwable classes extend the 'Throwable' class.
 
 ## Exceptions vs Errors
 
-Derided from the Throwable class are **Exceptions** (i.e. the type Exception) and Errors - these are the major throwable subtypes.
+Derided from the Throwable class are **Exceptions** (i.e. the class [Exception](https://docs.oracle.com/javase/7/docs/api/java/lang/Exception.html)) and Errors (i.e. the class [Error](https://stackoverflow.com/questions/14196820/why-do-we-need-error-class)) - these are the major throwable subtypes.
 
 Both exceptions and errors will crash the JVM, but they are different in their semantics.
 
-- Exceptions denote something that went wrong with the program, e.g. a NullPointerException
-- Errors note something that went wrong with the system, for example a Stack Overflow error; you exceeded the memory of the JVM stack
+- **Exceptions** denote something that went wrong with the program, e.g. a NullPointerException
+- **Errors** note something that went wrong with the system, for example a [Stack Overflow error](https://stackoverflow.com/questions/214741/what-is-a-stackoverflowerror) - you exceeded the memory of the JVM stack
 
 # Catching Exceptions
 
-Now that we know how to throw exceptions, let's next look at how we might exceptions in Scala.
+Now that we know how to throw exceptions, let's next look at how we might catch exceptions in Scala.
 
 The method below has the potential to throw an exception when called:
 
@@ -81,9 +81,9 @@ def getInt(withExceptions: Boolean): Int = {
 }
 ```
 
-If we call the above method with the parameter **true**, then the RuntimeException will be thrown.
+If we call the above method with the parameter **true**, then the **RuntimeException** will be thrown.
 
-The way that we guard against exceptions in Scala is by using a try / catch / finally block. For example, using the above method we could write:
+The way that we guard against exceptions in Scala is by using a **try / catch / finally** block. For example, using the above method we could write:
 
 ```scala
 try {
@@ -127,7 +127,7 @@ Notice that the **finally block** string was still printed out.
 
 ## Try / Catch / Finally block is an Expression
 
-Like everything else in Scala, the try / catch / finally block is an EXPRESSION. What is the type of this expression? Ff we assign it to a val, we can see in the IDE that the type is **AnyVal**:
+Like everything else in Scala, the try / catch / finally block is an expression. What is the type of this expression? If we assign it to a val, we can see in the IDE that the type is [AnyVal](https://www.scala-lang.org/api/current/scala/AnyVal.html):
 
 ```scala
 val potentialFail = try {
@@ -182,7 +182,7 @@ This will crash your program with a **MyException** custom exception.
 
 # Crash your Scala Application with Out of Memory Exception
 
-Let's look at how we can deliberately crash our program with an Out of Memory error.
+Let's look at how we can deliberately crash our program with an [Out of Memory](https://stackoverflow.com/questions/40406270/what-is-the-cause-of-outofmemoryerror-in-scala/40406481) error.
 
 Basically we need to allocate more memory than the JVM has available. This is one way to do it:
 
@@ -190,7 +190,7 @@ Basically we need to allocate more memory than the JVM has available. This is on
 val array = Array.ofDim(Int.MaxValue)
 ```
 
-Here we are defining an array that has too many elements. We use **Array.ofDim** to allocate an array with a specific number of elements, in this case the **maximum value of Int**.
+Here we are defining an array that has too many elements. We use [Array.ofDim](https://alvinalexander.com/scala/how-to-create-multidimensional-arrays-in-scala-cookbook) to allocate an array with a specific number of elements, in this case the **maximum value of Int**.
 
 This will crash the program with:
 
@@ -198,7 +198,7 @@ This will crash the program with:
 
 # Crash your Scala Application with a Stack Overflow Error
 
-To create a stack overflow error, we can define an infinite recursive method:
+To create a [stack overflow error](https://www.baeldung.com/java-stack-overflow-error), we can define an infinite recursive method:
 
 ```scala
 def infinite: Int = 1 + infinite
@@ -226,8 +226,8 @@ The application has methods to add, subtract, multiply and divide any two intege
 
 The following custom exceptions will be thrown:
 
-- **OverflowException** if add(x,y) exceeds Int.MAX_VALUE
-- **UnderflowException** if subtract(x,y) exceeds Int.MIN_VALUE
+- **OverflowException** if add(x,y) exceeds [Int.MAX_VALUE](http://www.java2s.com/Tutorial/SCJP/0160__Utility-Classes/IntegerMAXVALUEisthelargestvalueandIntegerMINVALUEthesmallestthatanintprimitivecancontain.htm)
+- **UnderflowException** if subtract(x,y) exceeds [Int.MIN_VALUE](https://garygregory.wordpress.com/2011/02/02/what-are-javas-min-and-max-values/)
 - **MathCalculationException** for division by 0
 
 ## The Add Method
@@ -243,7 +243,7 @@ object PocketCalculator {
 }
 ```
 
-The problem we have here is, how to test if result exceeds **Int.MaxValue**? We can't do a simple comparison, because result will never be able to hold an Int that is bigger than max value. But if we call the add method like this:
+The problem we have here is, how to test if result exceeds **Int.MaxValue**? We can't do a simple comparison, because result will _never_ be able to hold an Int that is bigger than max value. But if we call the add method like this:
 
 ```scala
 println(PocketCalculator.add(Int.MaxValue, 10))
@@ -251,7 +251,7 @@ println(PocketCalculator.add(Int.MaxValue, 10))
 
 We see that the result is **-2147483639** - i.e. it is _NEGATIVE_.
 
-So a positive value plus another positive value returning a _negative_ value means that we have overflow integer.
+So a positive value plus another positive value returning a _negative_ value means that we have the overflow exception.
 
 We can therefore rewrite our add method like so:
 
@@ -269,10 +269,10 @@ Of course, we need to define the three exceptions as well. Let's define them all
 ```scala
 class OverflowException extends RuntimeException
 class UnderflowException extends RuntimeException
-class MathCaluclationException extends RuntimeException("Division by 0")
+class MathCalculationException extends RuntimeException("Division by 0")
 ```
 
-Notice that when we define the **MathCalcuationException**, we add the string for the error message as a parameter for the parent constructor.
+Notice that when we define the **MathCalculationException**, we add the string for the error message as a parameter for the parent constructor.
 
 To complete our add method, we will also handle the **UnderflowException**, for when two negative values are added:
 
@@ -307,3 +307,48 @@ We are saying that if x is _bigger_ than 0 and y is _less_ than 0, that means su
 Otherwise if x is _less_ than 0 and y is _bigger_ than 0 then we are adding two negative numbers and the result is positive, so throw an underthrow exception.
 
 ## The Multiply Method
+
+Next up let's implement the multiply method:
+
+```scala
+def multiply(x: Int, y: Int) = {
+   val result = x * y
+   if (x > 0 && y > 0 && result < 0) throw new OverflowException
+   else if (x < 0 && y < 0 && result < 0) throw new OverflowException
+   else if (x > 0 && y < 0 && result > 0) throw new UnderflowException
+   else if (x < 0 && y > 0 && result > 0) throw new UnderflowException
+   else result
+    }
+```
+
+This isn't as complicated as it first looks. Let's talk through the four possible exceptions in order:
+
+- If x is _bigger_ than 0 and y is _bigger_ than 0, and the **result** is suddenly less than 0 (i.e. negative), then throw the OverflowException
+- Next if both x and y are less than 0 (i.e. _negative_), we would expect the result of multiplying them both to be positive. So if the result is less than 0, we again throw the OverflowException
+- If x is positive, and y is negative, we would expect the result to be negative. If the result is therefore positive, we will throw the UnderflowException
+- And vice versa, if y is positive and x is negative we would expect the result to be negative. Again, if the result is positive, throw the UnderflowException
+
+## The Divide Method
+
+Finally for the divide method:
+
+```scala
+def divide(x: Int, y: Int) = {
+   if (y == 0) throw new MathCaluclationException
+   else x / y
+}
+```
+
+This one is pretty simple. If y is 0 (i.e. we are trying to divide by 0) we throw the **MathCalculationException**
+
+# Summary
+
+From reading this post, you should now know that exceptions in Scala crash your program!
+
+- We learned how to throw an exception, and throwing exceptions returns Nothing
+- We saw how to catch exceptions with the **try / catch / finally** block
+- And we learned how to define our own _custom exceptions_ by deriving **Exception** or **Error** or the **Throwable** types from Java
+
+# Source Code
+
+As always, the source code for this post is available on [Github](https://github.com/james-willett/ScalaBlog/blob/master/src/scalaBasics/objectOriented/Exceptions.scala).

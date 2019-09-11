@@ -7,13 +7,11 @@ image: ./oo-basics-cover.png
 summary: We set the scene and start our look at objected oriented programming in Scala by exploring some of the basics in this post.
 category: Scala
 next: scala-method-notations
+prev: scala-object-oriented-overview
 ---
 
 [[info]]
-| In this post we look at some of the basics of Object Oriented Programming in Scala.
-| You should be able to follow along with the code examples either in the Scala REPL or Scala Playground of any IDE.
-| Alternatively you can use [ScalaFiddle](https://scalafiddle.io/) to follow along in your browser.
-| The source code for the examples in this post is available on [Github](https://github.com/james-willett/ScalaBlog/blob/master/src/scalaBasics/objectOriented/OOBasics.scala).
+| This post is **part 1** of the _Object Oriented Programming in Scala_ series. You can view [all the posts in the series](../blog/scala_oo_series) here.
 
 We will kick off this series of blog posts on Object Oriented programming in Scala by looking at some of the basics. Scala is an unusual language in that it supports [both objected oriented and functional programming](https://underscore.io/blog/posts/2017/06/02/uniting-church-and-state.html) styles. In this series, we will focus on **Object Oriented** programming for the most part.
 

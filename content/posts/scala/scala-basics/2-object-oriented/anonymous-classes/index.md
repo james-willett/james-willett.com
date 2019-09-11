@@ -11,7 +11,7 @@ next: scala-covariant-generic-list
 ---
 
 [[info]]
-| This post is **part 6** of the Object Oriented Programming in Scala series.
+| This post is **part 6** of the _Object Oriented Programming in Scala_ series. You can view [all the posts in the series](../blog/scala_oo_series) here.
 
 We learned about [Inheritance in Scala](/scala-inheritance-traits) in a previous blog post in this series. In that post, we discussed how in Scala
 (and as a general rule in programming), _you can't instantiate an abstract class_.

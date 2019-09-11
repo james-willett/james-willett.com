@@ -11,10 +11,7 @@ next: scala-call-by-name-or-value
 ---
 
 [[info]]
-| This blog post is a more in depth look at Stack and Tail _Recursion_ in Scala.
-| You should be able to follow along with the code examples either in the Scala REPL or Scala Playground of any IDE.
-| Alternatively you can use [ScalaFiddle](https://scalafiddle.io/) to follow along in your browser.
-| The source code for the examples in this post is available on [Github](https://github.com/james-willett/ScalaBlog/blob/master/src/scalaBasics/absoluteBasics/Recursion.scala).
+| This post is **part 4** of the _Scala - The Absolute Basics_ series. You can view [all the posts in the series](../blog/scala_basics_series) here.
 
 It can take some time to get your head around how recursion works. Especially if you are mostly familiar with imperative languages like Java. We touched on it briefly in the [previous blog post](./scala-basics-functions), but Recursion is essentially a **function that calls itself**.
 

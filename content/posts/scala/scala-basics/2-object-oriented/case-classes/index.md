@@ -11,7 +11,7 @@ next: scala-exceptions
 ---
 
 [[info]]
-| This post is **part 8** of the Object Oriented Programming in Scala series.
+| This post is **part 8** of the _Object Oriented Programming in Scala_ series. You can view [all the posts in the series](../blog/scala_oo_series) here.
 
 Often when using lightweight data structures in programming, it is necessary to re-implement all sorts of boilerplate code.
 For example we might add [companion objects](https://docs.scala-lang.org/tour/singleton-objects.html). Or methods for serializing and then pretty printing - methods like equals, hashCode, toString etc.

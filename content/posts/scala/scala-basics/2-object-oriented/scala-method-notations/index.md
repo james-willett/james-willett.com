@@ -11,10 +11,7 @@ next: scala-objects
 ---
 
 [[info]]
-| This post looks at Method Notations (or 'Syntactic Sugar') in Scala.
-| You should be able to follow along with the code examples either in the Scala REPL or Scala Playground of any IDE.
-| Alternatively you can use [ScalaFiddle](https://scalafiddle.io/) to follow along in your browser.
-| The source code for the examples in this post is available on [Github](https://github.com/james-willett/ScalaBlog/blob/master/src/scalaBasics/objectOriented/MethodNotations.scala).
+| This post is **part 2** of the _Object Oriented Programming in Scala_ series. You can view [all the posts in the series](../blog/scala_oo_series) here.
 
 In Scala there are numerous method notations and shorthand ways of writing method calls. We will look at a few of them in this post. To start off with, let's create a simple **Person** class. The class has a single method to check if they like a certain movie:
 
