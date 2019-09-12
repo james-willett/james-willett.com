@@ -4,7 +4,7 @@
     "title": "Rest Assured Fundamentals",
     "img": "../images/courses/RestAssuredFundamentals.jpg",
     "slug": "rest-assured-fundamentals",
-    "summary": "Get up and running with REST Assured in no time by following this course. Hey let me add in a bit more text here to strecth things out a bit more lol",
+    "summary": "Get up and running with REST Assured in no time by following this course. Covers everything you need to know to start writing automated API tests with REST Assured.",
     "link": "https://www.udemy.com/course/rest-assured-fundamentals/?couponCode=JAMESW",
     "info": "<p>This course on <b>REST Assured</b> assumes that you have some basic knowledge of Java and API testing, and cuts through all the filler of other courses to get you up and running with REST Assured very quickly. Even if you have very little knowledge of Java and APi testing, you can still follow along with this course.</p> \n <p>The course makes use of two different API applications to test against, including one that was created specifically for this course and supports both <b>JSON</b> and <b>XML</b> queries.</p> <p>If you want a course that will get you up and running with REST Assured and learning the fundamentals of this awesome DSL for Java API Testing, this is the course for you.</p>"
   },
