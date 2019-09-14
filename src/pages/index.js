@@ -23,8 +23,9 @@ export default function homepage({ data }) {
             <img src={tempImage} alt="James Willett Headshot" />
           </div>
           <p>
-            Welcome to my personal website, where I blog about my experiences in
-            Software Development. The majority of posts on this blog are about
+            I am a Software Engineer and Online Instructor. This is my personal
+            website, where I blog about my experiences in Software Development.
+            The majority of posts on this blog are about
             <b> Scala, Gatling</b> and <b>REST Assured.</b>
           </p>
           <p>
