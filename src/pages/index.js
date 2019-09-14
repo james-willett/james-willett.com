@@ -8,12 +8,11 @@ import SEO from '../components/seo/seo'
 import style from './index.module.less'
 
 export default function homepage({ data }) {
-  console.log(data)
   return (
     <Layout>
       <SEO
         title="Homepage"
-        description="Blog of James Willett"
+        description={data.site.siteMetadata.description}
         path="/"
         keywords={['scala', 'gatling', 'blog']}
       />

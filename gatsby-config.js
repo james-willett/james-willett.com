@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'James Willett',
-    description: 'Blog for James Willett, Software Engineer & Web Entrepreneur',
+    description: 'Blog of James Willett, Software Engineer & Online Instructor',
     siteUrl: 'https://www.james-willett.com/',
     privacyPolicy: 'https://www.iubenda.com/privacy-policy/43002998'
   },
