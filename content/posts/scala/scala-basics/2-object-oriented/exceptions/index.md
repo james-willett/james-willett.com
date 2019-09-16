@@ -7,6 +7,7 @@ summary: Exceptions in Scala are inherited from the JVM, i.e. from Java. In this
 image: ./scala-exceptions-cover.png
 category: Scala
 prev: scala-case-classes
+next: scala-packaging-imports
 ---
 
 [[info]]
