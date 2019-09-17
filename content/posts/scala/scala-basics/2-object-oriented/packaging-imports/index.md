@@ -7,6 +7,7 @@ summary: In this the final blog post on our series of Object Oriented Programmin
 image: ./packaging-imports-cover.png
 category: Scala
 prev: scala-exceptions
+next: scala-functional-programming-overview
 ---
 
 [[info]]
@@ -147,6 +148,12 @@ import java.sql.{Date => SqlDate}
 Default imports are packages that are automatically imported without you having to do anything.
 
 An example is [java.lang](https://docs.oracle.com/javase/7/docs/api/java/lang/package-summary.html) - which contains String, Object, Exception etc. The [top level Scala package](https://www.scala-lang.org/files/archive/spec/2.12/09-top-level-definitions.html) is also imported - which contains Int, Nothing and Function. [Scala.PreDef](https://www.scala-lang.org/api/current/scala/Predef$.html) is imported automatically as well - this contains things like **println** and the **???** implementation.
+
+---
+
+This post concludes our series on **Object Oriented Programming in Scala**.
+
+Be sure to check out the next series - [Functional Programming in Scala](./scala-functional-programming-overview).
 
 ---
 

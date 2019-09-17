@@ -40,6 +40,10 @@ module.exports = {
       name: 'Scala: Object Oriented Programming - Post Series',
       description: 'A series of posts on Object Oriented Programming in Scala'
     },
+    scala_fp_series: {
+      name: 'Scala: Functional Programming - Post Series',
+      description: 'A series of posts on Functional Programming in Scala'
+    },
     restassured: {
       name: 'REST Assured',
       description:
