@@ -80,6 +80,7 @@ module.exports = {
       }
     },
     'gatsby-transformer-sharp',
+    `gatsby-plugin-sass`,
     'gatsby-plugin-catch-links',
     {
       resolve: 'gatsby-plugin-google-analytics',
