@@ -7,7 +7,7 @@ image: ./fp-overview-cover.png
 summary: This post is the introduction and overview to the Functional Programming in Scala post series. Covers what you can expect to learn in this series of posts
 category: Scala
 prev: scala-packaging-imports
-next: scala-functions-explained
+next: scala-function-types
 ---
 
 This is the third series of blog posts on this site about Scala. In this series, we will be covering **Functional Programming in Scala**. I would recommend checking out the previous series, [Objected Oriented Programming in Scala](../blog/scala_oo_series/), before reading these posts.
@@ -38,4 +38,4 @@ And you are ready to go!
 
 You can view all the posts in the [Functional Programming in Scala](../blog/scala_fp_series/) series here.
 
-Otherwise, go straight on to the first post in the series - [What is a Function in Scala?](../scala-functions-explained/)
+Otherwise, go straight on to the first post in the series - [What is a Function in Scala?](../scala-function-types/)
