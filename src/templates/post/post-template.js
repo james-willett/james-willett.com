@@ -13,7 +13,6 @@ import Utils from '../../utils/utils'
 import Config from '../../../config'
 
 import 'prism-themes/themes/prism-a11y-dark.css'
-// import 'prismjs/themes/prism-tomorrow.css'
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 import './prism-override.scss'
 

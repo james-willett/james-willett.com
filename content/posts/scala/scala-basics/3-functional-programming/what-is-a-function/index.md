@@ -59,11 +59,11 @@ class Action {
 }
 ```
 
-Here we write out a class (**Action**) and then the method (**execute**). To make use of the **execute** function, we would need to instantiate the **Action** class (either anonymously or normally). As described in the [anonymous classes](../scala-anonymous-classes/) post, we would instantiate instances of classes and then override the methods on the spot.
+Here we write out a class (**Action**) and then the method `execute`. To make use of the `execute` function, we would need to instantiate the **Action** class (either anonymously or normally). As described in the [anonymous classes](../scala-anonymous-classes/) post, we would instantiate instances of classes and then override the methods on the spot.
 
 The most that you could do would be to generalize most of the boilerplate code, so you can use generic types.
 
-For example say we have an abstract type (like a trait). It takes two type parameters, A and B. We would say that the method takes an element of type A and returns an element of type B:
+For example say we have an abstract type (like a trait). It takes two type parameters, `A` and `B`. We would say that the method takes an element of **type A** and returns an element of **type B**:
 
 ```scala
 trait Action[A, B] {
@@ -71,9 +71,9 @@ trait Action[A, B] {
 }
 ```
 
-A slightly better way to write this in Scala, would be to rename the trait to **MyFunction**, then rename the method to **apply**. The apply method has a special meaning in Scala:
+A slightly better way to write this in Scala, would be to rename the trait to **MyFunction**, then rename the method to `apply`. The apply method has a special meaning in Scala:
 
-```scala
+```scala{2}
 trait MyFunction[A, B] {
   def apply(element: A): B
 }
@@ -85,7 +85,7 @@ The JVM is naturally constructed around these constraints. So Scala had to resor
 
 # Scala Function Types
 
-Let's use the **MyFunction** trait that we just defined. We will create an instance of the **MyFunction** trait, which transforms an int into another int. The **apply** method of the class takes an element of type int and returns another int. The implementation is that we double the int:
+Let's use the **MyFunction** trait that we just defined. We will create an instance of the **MyFunction** trait, which transforms an Int into another Int. The `apply` method of the class takes an element of type Int and returns another Int. The implementation is that we double the Int:
 
 ```scala
   val doubler = new MyFunction[Int, Int] {
@@ -101,7 +101,7 @@ The advantage of doing this in Scala (as opposed to Java), is that we can call t
 println(doubler(2)) // prints out 4
 ```
 
-If you run this, **doubler** will call the _apply_ method within itself. The number 4 is printed out to the console.
+If you run this, **doubler** will call the `apply` method within itself. The number `4` is printed out to the console.
 
 So **doubler**, which is an instance of a function like class, can itself be called just like a function.
 
@@ -113,7 +113,7 @@ The interesting thing, is that Scala supports these function types right out of 
 
 The function types are **Function1, Function2, Function3... up to Function22**.
 
-But for a function with 1 parameter and 1 result, this is called as **Function1\[A,B]**. This is the function type which is by default supported in Scala.
+But for a function with 1 parameter and 1 result, this is called as `Function1[A,B]`. This is the function type which is by default supported in Scala.
 
 Let's create another instance of **Function1**, to convert a string into an int:
 
@@ -123,9 +123,9 @@ val stringToIntConverter = new Function1[String, Int] {
 }
 ```
 
-Notice that this time we supplied type parameters **String** and **Int**. We are providing a **String** and we want the value returned to be an **Int**.
+Notice that this time we supplied type parameters `String` and `Int`. We are providing a `String` and we want the value returned to be an `Int`.
 
-We can now call **stringToIntConverter**, say with the string "3", and add the result to the number 4 straight away:
+We can now call `stringToIntConverter`, say with the string `3`, and add the result to the number `4` straight away:
 
 ```scala
 println(stringToIntConverter("3") + 4) // will return 7
@@ -135,7 +135,7 @@ println(stringToIntConverter("3") + 4) // will return 7
 
 As mentioned previously, Scala supports these function types up to **22 parameters**.
 
-So for example, say we had a function called **adder** that takes two Ints and returns an Int. That would be a **Function2** , with [Int Int Int]. Two Ints for the parameter types and the final Int for the result type:
+So for example, say we had a function called `adder` that takes two Ints and returns an Int. That would be a `Function2[Int, Int, Int]`. Two Ints for the parameter types and the final Int for the result type:
 
 ```scala
 val adder = new Function2[Int, Int, Int] {
@@ -143,19 +143,19 @@ val adder = new Function2[Int, Int, Int] {
 }
 ```
 
-The apply method takes two parameters, a and b, both Int. And the return type is an Int.
+The apply method takes two parameters, `a` and `b`, both Int. And the return type is an Int.
 
 ## Function Types Syntactic Sugar
 
-If you hover over the **adder** val in the IDE, you can see the type is **(Int, Int) => Int**.
+If you hover over the `adder` val in the IDE, you can see the type is `(Int, Int) => Int`.
 
 ![Hover over the adder function to see the return type](./adderFunction.png)
 
-This is syntactic sugar for **Function2**.
+This is syntactic sugar for `Function2`.
 
-You could rewrite the **adder** val with the correct type like so:
+You could rewrite the `adder` val with the correct type like so:
 
-```scala
+```scala{1}
 val adder: Function2[Int, Int, Int] = new Function2[Int, Int, Int] {
     override def apply(a: Int, b: Int): Int = a + b
 }
@@ -163,13 +163,13 @@ val adder: Function2[Int, Int, Int] = new Function2[Int, Int, Int] {
 
 Or if you wanted to rewrite it with syntactic sugar:
 
-```scala
+```scala{1}
 val added: ((Int, Int) => Int) = new Function2[Int, Int, Int] {
     override def apply(a: Int, b: Int): Int = a + b
 }
 ```
 
-So to summarise, if we have a function with two type parameters A and B, and a result parameter R, this would be **Function2\[A,B,R]**. With syntactic sugar, we write this as **(A, B) => R**. We will use this annotation a lot more in this blog post series.
+So to summarize, if we have a function with two type parameters `A` and `B`, and a result parameter `R`, this would be `Function2[A,B,R]`. With syntactic sugar, we write this as `(A, B) => R`. We will use this annotation a lot more in this blog post series.
 
 ## But all Scala Functions are Objects!
 
@@ -189,11 +189,11 @@ def concatenator: (String, String) => String = new Function2[String, String, Str
 }
 ```
 
-Talking through the above in order, we first create a function **concatenator**, which is of type **(String, String => String)** - i.e. it takes two strings and returns another string. The value is a new **Function2** with three string type parameters.
+Talking through the above in order, we first create a function `concatenator`, which is of type `(String, String => String)` - i.e. it takes two strings and returns another string. The value is a new `Function2` with three string type parameters.
 
-The implementation of the apply method takes two strings (a, b) and returns a string. The implementation concatenates them together.
+The implementation of the apply method takes two strings `(a, b)` and returns a string. The implementation concatenates them together.
 
-We can call the **concatenator** simply like so:
+We can call the `concatenator` simply like so:
 
 ```scala
 println(concatenator("Hello", "Bob"))
@@ -221,9 +221,9 @@ trait MyTransformer[-A, B] {
 
 The **MyPredicate** and **MyTransformer** traits are basically function types.
 
-_MyPredicate_ is a function type from T to Boolean - **(T => Boolean)**.
+_MyPredicate_ is a function type from T to Boolean - `(T => Boolean)`.
 
-_MyTransformer_ is a function type from **(A => B)**.
+_MyTransformer_ is a function type from `(A => B)`.
 
 Now that we know about function types, we don't actually need these traits anymore. So we can delete them from the code altogether. Of course when we do that, a bunch of things in our MyList application will now not compile, so lets go through and fix the errors.
 
@@ -231,9 +231,9 @@ Now that we know about function types, we don't actually need these traits anymo
 
 ### Map
 
-Going from the top of the file, we can see the first things that have broken are in the **MyList** abstract class itself. The first thing to fix is the **map** function. Previously it looked like this:
+Going from the top of the file, we can see the first things that have broken are in the **MyList** abstract class itself. The first thing to fix is the `map` function. Previously it looked like this:
 
-```scala
+```scala{5}
 abstract class MyList[+A] {
 
 // ... other code omitted for brevity
@@ -242,9 +242,9 @@ abstract class MyList[+A] {
 }
 ```
 
-We can fix this by changing the _transformer_ to a **Function1[A, B]** ... or to (A => B) type:
+We can fix this by changing the `transformer` to a `Function1[A, B]` ... or to `(A => B)` type:
 
-```scala
+```scala{5}
 abstract class MyList[+A] {
 
 // ... other code omitted for brevity
@@ -255,13 +255,13 @@ abstract class MyList[+A] {
 
 ### FlatMap
 
-Next for the **flatMap** function, this is what it was previously:
+Next for the `flatMap` function, this is what it was previously:
 
 ```scala
 def flatMap[B](transformer: MyTransformer[A, MyList[B]]): MyList[B]
 ```
 
-This will change to **A => MyList\[B]** type:
+This will change to `A => MyList[B]` type:
 
 ```scala
 def flatMap[B](transformer: A => MyList[B]): MyList[B]
@@ -269,13 +269,13 @@ def flatMap[B](transformer: A => MyList[B]): MyList[B]
 
 ### Filter
 
-And for the **filter** method, we had this previously:
+And for the `filter` method, we had this previously:
 
 ```scala
 def filter(predicate: MyPredicate[A]): MyList[A]
 ```
 
-This will become **A => Boolean** , because it returns a Boolean:
+This will become `A => Boolean` , because it returns a Boolean:
 
 ```scala
 def filter(predicate: A => Boolean): MyList[A]
@@ -285,9 +285,9 @@ def filter(predicate: A => Boolean): MyList[A]
 
 ### Map
 
-Next for the **map** in the **Empty** object, this was previously how it looked:
+Next for the `map` in the `Empty` object, this was previously how it looked:
 
-```scala
+```scala{5}
 case object Empty extends MyList[Nothing] {
 
   // ... other code omitted for brevity
@@ -298,7 +298,7 @@ case object Empty extends MyList[Nothing] {
 
 This will become:
 
-```scala
+```scala{5}
 case object Empty extends MyList[Nothing] {
 
   // ... other code omitted for brevity
@@ -309,7 +309,7 @@ case object Empty extends MyList[Nothing] {
 
 ### FlatMap
 
-Next for the **flatMap**, we previously had:
+Next for the `flatMap`, we previously had:
 
 ```scala
 def flatMap[B](transformer: MyTransformer[Nothing, MyList[B]]): MyList[B] = Empty
@@ -323,7 +323,7 @@ def flatMap[B](transformer: Nothing => MyList[B]): MyList[B] = Empty
 
 ### Filter
 
-And for the **filter**, we previously had:
+And for the `filter`, we previously had:
 
 ```scala
 def filter(predicate: MyPredicate[Nothing]): MyList[Nothing] = Empty
@@ -339,9 +339,9 @@ def filter(predicate: Nothing => Boolean): MyList[Nothing] = Empty
 
 ### Filter
 
-Going down into the Cons class. Previously our **filter** looked like this:
+Going down into the Cons class. Previously our `filter` looked like this:
 
-```scala
+```scala{5-8}
 case class Cons[+A](h: A, t: MyList[A]) extends MyList[A] {
 
   // ... other code omitted for brevity
@@ -353,9 +353,9 @@ case class Cons[+A](h: A, t: MyList[A]) extends MyList[A] {
 }
 ```
 
-In the method, the _predicate_ will become type **(A => Boolean)**. The _predicate.test_ method doesn't make sense anymore. Instead we can call **predicate.apply(h)**, or simply **predicate** with the the apply omitted. This is because we can call **predicate** like a function:
+In the method, the `predicate` will become type `(A => Boolean)`. The `predicate.test` method doesn't make sense anymore. Instead we can call `predicate.apply(h)`, or simply `predicate` with the the apply omitted. This is because we can call `predicate` like a function:
 
-```scala
+```scala{5-8}
 case class Cons[+A](h: A, t: MyList[A]) extends MyList[A] {
 
   // ... other code omitted for brevity
@@ -369,7 +369,7 @@ case class Cons[+A](h: A, t: MyList[A]) extends MyList[A] {
 
 ### Map
 
-Going down the codebase, next is the **map** function:
+Going down the codebase, next is the `map` function:
 
 ```scala
 def map[B](transformer: MyTransformer[A, B]): MyList[B] = {
@@ -377,7 +377,7 @@ def map[B](transformer: MyTransformer[A, B]): MyList[B] = {
 }
 ```
 
-The _transformer_ method will become an **(A => B)** type. And for the **transform** method that no longer exists, we can call the **apply** method or simply omit apply and just call **transformer** like a function:
+The `transformer` method will become an `(A => B)` type. And for the `transform` method that no longer exists, we can call the `apply` method or simply omit apply and just call `transformer` like a function:
 
 ```scala
 def map[B](transformer: A => B): MyList[B] = {
@@ -387,7 +387,7 @@ def map[B](transformer: A => B): MyList[B] = {
 
 ### FlatMap
 
-Finally for **flatMap**, this was previously the implementation:
+Finally for `flatMap`, this was previously the implementation:
 
 ```scala
 def flatMap[B](transformer: MyTransformer[A, MyList[B]]): MyList[B] = {
@@ -405,9 +405,9 @@ def flatMap[B](transformer: A => MyList[B]): MyList[B] = {
 
 ## Updating the ListTest object
 
-Going down to the tests in **ListTest**, we were previously instantiating _MyTransformer_ and _MyPredicate_, i.e.:
+Going down to the tests in `ListTest`, we were previously instantiating _MyTransformer_ and _MyPredicate_, i.e.:
 
-```scala
+```scala{7-9}
 object ListTest extends App {
 
   // ... other code omitted for brevity
@@ -420,9 +420,9 @@ object ListTest extends App {
 }
 ```
 
-We can replace this simply with **Function1**, i.e.:
+We can replace this simply with `Function1`, i.e.:
 
-```scala
+```scala{7}
 object ListTest extends App {
 
   // ... other code omitted for brevity
@@ -435,9 +435,9 @@ object ListTest extends App {
 }
 ```
 
-We also replace the method names that we were overwriting to always be **apply**.
+We also replace the method names that we were overwriting to always be `apply`.
 
-The next test that used **MyPredicate** was this:
+The next test that used `MyPredicate` was this:
 
 ```scala
 println(listOfIntegers.filter(new MyPredicate[Int] {
@@ -453,7 +453,7 @@ println(listOfIntegers.filter(new Function1[Int, Boolean] {
 })).toString
 ```
 
-Finally, we were previously using **MyTransformer**:
+Finally, we were previously using `MyTransformer`:
 
 ```scala
 println(listOfIntegers.flatMap(new MyTransformer[Int, MyList[Int]] {
@@ -471,11 +471,11 @@ println(listOfIntegers4.flatMap(new Function1[Int, MyList[Int]] {
 
 # Higher Order Functions
 
-Functions are now being used as _First class values_ in the MyList application. We can now say that **map, flatMap and filter** are _Higher Order Functions_. [Higher order functions](https://docs.scala-lang.org/tour/higher-order-functions.html) either receive functions as parameters or return other functions as result. Higher order functions are critical to functional programming, because functions are used as **first class citizens**.
+Functions are now being used as _First class values_ in the MyList application. We can now say that `map`, `flatMap` and `filter` are _Higher Order Functions_. [Higher order functions](https://docs.scala-lang.org/tour/higher-order-functions.html) either receive functions as parameters or return other functions as result. Higher order functions are critical to functional programming, because functions are used as **first class citizens**.
 
 To explore this further, let's define a function that takes an int and returns another function that takes an int and returns an int.
 
-First we need to decide what type this function is going to take. The type is going to be **Function1** that takes an Int, and the return type is going to be _another_ Function1 that takes an int and this time returns an int. So the type is **Function1[Int, Function1[Int, Int]]**. This is what the final function looks like:
+First we need to decide what type this function is going to take. The type is going to be `Function1` that takes an Int, and the return type is going to be _another_ `Function1` that takes an Int and this time returns an Int. So the type is `Function1[Int, Function1[Int, Int]]`. This is what the final function looks like:
 
 ```scala
 val superAdder: Function1[Int, Function1[Int, Int]] = new Function1[Int, Function1[Int, Int]] {
@@ -487,36 +487,36 @@ val superAdder: Function1[Int, Function1[Int, Int]] = new Function1[Int, Functio
 
 Let's go through the workings inside the function:
 
-- The first **apply** method takes an int, lets say x, and returns Function1[Int, Int]
-- So because the return type is Function1 with Int and Int, it will return a **new** Function1 with Int and Int
-- Going down, the second **apply** will take an int, that we will call y of type Int, and it returns an Int
-- The implementation isn't that important for this example, but we are just adding the numbers x and y
+- The first `apply` method takes an Int, lets say x, and returns `Function1[Int, Int]`
+- So because the return type is `Function1` with Int and Int, it will return a **new** `Function1` with Int and Int
+- Going down, the second `apply` will take an Int, that we will call `y` of type Int, and it returns an Int
+- The implementation isn't that important for this example, but we are just adding the numbers `x` and `y`
 
-Because x is defined in the upper function, x is visible inside the function implementation below.
+Because `x` is defined in the upper function, `x` is visible inside the function implementation below.
 
-Let's use this _superAdder_ function. We declare a val adder3 , and we call superAdder(3) for it:
+Let's use this `superAdder` function. We declare a `val adder3` , and we call `superAdder(3)` for it:
 
 ```scala
 val adder3 = superAdder(3)
 ```
 
-Now **adder3** is a new function, the type is (Int => Int) - i.e. Function1[Int, Int]
+Now `adder3` is a new function, the type is `(Int => Int)` - i.e. `Function1[Int, Int]`
 
-If we println adder3, with a parameter 4:
+If we println `adder3`, with a parameter `4`:
 
 ```scala
 println(adder3(4))
 ```
 
-This will return 7. This is because the implementation of adder 3 is:
+This will return `7`. This is because the implementation of `adder3` is:
 
 ```scala
 override def apply(y: Int): Int = x + y
 ```
 
-Which adds x (in this case 3) passed to **superAdder** before, and y which is the actual parameter.
+Which adds `x` (in this case 3) passed to `superAdder` before, and `y` which is the actual parameter.
 
-In the same fashion, we can write **superAdder** with parameter 3 and then applied straight away with parameter 4:
+In the same fashion, we can write `superAdder` with parameter `3` and then applied straight away with parameter `4`:
 
 ```scala
 println(superAdder(3)(4))
@@ -524,11 +524,11 @@ println(superAdder(3)(4))
 
 # Curried Functions
 
-So **superAdder** with parameter 3 returns a Function1, and then we can call that with parameter 4.
+So `superAdder` with parameter `3` returns a `Function1`, and then we can call that with parameter `4`.
 
-This superAdder special function is called a **Curried Function**. [Curried functions](https://docs.scala-lang.org/tour/currying.html) have the property that they can be called with multiple parameter lists, just by their mere definition.
+This `superAdder` special function is called a **Curried Function**. [Curried functions](https://docs.scala-lang.org/tour/currying.html) have the property that they can be called with multiple parameter lists, just by their mere definition.
 
-A curried function actually receives some kind of parameter and returns _another_ function that receives parameters. In this case, **superAdder** can be called with multiple parameter lists to get to the final result.
+A curried function actually receives some kind of parameter and returns _another_ function that receives parameters. In this case, `superAdder` can be called with multiple parameter lists to get to the final result.
 
 **Curried functions** and **higher order functions** will be showcased more in upcoming blog posts in this series.
 

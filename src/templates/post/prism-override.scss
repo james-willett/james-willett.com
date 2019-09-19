@@ -58,10 +58,12 @@
 
 /* Format the inline code */
 code {
-  background-color: #000000;
+  background-color: #37384b;
   color: #f8f8f2;
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-  padding: 0.1em;
+  padding: 0.2em;
+  padding-left: 0.3em;
+  padding-right: 0.3em;
   border-radius: 0.3em;
   white-space: normal;
 }
