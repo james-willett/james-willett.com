@@ -7,6 +7,7 @@ image: ./what-function-cover.png
 summary: In this the first post in our series on Function Programming in Scala, we take a deeper look at Functions and introduce Scala's Function Types
 category: Scala
 prev: scala-functional-programming-overview
+next: scala-anonymous-functions
 ---
 
 # TLDR;
