@@ -11,7 +11,7 @@ prev: scala-function-types
 
 # TLDR;
 
-The problem with **function types** is that they are cumbersome and still heavily _object oriented_. Instead, we can use **lambda functions** - `(x, y) => x + y`.
+The problem with **function types** is that they are cumbersome and still heavily _object oriented_. Instead, we can use **lambda functions** - `scala±(x, y) => x + y`.
 
 The anatomy of a lambda looks like this:
 
@@ -19,8 +19,8 @@ The anatomy of a lambda looks like this:
 val lambdaFunction = (name: String, age: Int) => name + " is " + age + " years old"
 ```
 
-- First you have the parameters - `(name: String, age: Int)` - each parameter has a **name** and a **type**
-- Then the implementation `name + " is " + age + " years old"` - which is a single expression
+- First you have the parameters - `scala±(name: String, age: Int)` - each parameter has a **name** and a **type**
+- Then the implementation `scala±name + " is " + age + " years old"` - which is a single expression
 - The return type is always inferred
 - And the parentheses for the parameters are mandatory if there is more than one parameter
 - This is heavy syntactic sugar for instantiating anonymous `FunctionX` types
@@ -45,7 +45,7 @@ val doubler = new Function1[Int, Int] {
 }
 ```
 
-This function simply doubles an Int. To implement it, we need to create a new `Function1[Int, Int]` and then `override def apply` and return `x * 2`. This is quite long winded. It follows the objected oriented approach of defining an _anonymous function_ and instantiating it on the spot.
+This function simply doubles an Int. To implement it, we need to create a new `scala±Function1[Int, Int]` and then `scala±override def apply` and return `scala±x * 2`. This is quite long winded. It follows the objected oriented approach of defining an _anonymous function_ and instantiating it on the spot.
 
 # Lambda Functions
 
@@ -55,23 +55,23 @@ In Scala, we can do all of the above like this (this is the exact equivalent of 
 val doubler = (x: Int) => x * 2
 ```
 
-It instantiates a new `Function1`, with the `override def apply` which takes an Int `x`, and returns `x * 2`.
+It instantiates a new `Function1`, with the `scala±override def apply` which takes an Int `x`, and returns `scala±x * 2`.
 
 This is syntactic sugar for the _function type_ code. It is called an _anonymous function_, or a **lambda**.
 
-The lambda is a value which is an instance of `Function1`. The type of our `val doubler` we can see in the IDE by hovering over it is `Int => Int`. So we could actually explicitly declare it as such:
+The lambda is a value which is an instance of `Function1`. The type of our `scala±val doubler` we can see in the IDE by hovering over it is `scala±Int => Int`. So we could actually explicitly declare it as such:
 
 ```scala
 val doubler: Int => Int = (x: Int) => x * 2
 ```
 
-Given that we have declared `doubler` as the type `Int => Int` we can actually remove the `(x: Int)`, and let it be matched by the compiler:
+Given that we have declared `doubler` as the type `scala±Int => Int` we can actually remove the `scala±(x: Int)`, and let it be matched by the compiler:
 
 ```scala
 val doubler: Int => Int = x => x * 2
 ```
 
-If the compiler already knows that doubler should be an `Int => Int` , it will assume that the expression will match the types. So `x` will be an Int, and the return value will be `x * 2` , and all the types will match.
+If the compiler already knows that doubler should be an `scala±Int => Int` , it will assume that the expression will match the types. So `x` will be an Int, and the return value will be `scala±x * 2` , and all the types will match.
 
 ## Lambda Functions with Multiple Parameters
 
@@ -81,23 +81,23 @@ What happens if you have multiple parameters in a lambda? Say we had a val calle
 val adder: (Int, Int) => Int = (a: Int, b: Int) => a + b
 ```
 
-Notice that we must put the `(Int, Int)` in between parentheses. When we had a single parameter (as before) we didn't need to do that, but for multiple parameters we do.
+Notice that we must put the `scala±(Int, Int)` in between parentheses. When we had a single parameter (as before) we didn't need to do that, but for multiple parameters we do.
 
 We could also omit the type of the `adder` function, and let the compiler infer it for us:
 
 ```scala
-val adder1 = (a: Int, b: Int) => a + b
+val adder = (a: Int, b: Int) => a + b
 ```
 
 ## Lambda Functions with no Parameters
 
-What about if we have no parameters? The syntax for a no param lambda is `() =>` and the value that you want to return (e.g 3):
+What about if we have no parameters? The syntax for a no param lambda is `scala±() =>` and the value that you want to return (e.g 3):
 
 ```scala
 val justDoSomething = () => 3
 ```
 
-The type of this lambda is `() => Int` - we could pass that to the compiler if we so choose:
+The type of this lambda is `scala±() => Int` - we could pass that to the compiler if we so choose:
 
 ```scala
 val justDoSomething: () => Int = () => 3
@@ -126,11 +126,11 @@ val stringToInt = { (str: String) =>
 }
 ```
 
-At the level of the open curly brace we put `(str: String) =>` , and right below we put the implementation of the lambda.
+At the level of the open curly brace we put `scala±(str: String) =>` , and right below we put the implementation of the lambda.
 
 ## Syntactic Sugar for Lambdas with Underscore (\_)
 
-Lets look at more syntactic sugar. Say we had a function of type `Int => Int`, which just increments the parameter. Normally we would write something like `(x: Int) => x + 1`, for example:
+Lets look at more syntactic sugar. Say we had a function of type `scala±Int => Int`, which just increments the parameter. Normally we would write something like `scala±(x: Int) => x + 1`, for example:
 
 ```scala
 val niceIncrementer: Int => Int = (x: Int) => x + 1
@@ -142,7 +142,7 @@ An even shorter way to write the above is:
 val niceIncrementer: Int => Int = _ + 1
 ```
 
-The above is equivalent to `x => x + 1`.
+The above is equivalent to `scala±x => x + 1`.
 
 Or if you had a two parameter function like this:
 
@@ -156,7 +156,7 @@ Instead of the above, this could be rewritten as:
 val niceAdder: (Int, Int) => Int = _ + _
 ```
 
-Where each of the underscores are a _different_ parameter. This is equivalent to `(a,b) => a + b`.
+Where each of the underscores are a _different_ parameter. This is equivalent to `scala±(a,b) => a + b`.
 
 This notation is extremely useful in practice when you want to chain higher order function calls.
 
@@ -252,7 +252,7 @@ Rewritten in a lambda, it looks like this:
 val superAdder = (x: Int) => (y: Int) => x + y
 ```
 
-So this reads as '(x: Int)' then arrow and this pipes into another function, then `(y: Int)`, and finally arrow into the implementation `x + y`.
+So this reads as `scala±(x: Int)` then arrow and this pipes into another function, then `scala±(y: Int)`, and finally arrow into the implementation `scala±x + y`.
 
 This is the lambda version of the curried function. This is a much more eloquent and shorter way to write it.
 

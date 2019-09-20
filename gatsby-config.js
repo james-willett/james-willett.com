@@ -70,7 +70,11 @@ module.exports = {
           {
             resolve: 'gatsby-remark-prismjs',
             options: {
-              noInlineHighlight: true
+              classPrefix: 'language-',
+              inlineCodeMarker: '±',
+              showLineNumbers: false,
+              noInlineHighlight: false,
+              aliases: {}
             }
           },
           'gatsby-remark-external-links',
