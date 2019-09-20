@@ -114,7 +114,7 @@ The interesting thing, is that Scala supports these function types right out of 
 
 The function types are **Function1, Function2, Function3... up to Function22**.
 
-But for a function with 1 parameter and 1 result, this is called as `Function1[A,B]`. This is the function type which is by default supported in Scala.
+But for a function with 1 parameter and 1 result, this is called as `scala±Function1[A,B]`. This is the function type which is by default supported in Scala.
 
 Let's create another instance of **Function1**, to convert a string into an int:
 
@@ -136,7 +136,7 @@ println(stringToIntConverter("3") + 4) // will return 7
 
 As mentioned previously, Scala supports these function types up to **22 parameters**.
 
-So for example, say we had a function called `adder` that takes two Ints and returns an Int. That would be a `Function2[Int, Int, Int]`. Two Ints for the parameter types and the final Int for the result type:
+So for example, say we had a function called `adder` that takes two Ints and returns an Int. That would be a `scala±Function2[Int, Int, Int]`. Two Ints for the parameter types and the final Int for the result type:
 
 ```scala
 val adder = new Function2[Int, Int, Int] {
@@ -148,7 +148,7 @@ The apply method takes two parameters, `a` and `b`, both Int. And the return typ
 
 ## Function Types Syntactic Sugar
 
-If you hover over the `adder` val in the IDE, you can see the type is `(Int, Int) => Int`.
+If you hover over the `adder` val in the IDE, you can see the type is `scala±(Int, Int) => Int`.
 
 ![Hover over the adder function to see the return type](./adderFunction.png)
 
@@ -170,7 +170,7 @@ val added: ((Int, Int) => Int) = new Function2[Int, Int, Int] {
 }
 ```
 
-So to summarize, if we have a function with two type parameters `A` and `B`, and a result parameter `R`, this would be `Function2[A,B,R]`. With syntactic sugar, we write this as `(A, B) => R`. We will use this annotation a lot more in this blog post series.
+So to summarize, if we have a function with two type parameters `A` and `B`, and a result parameter `R`, this would be `scala±Function2[A,B,R]`. With syntactic sugar, we write this as `scala±(A, B) => R`. We will use this annotation a lot more in this blog post series.
 
 ## But all Scala Functions are Objects!
 
@@ -190,9 +190,9 @@ def concatenator: (String, String) => String = new Function2[String, String, Str
 }
 ```
 
-Talking through the above in order, we first create a function `concatenator`, which is of type `(String, String => String)` - i.e. it takes two strings and returns another string. The value is a new `Function2` with three string type parameters.
+Talking through the above in order, we first create a function `concatenator`, which is of type `scala±(String, String => String)` - i.e. it takes two strings and returns another string. The value is a new `Function2` with three string type parameters.
 
-The implementation of the apply method takes two strings `(a, b)` and returns a string. The implementation concatenates them together.
+The implementation of the apply method takes two strings `scala±(a, b)` and returns a string. The implementation concatenates them together.
 
 We can call the `concatenator` simply like so:
 
@@ -222,9 +222,9 @@ trait MyTransformer[-A, B] {
 
 The **MyPredicate** and **MyTransformer** traits are basically function types.
 
-_MyPredicate_ is a function type from T to Boolean - `(T => Boolean)`.
+_MyPredicate_ is a function type from T to Boolean - `scala±(T => Boolean)`.
 
-_MyTransformer_ is a function type from `(A => B)`.
+_MyTransformer_ is a function type from `scala±(A => B)`.
 
 Now that we know about function types, we don't actually need these traits anymore. So we can delete them from the code altogether. Of course when we do that, a bunch of things in our MyList application will now not compile, so lets go through and fix the errors.
 
@@ -243,7 +243,7 @@ abstract class MyList[+A] {
 }
 ```
 
-We can fix this by changing the `transformer` to a `Function1[A, B]` ... or to `(A => B)` type:
+We can fix this by changing the `transformer` to a `scala±Function1[A, B]` ... or to `scala±(A => B)` type:
 
 ```scala{5}
 abstract class MyList[+A] {
@@ -262,7 +262,7 @@ Next for the `flatMap` function, this is what it was previously:
 def flatMap[B](transformer: MyTransformer[A, MyList[B]]): MyList[B]
 ```
 
-This will change to `A => MyList[B]` type:
+This will change to `scala±A => MyList[B]` type:
 
 ```scala
 def flatMap[B](transformer: A => MyList[B]): MyList[B]
@@ -276,7 +276,7 @@ And for the `filter` method, we had this previously:
 def filter(predicate: MyPredicate[A]): MyList[A]
 ```
 
-This will become `A => Boolean` , because it returns a Boolean:
+This will become `scala±A => Boolean` , because it returns a Boolean:
 
 ```scala
 def filter(predicate: A => Boolean): MyList[A]
@@ -354,7 +354,7 @@ case class Cons[+A](h: A, t: MyList[A]) extends MyList[A] {
 }
 ```
 
-In the method, the `predicate` will become type `(A => Boolean)`. The `predicate.test` method doesn't make sense anymore. Instead we can call `predicate.apply(h)`, or simply `predicate` with the the apply omitted. This is because we can call `predicate` like a function:
+In the method, the `predicate` will become type `scala±(A => Boolean)`. The `scala±predicate.test` method doesn't make sense anymore. Instead we can call `scala±predicate.apply(h)`, or simply `predicate` with the the apply omitted. This is because we can call `predicate` like a function:
 
 ```scala{5-8}
 case class Cons[+A](h: A, t: MyList[A]) extends MyList[A] {
@@ -378,7 +378,7 @@ def map[B](transformer: MyTransformer[A, B]): MyList[B] = {
 }
 ```
 
-The `transformer` method will become an `(A => B)` type. And for the `transform` method that no longer exists, we can call the `apply` method or simply omit apply and just call `transformer` like a function:
+The `transformer` method will become an `scala±(A => B)` type. And for the `transform` method that no longer exists, we can call the `apply` method or simply omit apply and just call `transformer` like a function:
 
 ```scala
 def map[B](transformer: A => B): MyList[B] = {
@@ -476,7 +476,7 @@ Functions are now being used as _First class values_ in the MyList application. 
 
 To explore this further, let's define a function that takes an int and returns another function that takes an int and returns an int.
 
-First we need to decide what type this function is going to take. The type is going to be `Function1` that takes an Int, and the return type is going to be _another_ `Function1` that takes an Int and this time returns an Int. So the type is `Function1[Int, Function1[Int, Int]]`. This is what the final function looks like:
+First we need to decide what type this function is going to take. The type is going to be `Function1` that takes an Int, and the return type is going to be _another_ `Function1` that takes an Int and this time returns an Int. So the type is `scala±Function1[Int, Function1[Int, Int]]`. This is what the final function looks like:
 
 ```scala
 val superAdder: Function1[Int, Function1[Int, Int]] = new Function1[Int, Function1[Int, Int]] {
@@ -488,20 +488,20 @@ val superAdder: Function1[Int, Function1[Int, Int]] = new Function1[Int, Functio
 
 Let's go through the workings inside the function:
 
-- The first `apply` method takes an Int, lets say x, and returns `Function1[Int, Int]`
+- The first `apply` method takes an Int, lets say x, and returns `scala±Function1[Int, Int]`
 - So because the return type is `Function1` with Int and Int, it will return a **new** `Function1` with Int and Int
 - Going down, the second `apply` will take an Int, that we will call `y` of type Int, and it returns an Int
 - The implementation isn't that important for this example, but we are just adding the numbers `x` and `y`
 
 Because `x` is defined in the upper function, `x` is visible inside the function implementation below.
 
-Let's use this `superAdder` function. We declare a `val adder3` , and we call `superAdder(3)` for it:
+Let's use this `superAdder` function. We declare a `scala±val adder3` , and we call `scala±superAdder(3)` for it:
 
 ```scala
 val adder3 = superAdder(3)
 ```
 
-Now `adder3` is a new function, the type is `(Int => Int)` - i.e. `Function1[Int, Int]`
+Now `adder3` is a new function, the type is `scala±(Int => Int)` - i.e. `scala±Function1[Int, Int]`
 
 If we println `adder3`, with a parameter `4`:
 
