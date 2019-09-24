@@ -10,6 +10,9 @@ prev: scala-functional-programming-overview
 next: scala-anonymous-functions
 ---
 
+[[info]]
+| This post is **part 1** of the _Functional Programming in Scala_ series. You can view [all the posts in the series](../blog/scala_fp_series) here.
+
 # TLDR;
 
 The objective with functional programming is to use functions as **first class elements**. We want to be able to pass functions as _parameters_, or return functions as _values_ in results. Essentially, **we want to work with functions as we would work with any other kind of values.**

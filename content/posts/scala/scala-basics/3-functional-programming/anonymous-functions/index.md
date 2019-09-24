@@ -9,6 +9,9 @@ category: Scala
 prev: scala-function-types
 ---
 
+[[info]]
+| This post is **part 2** of the _Functional Programming in Scala_ series. You can view [all the posts in the series](../blog/scala_fp_series) here.
+
 # TLDR;
 
 The problem with **function types** is that they are cumbersome and still heavily _object oriented_. Instead, we can use **lambda functions** - `scala±(x, y) => x + y`.
