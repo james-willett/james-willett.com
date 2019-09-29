@@ -7,6 +7,7 @@ image: ./anonymous-functions-cover.png
 summary: We already learned about anonymous classes in a previous blog post. In this post, we learn about anonymous functions in Scala
 category: Scala
 prev: scala-function-types
+next: scala-higher-order-functions
 ---
 
 [[info]]
