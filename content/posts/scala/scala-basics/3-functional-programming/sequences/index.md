@@ -7,6 +7,7 @@ image: ./sequences-cover.png
 summary: A Sequence in Scala programming is a very general interface for data structures that has certain properties. We will explore them in this blog post
 category: Scala
 prev: scala-map-flatmap-filter
+next: scala-tuples-maps
 ---
 
 [[info]]
