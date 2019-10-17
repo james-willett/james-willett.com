@@ -7,6 +7,7 @@ image: ./tuples-maps-cover.png
 summary: In this blog post we will explore the relationship between Tuples and Maps, and how they can assist us with functional programming in Scala
 category: Scala
 prev: scala-sequences
+next: scala-options
 ---
 
 [[info]]
