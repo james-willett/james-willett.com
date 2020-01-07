@@ -58,7 +58,7 @@ export default function homepage({ data }) {
 export const query = graphql`
   {
     allMarkdownRemark(
-      limit: 6
+      limit: 20
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       posts: edges {
