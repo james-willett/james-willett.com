@@ -58,6 +58,9 @@ jspm_packages/
 .cache/
 public
 
+# metals
+.metals/
+
 # Mac files
 .DS_Store
 
