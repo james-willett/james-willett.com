@@ -26,6 +26,13 @@ module.exports = {
         path: `${__dirname}/src/data`
       }
     },
+    {
+      resolve: `gatsby-plugin-linkedin-insight`,
+      options: {
+        partnerId: `1855105`,
+        includeInDevelopment: false
+      }
+    },
     'gatsby-plugin-svgr',
     {
       resolve: 'gatsby-source-filesystem',

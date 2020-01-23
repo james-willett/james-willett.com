@@ -24,6 +24,7 @@
     "gatsby-plugin-feed": "^2.2.2",
     "gatsby-plugin-google-analytics": "^2.1.12",
     "gatsby-plugin-less": "^3.0.2",
+    "gatsby-plugin-linkedin-insight": "^1.0.1",
     "gatsby-plugin-manifest": "^2.1.1",
     "gatsby-plugin-offline": "^2.2.10",
     "gatsby-plugin-playground": "^1.0.6",
