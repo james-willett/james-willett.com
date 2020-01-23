@@ -8,9 +8,6 @@ image: ./qa-goals-cover.png
 category: Articles
 ---
 
-[[info]]
-| I originally wrote this post back in late 2015. Five years have passed, so I decided to give it an update - incorporating some of the experiences I’ve obtained in the past few years.
-
 Coming up with new objectives is **hard**. Absolutely no doubt about it. You know it. I know it.
 
 With all too regularity, you have to come up with _balanced, nuanced and interesting_ objectives that meet both your developmental and career aspirational needs.
@@ -37,174 +34,80 @@ This is a big part of the reason I wrote a book about setting quality, compellin
 
 The focus of the book is on **QA engineers**, as for some reason coming up with those objectives can _seem_ even harder. The truth is, _the typical QA engineer has a diverse range of skills_ (beyond just technical) which **actually increases the range of objectives** they can be set!
 
-But back to this post, and ill discuss a few of the objectives that I have been assigned in my career, and how they have impacted me.
+But back to this post, and let's look at a few things to bare in mind when setting new objectives:
 
-All of the objectives below follow the [SMART](https://www.mindtools.com/pages/article/smart-goals.htm) criteria.
+# Setting (Good) Objectives is not easy!
 
-![SMART Criteria](./SMART-goals.jpg)
+Writing good objectives is NOT easy. Whether you are coming up with them for yourself, or for someone else.
 
-Hopefully, you can draw inspiration from these objectives below!
+If you are anything like me, you probably won’t be able to just sit down and dash off a list of meaningful objectives in a 10 minute session. It will more likely require you to think at length and in depth about what the objectives should be, and how you are going to actually complete whatever it is you are committing to. By the way, if you CAN come up with the objectives quickly and easily, kindly fill me in on your approach!
 
----
+![Mindmap of goals](./mindmap.jpg)
 
-# Objective 1 - Create a Promotional Video
+In my younger (and more naive) days, I really couldn’t see the point of objectives.
 
-## Background
+However, with age comes experience, and I'm now finding out just how important **good objectives** are.
 
-_Creating my first promotional video changed my life_. I know it sounds crazy to say that, but it’s true.
+So I decided to do some digging, and see if I could find out how to define and set proper objectives, particularly for someone working in Software Testing.
 
-I was a year or so into working at a software test consultancy in London, SQS (now [Expelo](https://expleogroup.com/)). I had just finished a major load testing performance assignment, and I had learned a few new interesting tricks and techniques from the project.
+# Everyone (Mostly…) Hates it!
 
-I thought - _“why not showcase a few of these tips?”_
+From my research, I soon discovered that **setting objectives is a universal pain felt by most people** in most industries, not least in development and even more so in testing.
 
-![Screencasting high angle photo](./screencasting3.png)
+I mean, if you think about it, _testing is such an intellectual activity, how do you really measure that?_ I saw a great quote on a forum whilst I was looking for inspiration that sums it up nicely. When Louis Armstrong was asked '_what makes good Jazz?_' He said:
 
-Right away, I began going through the SMART criteria:
+> “I don’t know, but I know it when I hear it” .
 
-## SMART Criteria
+You could say the same thing when it comes to testing:
 
-### Specific
+> “I don’t know what makes good testing, but I know it when I see it“.
 
-I knew exactly what I needed to do for the goal. Create a promotional video that showcased a performance enhancement within the code of a recently completed project.
+It’s going to be tough to come up with solid objectives for a tester then... I already knew that!
 
-### Measurable
+Some more useful advice I found was to make your objectives SMART. You have probably heard this before, and although it is classic corporate / management speak, it is a good thing to bare in mind with objective setting. A SMART objective is:
 
-Simple to measure - in the sense that either the video is either created or not!
+- **S**pecific
+- **M**easurable
+- **A**ttainable
+- **R**elevant
+- **T**ime-bound
 
-### Achievable
+I am not going to bother going into each of the above, you can probably get an idea just from the words what each one means and how they relate to good objectives. If you want to look into it further, have a look at [SMART objectives on Wikipedia](https://en.wikipedia.org/wiki/SMART_criteria) or Google it.
 
-Although I felt this goal would be a lot of work for me (..._I had to learn video content creation practically from scratch_...), I knew that it was something that I had in me.
+# Try and Think Outside the Box
 
-### Realistic
+So back to thinking specifically about QA / Testing objectives. A good approach might be to think about your job from the perspective of your **boss**, and **come up with goals that will improve his job in some way** (even if its only a small improvement).
 
-The process of crafting quality, polished and concise media to teach software development & testing concepts had always interested me. It was something that I was interested in learning more about.
+Is there a project that you could initiate, and take control of the testing? Could you perhaps come up with some new test plan or test strategy for the project, or is there a new tool that you could configure / implement that will help improve the project?
 
-### Timely:
+Remember, the objective has to be **SMART**! You have to have a clear specific goal in mind, that you can clearly demonstrate has been achieved when it comes to your review.
 
-I had a good 3 months to achieve the objective, which I felt was a fair amount of time relative to the scale of the objective being set. If the objective had been set for shorter, I would have felt more nervous about achieving it (given my additional usual “normal “workload !)
+Perhaps there is some laborious process in the team that needs to be completed by certain team members or even your manager, maybe something like sanity checks on an environment every time a new build is deployed, or compiling some daily / weekly bug or status reports, or something similar.
 
-## Outcome
+Can you take this on yourself? Better yet, can you implement an automation approach to this task that would save time for both you are your team?
 
-This objective went better than I could ever have imagined. The video was well-received right across the company. Almost overnight, _I grew a reputation for being able to create video tutorial content_.
+I still find it amazing the number of repetitive processes that can be automated relatively easily by something like Python. A book that was a real eye-opening for me was [AUTOMATE THE BORING STUFF WITH PYTHON](https://automatetheboringstuff.com/) by Al Sweigart …. I highly suggest checking it out, as it might provide you with some great inspiration!
 
-This objective had a **profound** impact on my career. It would lead to the creation of my first online courses, allowing me to teach content all over the web and _begin earning additional income as an online instructor_.
+![Automate Boring Stuff Cover](./Automate_Cover.jpg)
 
----
+# Keep Control of the Outcome!
 
-# Objective 2 - Attend a Training Course and Present back to the Team
+As a QA / tester, when you are coming up with your objectives, you want to make sure that you are in control of the outcome as much as possible (ideally in _total_ control). You don’t really want to be dependent on some other person or team delivering something to you in order for you to do your work to complete the objective.
 
-## Background
+It should be something that you can start working towards straight away, not something that will be put off for a few months. We are all under ridiculous workload pressures at work these days I know, and time to work on objectives can be hard to find.
 
-Back when [HP Loadrunner](https://www.microfocus.com/en-us/products/loadrunner-professional/overview) was a widely used tool, I attended a 4-day performance engineering and training workshop.
+So the earlier that you can start, the better!
 
-With Loadrunner being a widely-used tool within the testing organization I was a part of, I knew that information gathered from the course would be worthwhile presenting back to the team.
+# A Great Objective that Works Pretty Much Everywhere…
 
-I was desperate to attend the training but knew it wouldn’t be cheap. Especially after adding in the usual expenses like accommodation, travel etc.
+A great objective to set is to commit to giving a presentation or a talk on a topic that you either know a lot about, or are interested in learning more. For some reason, I have found that as a QA, setting (and achieving) this objective seems to carry even more weight (than say compared to a regular developer), probably because it is really going above and beyond what is expected of most QAs.
 
-**_I needed a way to justify the cost to my manager._**
+Of course, to produce something of quality is going to take a considerable effort on your part, but the rewards can really be well worth it.
 
-That’s when I came up with this objective. I knew it was a good one, as the **entire team** stood to benefit from it.
+Now if you already know a lot about some relevant topic, then you should be able to give a valuable talk that provides useful content to your peers. If you don’t know much about the topic, then by being committed to having to give the talk then you are virtually guaranteed to learn a lot as you prepare.
 
-![Picture of man presenting](./man-presenting.jpg)
+Either way, both of these tick all of the boxes for a SMART objective, and are also a great way to get your name better known around the company. I am lucky where I am currently, as we hold a weekly “Lunch & Learn session”, where people are encouraged to present, but if you are at a place that doesn’t currently do that, then introduce it! Hey, even that could be a fantastic objective in itself, “Organise weekly / monthly Lunch’N’Learn sessions” where you get some food in, and people give a presentation. If you can’t get anyone to present, then you could all just watch some sort of training video or a talk from an industry leader (think of TED talks)
 
-As usual, I went through the SMART criteria:
+# Further Objective Ideas
 
-## SMART Criteria
-
-### Specific
-
-The goal was specific enough - attend a training course and report back to the team any key findings.
-
-### Measurable
-
-I would attend the workshop and report back to the team in the form of a presentation session.
-
-### Achievable
-
-Knowing that I had to report back to my colleagues with what I had learned, **I was more focussed and committed** in the workshop.
-
-### Realistic
-
-Although I had multiple other engagements happening at the time of the objective, I felt that I could amend my schedule sufficiently so as to accommodate the objective.
-
-### Timely
-
-A timescale of 2 weeks was set from my return to deliver the team presentation. I actually delivered the presentation after 3 days, as the content was fresh in my mind and I wanted to take advantage of that.
-
-## Outcome
-
-I was **distinctly** more alert and attentive whilst at the course, as I knew I needed to prepare a presentation upon my return to the office! I absorbed more of the course content than I otherwise might have done.
-
-The presentation that I gave to my peers was well received, and my manager was delighted with the contribution to the department.
-
-A real win win!
-
----
-
-# Objective 3 - Create a Blog or Website for the team
-
-## Background
-
-To showcase the work and contributions from our team members to the organisation, I was set the objective of creating a blog or website to highlight the team’s work.
-
-I had become interested in front-end development recently, practising with tutorials on sites like [Pluralsight](https://www.pluralsight.com/) and [Udemy](https://www.udemy.com), and was eager to have a project to work on. _This gave me the perfect opportunity._
-
-![Picture of computer with Wordpress](./blogging.jpg)
-
-## SMART Criteria
-
-### Specific
-
-The requirements of the objective were clear and simple, create a website that will host and showcase:
-
-- Key events in our team throughout the year
-- A profile of each team member
-
-I could use any technology that I deemed appropriate - I decided to go with [GatsbyJS](./https://www.gatsbyjs.org/).
-
-### Measurable
-
-There was a tangible measurement criteria to the objective - the creation of the website to host the content as defined in the objective above.
-
-### Achievable
-
-I knew it would be quite a lot of work to learn Front-end development, but a concrete project to practice on would motivate me. I felt that the objective stretched me sufficiently - not too comfortable and not too easy.
-
-### Realistic
-
-As the project wasn’t seen as hugely critical at the time, it felt as if there was less pressure on the outcome. I found this creative freedom helpful, in enabling me to take the time to properly learn JavaScript and other technologies needed for development
-
-### Timely
-
-There was an exact deadline set for the launch of the website. Having a specific date allowed me to work backwards and creating checkpoints/deadlines to map the way to launching the site live.
-
-## Outcome
-
-When I took on this objective, I initially felt somewhat _overwhelmed_. This is when I learned that
-breaking a large and daunting task like launching a website down into smaller chunks is an important process. It clears your mind of holding all the pieces and allows you to easily prioritize what to work on.
-
-![Picture of puzzle](./puzzle.jpg)
-
-You can then simply pick one task, work through it to its conclusion, cross it off and pick the next one.
-
-**Momentum** builds as you tick each task off the list.
-
-If you can start work on things like this as early as possible in the day, momentum can take you through to great things.
-
-The final website I created was admittedly not perfect! But the skills and experience in web development I gained from completing the objective were of the _utmost_ value.
-
-I have gone on to design and build many websites since, each better than the last, and this objective really started me on that journey.
-
-# Summary
-
-Hopefully, you have found the objectives highlighted in these posts useful.
-
-Having objectives like these set have been beneficial to my career development, no doubt about it.
-
-The importance of **good objectives** in the workplace should **never** be underestimated.
-
-They give the engineer an area or idea to focus on.
-
-They give the manager a way to assess performance.
-
-Having the end of year conversation about _bonuses_, _promotions_ and _pay rises_ will always be much smoother knowing that you have tangible evidence of work completed.
+Hopefully this post gave you some inspiration to come up with new QA Objectives. If would like further examples of great objectives for developers and testers, I regularly share awesome new objective ideas with my mailing list.
