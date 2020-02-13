@@ -1,6 +1,6 @@
 ---
 title: 'Load Testing with Gatling - The Complete Guide'
-date: 2020-02-06
+date: 2020-02-13
 tags: [all, gatling]
 slug: gatling-load-testing-complete-guide
 image: ./gatling-complete-cover.png
