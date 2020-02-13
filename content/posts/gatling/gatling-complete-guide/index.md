@@ -8,26 +8,81 @@ summary: This post is a complete guide to load testing with Gatling, from instal
 category: Gatling
 ---
 
+[[info]]
+| This post is a complete, detailed and exhaustive guide to proficiently using Gatling for load testing. Also check out my [Gatling Video Tutorials on YouTube](https://www.youtube.com/channel/UCWznCtwNQeqrgZUSWss4XJw), where I explain these concepts in further detail.
+
 # Overview
 
-Need to do some load testing of your HTTP server? Gatling is a great tool for the job! This post is a complete, detailed and exhaustive guide to proficiently using Gatling for load testing.
+Need to do some load testing of your HTTP application server? Gatling is a great tool for the job!
 
-No idea what Gatling is? Check out my [Gatling Introduction](./gatling-introduction) post first.
+No idea what Gatling is? Check out my [Gatling Introduction](./gatling-introduction) post first. But to summarise:
 
-<TODO - put in a summary from the link about>
+- Gatling is an open-source load testing tool written purely in [Scala](https://www.scala-lang.org/) code
+- The straightforward and expressive DSL that Gatling offers makes it simple to write load testing scripts.
+- It doesn't contain a GUI (like say [JMeter](http://jmeter.apache.org/)), although it does ship with a GUI to assist with recording scripts
+- It can run a _huge_ amount of traffic on a single computer, eliminating the need for complex distributed testing infrastructure
+- The Gatling code check be checked into a version control system, and easily used with Continuous Integration tools to run load and performance tests as part of your CI build.
 
-Content of this blog post: TODO
-https://stackoverflow.com/questions/11948245/markdown-to-create-pages-and-table-of-contents
-https://gist.github.com/jonschlinkert/ac5d8122bfaaa394f896#sub-sub-heading
+## What is Performance Testing?
 
-- Heading 1
-- Heading 2
+Before we begin, let's give a lighting quick explaination of _performance testing_.
 
-# Performance Testing
+_Performance testing_ is testing that you execute when you want to see how your system handles varying levels of throughput and traffic.
 
-<Todo - given an intro to performance testing, get some content from here: https://blog.pragmatists.com/load-testing-with-gatling-io-2a128fccfb3e>
+An application will often work fine when there are only handful of users active. When the number of users suddenly rises, performance problems occur. Performance testing aims to reveal (and ultimately resolve) those potential problems.
 
-# Installation
+There are a few different types of performance testing, such as:
+
+- **Load Testing** - Testing a system with a predefined volume of users and traffic (throughput)
+- **Stress Testing** - Putting a system under an ever increasing amount of load, to find the "breakpoint"
+- **Soak Testing** - Putting a steady rate of traffic through a system for a longer period, to identify bottlenecks
+
+Gatling is proficient in all these types of performance testing.
+
+Some of the metrics that you can expect to gain from performance testing are:
+
+- **Transaction Response Times** - how long the server takes to respond to a request
+- **Throughput** - the number of transactions that can be handled over a period
+- **Errors** - error messages that begin to appear at certain points of the load test (such as timeouts)
+
+# Post Contents
+
+This is an exhaustive post, divided into several sections.
+
+If you are new to Gatling, I would recommend following through each of the sections in order. Or if you already have some experienced, I have designed the content that you can jump to any section and find the information you are looking for.
+
+1. [Installation of Gatling from Website Download](#1-installation-of-gatling-from-website-download)
+2. [Gatling Recorder](#2-gatling-recorder)
+   - 2.1 [Generate HAR File](#21-generate-har-file)
+3. [Gatling Project Setup](#3-gatling-project-setup)
+   - 3.1 [Choose an IDE for Gatling Load Test Script Development](#31-choose-an-ide-for-gatling-load-test-script-development)
+   - 3.2 [Choose your Build Tool for Gatling](#32-choose-your-build-tool-for-gatling)
+   - 3.3 [Create Gatling Project with Maven Archetype](#33-create-gatling-project-with-maven-archetype)
+   - 3.4 [Add a Sample Gatling Script](#34-add-a-sample-gatling-script)
+4. [The Application Under Test - The Video Game DB](#4-the-application-under-test---the-video-game-db)
+5. [Fundamentals of Gatling Scripting](#5-fundamentals-of-gatling-scripting)
+   - 5.1 [Basic Makeup of a Gatling Script](#51-basic-makeup-of-a-gatling-script)
+   - 5.2 [Pause Time and Check Response Codes](#52-pause-time-and-check-response-codes)
+   - 5.3 [Correlation in Gatling with the Check API](#53-correlation-in-gatling-with-the-check-api)
+   - 5.4 [Code Reuse in Gatling with Methods & Looping Calls](#54-code-reuse-in-gatling-with-methods--looping-calls)
+6. [Gatling Feeders - for Test Data](#6-gatling-feeders---for-test-data)
+   - 6.1 [CSV Feeders](#61-csv-feeders)
+   - 6.2 [Custom Feeders](#62-custom-feeders)
+7. [Gatling Load Simulation Design](#7-gatling-load-simulation-design)
+   - 7.1 [Basic Load Simulation](#71-basic-load-simulation)
+   - 7.2 [Ramp Users Load Simulation](#72-ramp-users-load-simulation)
+   - 7.3 [Fixed Duration Load Simulation](#73-fixed-duration-load-simulation)
+8. [Running Gatling from the Command Line](#8-running-gatling-from-the-command-line)
+   - 8.1 [Adding Assertions to our Gatling Scenario](#81-adding-assertions-to-our-gatling-scenario)
+   - 8.2 [Specify Command Line Parameters for Gatling Scenarios](#82-specify-command-line-parameters-for-gatling-scenarios)
+9. [Gatling Results Analysis](#9-gatling-results-analysis)
+10. [Summary & Next Steps](#10-summary--next-steps)
+
+## Source Code
+
+You can find all the source code from this blog post on my [Github Repo](https://github.com/james-willett/Gatling-Complete-Guide-Blog).
+
+# 1. Installation of Gatling from Website Download
 
 Before you do anything, make sure that you have the [JDK8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (or newer installed). If you need help with this, check out this guide on [Installing the JDK](https://www3.ntu.edu.sg/home/ehchua/programming/howto/JDK_Howto.html).
 
@@ -48,7 +103,7 @@ Press **0** to choose the `computerdatabase.BasicSimulation`. You will be asked 
 
 Gatling will go ahead and run the script that you choose - which executes a basic load test against the [Gatling computer database training site](http://computer-database.gatling.io/computers).
 
-# Gatling Recorder
+# 2. Gatling Recorder
 
 Running the scripts that ship with Gatling is fine, but doubtless you will want to develop scripts against your own application.
 
@@ -56,7 +111,7 @@ Once you become proficient with Gatling (by the end of this post!) you should be
 
 But before doing any of that, it can be handy to use the built in **Gatling Recorder** to record your user journey.
 
-## Generate HAR File
+## 2.1 Generate HAR File
 
 The best way I have found to use the Gatling Recorder, is to first generate HAR (Http Archive) file of your user journey in Google chrome.
 
@@ -127,11 +182,11 @@ class MyComputerTest extends Simulation {
 
 This is your Gatling script. Don't worry if all this code looks alien to you, we will cover everything you need to know in the rest of the post.
 
-# Gatling Project Setup
+# 3. Gatling Project Setup
 
 So now you have had a taste of what a Gatling script looks like (and how to run a load test with it), let's move on and start setting up a proper development environment for the creation of our scripts. The first thing that we need to choose is an IDE:
 
-## Choose an IDE for Gatling Load Test Script Development
+## 3.1 Choose an IDE for Gatling Load Test Script Development
 
 Although it is totally possible to develop Gatling scripts in any text editor, it's much easier (and more efficient) to do it in an IDE. At the end of the day, we are writing Scala code here. Scala sits on top of the JVM, so any IDE that supports the JVM should be good.
 
@@ -145,7 +200,7 @@ You have a few options here:
 
 Now that we have chosen our IDE, we will want a build tool to go with that:
 
-## Choose your Build Tool for Gatling
+## 3.2 Choose your Build Tool for Gatling
 
 Now of course, you could use Gatling without a build tool and just run it from the raw zip files (as we did in the first section). But chances are, before long you will want to use a **build tool** with your Gatling load testing project. This will facilitate easy maintenance in a version control system. Again, you have a few options to choose from here:
 
@@ -157,7 +212,7 @@ Now of course, you could use Gatling without a build tool and just run it from t
 
 I'll walkthrough setting up a brand new project in **IntelliJ Idea** with a **Maven** archetype in the rest of this section.
 
-## Create Gatling Project with Maven Archetype
+## 3.3 Create Gatling Project with Maven Archetype
 
 Open a terminal or command prompt and type:
 
@@ -248,7 +303,7 @@ Finally, right-click on the `Engine` object and select **Run**:
 
 You should see a message like `There is no simulation script. Please check that your scripts are in user-files/simulations`. This is fine, we will begin setting up our Gatling load tests scripts next.
 
-## Add a Sample Gatling Script
+## 3.4 Add a Sample Gatling Script
 
 To test our new Gatling development environment, let's add a basic Gatling script. This script will run a test against the [Gatling Computer Database](http://computer-database.gatling.io/computers).
 
@@ -294,7 +349,7 @@ We can also run our Gatling test directly through _Maven_ from the command line.
 
 Our Gatling development environment is ready to go! Now we need an application to test against. We could use the [Gatling Computer Database](http://computer-database.gatling.io/computers), but I have instead developed an API application specifically for teaching Gatling - **The Video Game Database**.
 
-# Application Under Test - The Video Game DB
+# 4. The Application Under Test - The Video Game DB
 
 For the rest of this blog post, we will be writing tests against the [Video Game Database](https://github.com/james-willett/VideoGameDB). This application is a fictional database of videogames. It boasts a simple API documented with [Swagger](https://swagger.io/) that features all the HTTP verbs (Get, Put, Update, Delete), and supports both XML and JSON payloads.
 
@@ -315,11 +370,11 @@ _Note: If you don't want to (or can't) download and run the application yourself
 
 Now that we have access to the Video Game Database, we can start writing some Gatling scripts!
 
-# Gatling Scripting
+# 5. Fundamentals of Gatling Scripting
 
 We are going to write a series of Gatling scripts in the remainder of this blog post, to explore some of the _core concepts_ of Gatling script development. Let's start by creating a new **package** inside the _scala_ folder of our project, to hold the Gatling scripts. Give the package a name of `simulations`.
 
-## Basic Makeup of a Gatling Script
+## 5.1 Basic Makeup of a Gatling Script
 
 Inside the package, create a new Scala class called `MyFirstTest`. Add the following code:
 
@@ -354,7 +409,7 @@ This is pretty much the most basic Gatling script we can develop. It makes a sin
 
 Let's talk through each part of the script in turn:
 
-### Import statements
+### 5.1.1 Import statements
 
 We added these two import statements at the top of the script:
 
@@ -365,7 +420,7 @@ import io.gatling.http.Predef._
 
 These imports are where the Gatling packages get imported - they are _both required for all Gatling scripts_.
 
-### Extend Simulation
+### 5.1.2 Extend Simulation
 
 Next we extended our Scala class with the Gatling `Simulation` class:
 
@@ -377,7 +432,7 @@ Again, we must always extend from the `Simulation` class of the Gatling package,
 
 On to the actual code inside the class, and it is divided into 3 distinct areas:
 
-### 1 - HTTP Configuration
+### 5.1.3 HTTP Configuration
 
 The first thing that we do is setup the **HTTP configuration** for our Gatling script.
 
@@ -395,7 +450,7 @@ We are also setting a default `header` of **Accept -> application/json**, which 
 
 Other items can be set in the HTTP configuration - for the full list, check out the [Gatling Documentation on HTTP configuration](https://gatling.io/docs/current/http/http_protocol).
 
-### 2 - Scenario Definition
+### 5.1.4 Scenario Definition
 
 The **Scenario Definition** is where we define our user journey in our Gatling script. These are the steps that the user will take when interacting with our application, for example:
 
@@ -414,7 +469,7 @@ val scn = scenario("My First Test")
       		.get("videogames"))
 ```
 
-### 3 - Load Scenario
+### 5.1.5 - Load Scenario
 
 The third and final part of the Gatling script is the **Load Scenario**. This is where we set the load profile (such as the number of virtual users, how long to run for etc.) for our Gatling test. Each of the virtual users will execute the scenario that we defined in part 2 above. Here, we are simply setting up a _single user with a single iteration_:
 
@@ -437,7 +492,7 @@ These 3 parts form the basic makeup of all Gatling scripts, i.e.:
 
 Let's create more scripts to explore further Gatling functionality:
 
-## Pause Time and Check Response Codes
+## 5.2 Pause Time and Check Response Codes
 
 In this script, we introduce `pause` time between requests. We also are also checking the HTTP response code that we get back.
 
@@ -480,7 +535,7 @@ class CheckResponseCode extends Simulation {
 }
 ```
 
-### Pause Times
+### 5.2.1 Pause Times
 
 In the above script, we make 3 API calls. One to **videogames**, one to **videogames/1** and then another to **videogames**.
 
@@ -492,7 +547,7 @@ Then we line **24** we did `scala±.pause(1, 20)` - this will pause for a _rando
 
 Finally on line **29** we typed `scala±.pause(3000.milliseconds)` - as you might expect, this paused the Gatling script for 3000 milliseconds. Note: for Gatling to recognize **milliseconds**, we need to import `scala.concurrent.duration.DurationInt` into our class
 
-### Check Response Codes
+### 5.2.2 Check Response Codes
 
 For each of our API calls, Gatling is checking the response code that codes back. If the response code does not match the assertion, Gatling will throw an error.
 
@@ -502,7 +557,7 @@ Then on line **23** we checked `scala±.check(status.in(200 to 210)))` - this wi
 
 Finally on line **28** we check that the response code was NOT something, with `scala±.check(status.not(404, status.not(500)))` - to check that the status code is not a 404 or 500.
 
-## Correlation in Gatling with the Check API
+## 5.3 Correlation in Gatling with the Check API
 
 The Check API in Gatling is used for 2 things:
 
@@ -578,7 +633,7 @@ This is how to perform correlation in Gatling, by extracting with the `.check()`
 
 You can read more about the [Check API in the Gatling Docs](https://gatling.io/docs/current/http/http_check)
 
-## Code Reuse in Gatling with Methods & Looping Calls
+## 5.4 Code Reuse in Gatling with Methods & Looping Calls
 
 In the example scripts that we have seen so far, we are writing out all the code for each HTTP call individually. If we want to make another HTTP call to the same endpoint, it would be better to refactor this code into a method.
 
@@ -669,7 +724,7 @@ We can now call these methods in our scenario, along with some **pause time** in
 
 Following the above pattern is useful when your scripts grow to be more complex. This is particularly true if you often make the same or similar API calls throughout your Gatling script.
 
-# Gatling Feeders
+# 6. Gatling Feeders - for Test Data
 
 Soon or later, you will need to start adding **test data** into your Gatling scripts. Since we are doing performance testing with Gatling, we will want to use different data for each virtual user. For example, you might want to login with different username/password combinations, or use different data in the same API calls.
 
@@ -685,7 +740,7 @@ Gatling offers a few different types of Feeders, namely:
 
 In this post we will first look at how to use a file based **CSV** feeder, before creating our own **Custom** feeders.
 
-## CSV Feeders
+## 6.1 CSV Feeders
 
 Starting with the **CSV** feeder, the first thing that we need is a CSV file to read from. In your Gatling project directory, create a folder called _data_ inside the _src > test > resources_ folder. Create a new file in that folder called **gameCsvFile.csv**:
 
@@ -771,7 +826,7 @@ We told the method to `repeat` 10 times, and provided the csv file with `feed(cs
 
 Because we loop in a `circular` fashion, once we run out of entries in the CSV file, Gatling goes back to the top of the file and begins iterating through again.
 
-## Custom Feeder
+## 6.2 Custom Feeders
 
 Using CSV files (or other types of file) is great for test data, if you know exactly what all your test data permutations are upfront. But often, that is not the case.
 
@@ -870,7 +925,7 @@ def getRandomDate(startDate: LocalDate, random: Random): String = {
 }
 ```
 
-### Using a template file for JSON
+### 6.2.1 Using a template file for JSON
 
 If we look inside the `postNewGame()` method, that makes the HTTP Post call, we can see that we are using an `ElFileBody` :
 
@@ -902,30 +957,317 @@ We need to create this template file. Inside the _src > test > resources > bodie
 
 Now, when Gatling use the HTTP post method, the parameters in this JSON File (e.g. ${gameId}, ${name}) etc. Get substituted for the values that were generated by the custom feeder. They are substituted, because the parameters have the same name.
 
-# Load Simulation Design
+# 7. Gatling Load Simulation Design
 
-<Todo - some blurb on load simulation design>
+So far all of our Gatling scripts have just been running with a single user. This is fine for debugging and script development purposes, but eventually we will want to config our scripts to run with many users.
 
-## Basic Load Simulation
+This is where **load simulation design**, or [simulation setup](https://gatling.io/docs/current/general/simulation_setup/) comes in. If you want a quick overview, I have a [video tutorial on Gatling load simulation design](https://www.youtube.com/watch?v=Wby-q5VPGFU) here.
 
-## Ramp Users Load Simulation
+Otherwise, I will explain with some examples below:
 
-## Fixed Duration Load Simulation
+## 7.1 Basic Load Simulation
 
-# Running from the CLI
+Let's start with a basic load simulation. We will program the simulation to do the following:
 
-<Todo - some blurb on running from the CLI>
+- Upon executing the Gatling script, do nothing for 5 seconds initially
+- Start up **5** users at the same time
+- Start a further **10** users over a period of **10 seconds**
 
-## Running test from the CLI
+The graph of active users during our simulation will look like this:
 
-## Runtime Parameters
+![Graph of Gatling active users during simulation](./basicLoadSim.png)
 
-# Results Analysis
+Go ahead and make a new Scala class in the _simulations_ folder. Give it a name of _LoadSimulationDesign_. Add the following code:
 
-<Todo - some blurb and screenshots on the results, not too much>
+```scala{35-41}
+package simulations
 
-# Summary & Conclusion
+import io.gatling.core.Predef._
+import io.gatling.http.Predef._
+import scala.concurrent.duration._
 
-<Todo - summary of whats learned... whats still to come (CI, Graphana, Docker, Distrubted)... links to Gatling docs>
+class BasicLoadSimulation extends Simulation {
+
+  val httpConf = http.baseUrl("http://localhost:8080/app/")
+    .header("Accept", "application/json")
+
+  def getAllVideoGames() = {
+    exec(
+      http("Get all video games")
+        .get("videogames")
+        .check(status.is(200))
+    )
+  }
+
+  def getSpecificGame() = {
+    exec(
+      http("Get Specific Game")
+        .get("videogames/2")
+        .check(status.is(200))
+    )
+  }
+
+  val scn = scenario("Basic Load Simulation")
+    .exec(getAllVideoGames())
+    .pause(5)
+    .exec(getSpecificGame())
+    .pause(5)
+    .exec(getAllVideoGames())
+
+  setUp(
+    scn.inject(
+      nothingFor(5 seconds),
+      atOnceUsers(5),
+      rampUsers(10) during (10 seconds)
+    ).protocols(httpConf)
+  )
+}
+```
+
+The only new code here is the simulation design, highlighted at the bottom.
+
+## 7.2 Ramp Users Load Simulation
+
+Let's play with the scenario design a bit more, this time we will use the following:
+
+- `scala±constantUsersPerSec(rate) during(duration)` - Injects users at a constant rate, defined in users per second, during a given duration. Users will be injected at regular intervals.
+- `scala±rampUsersPerSec(rate1) to (rate2) during(duration)` - Injects users from starting rate to target rate, defined in users per second, during a given duration. Users will be injected at regular intervals.
+
+Change the setUp block of code at the bottom of the script to the following:
+
+```scala
+setUp(
+  scn.inject(
+    nothingFor(5 seconds),
+    constantUsersPerSec(10) during (10 seconds),
+    rampUsersPerSec(1) to (5) during (20 seconds)
+  ).protocols(httpConf)
+)
+```
+
+For visual purposes, the graph of active users will look something like this:
+
+![Active users through Gatling load simulation when ramping](./rampUsers.png)
+
+## 7.3 Fixed Duration Load Simulation
+
+In the scenarios we have designed so far, all the users complete their designated iterations and then quit.
+
+A different scenario design would be to run the load test for a **fixed duration**, and have the users loop continuously throughout the lifecyle of the test. Let's look at an example of a Gatling script that can do that for us.
+
+Firstly, we need to change our `scenario()` block to include a `forever()` block:
+
+```scala
+val scn = scenario("Fixed Duration Load Simulation")
+  .forever() {
+    exec(getAllVideoGames())
+      .pause(5)
+      .exec(getSpecificGame())
+      .pause(5)
+      .exec(getAllVideoGames())
+  }
+```
+
+Now, change the `setUp()` block in the Gatling script to this:
+
+```scala
+setUp(
+  scn.inject(
+    nothingFor(5 seconds),
+    atOnceUsers(10),
+    rampUsers(50) during (30 second)
+  ).protocols(httpConf)
+).maxDuration(1 minute)
+```
+
+The key change that we had added here is the `scala±.maxDuration(1 minute)`. This is what this scenario looks like visually:
+
+![Fixed Duration load simulation in Gatling](./fixedDuration.png)
+
+# 8 Running Gatling from the Command Line
+
+At this point, we have a pretty good idea of how to create a Gatling script. So far, we have mostly been running our scripts through our IDE. Eventually, when we want to execute the scripts in production (for example, using a CI tool), we will want to execute from the command line.
+
+When we created our Gatling project, we used **Maven** with the [Gatling Maven Plugin](https://gatling.io/docs/current/extensions/maven_plugin). We can therefore use a Maven task to execute our Gatling test for us.
+
+To execute a Gatling script through Maven, simply open a command prompt in the folder of your Gatling project and type:
+
+```shell
+mvn gatling:test -Dgatling.simulationClass=simulations.LoadSimulationDesign
+```
+
+Replace `simulations.LoadSimulationDesign` with the name of the Gatling script that you want to execute.
+
+## 8.1 Adding Assertions to our Gatling Scenario
+
+Now that we are running our Gatling scenario as a Maven build, we can add [Scenario Assertions](./https://gatling.io/docs/current/general/assertions). These will allow us to fail the build if a certain criteria is not met.
+
+Add the following to the `setUp` block in your Gatling script:
+
+```scala{8-11}
+setUp(
+  scn.inject(
+    nothingFor(5 seconds),
+    atOnceUsers(10),
+    rampUsers(50) during (30 second)
+  ).protocols(httpConf)
+).maxDuration(1 minute)
+  .assertions(
+    global.responseTime.max.lt(100),
+    global.successfulRequests.percent.gt(95)
+  )
+```
+
+Here we are checking that:
+
+- Maximum response time is less than **100 ms**
+- Number of successful requests is greater than **95%**
+
+If either of these assertions fail, then Gatling will fail the Maven build.
+
+## 8.2 Specify Command Line Parameters for Gatling Scenarios
+
+In all our Gatling scripts so far, we have hard-coded values such as the number of users.
+
+When we come to run our Gatling scripts through CI, it will be useful to be able to specify values like the number of users or duration of the load test at runtime.
+
+Let's look at an example of how to do that.
+
+Go ahead and create one more script inside the _simulations_ folder called _RuntimeParameters_. Add the following code:
+
+```scala
+package simulations
+
+import io.gatling.core.Predef._
+import io.gatling.http.Predef._
+
+import scala.concurrent.duration._
+
+class RuntimeParameters extends Simulation {
+
+  private def getProperty(propertyName: String, defaultValue: String) = {
+    Option(System.getenv(propertyName))
+      .orElse(Option(System.getProperty(propertyName)))
+      .getOrElse(defaultValue)
+  }
+
+  def userCount: Int = getProperty("USERS", "5").toInt
+  def rampDuration: Int = getProperty("RAMP_DURATION", "10").toInt
+  def testDuration: Int = getProperty("DURATION", "60").toInt
+
+  before {
+    println(s"Running test with ${userCount} users")
+    println(s"Ramping users over ${rampDuration} seconds")
+    println(s"Total test duration: ${testDuration} seconds")
+  }
+
+  val httpConf = http.baseUrl("http://localhost:8080/app/")
+    .header("Accept", "application/json")
+
+  def getAllVideoGames() = {
+    exec(
+      http("Get all video games")
+        .get("videogames")
+        .check(status.is(200))
+    )
+  }
+
+  val scn = scenario("Get all video games")
+    .forever() {
+      exec(getAllVideoGames())
+    }
+
+  setUp(
+    scn.inject(
+      nothingFor(5 seconds),
+      rampUsers(userCount) during (rampDuration second)
+    )
+  ).protocols(httpConf)
+    .maxDuration(testDuration seconds)
+}
+```
+
+Let's talk through how this script allows us to specify parameters at run time.
+
+The first thing that we do, is define a method to extract the properties. This method will look for the **environment variable** of the specified name, and if it can't find it will then look for the **system property** of the same name. If it can't find that either, it will default to some value that we specify.
+
+```scala
+private def getProperty(propertyName: String, defaultValue: String) = {
+  Option(System.getenv(propertyName))
+    .orElse(Option(System.getProperty(propertyName)))
+    .getOrElse(defaultValue)
+}
+```
+
+Next, we define our variables. We give a default value for each one:
+
+```scala
+  def userCount: Int = getProperty("USERS", "5").toInt
+  def rampDuration: Int = getProperty("RAMP_DURATION", "10").toInt
+  def testDuration: Int = getProperty("DURATION", "60").toInt
+```
+
+For debug purposes, we print out these values to the console at runtime:
+
+```scala
+before {
+  println(s"Running test with ${userCount} users")
+  println(s"Ramping users over ${rampDuration} seconds")
+  println(s"Total test duration: ${testDuration} seconds")
+}
+```
+
+These values will then be fed into our `setUp` block. Note how we are using parameters like `userCount` and `testDuration`, instead of the hard-coded numbers:
+
+```scala
+setUp(
+  scn.inject(
+    nothingFor(5 seconds),
+    rampUsers(userCount) during (rampDuration second)
+  )
+).protocols(httpConf)
+  .maxDuration(testDuration seconds)
+```
+
+Let's run a test from the command line to test this out. Open a terminal or prompt and type the following:
+
+```shell
+mvn gatling:test -Dgatling.simulationClass=simulations.RuntimeParameters -DUSERS=10 -DRAMP_DURATION=5 -DDURATION=30
+```
+
+We are passing in the `USERS`, `RAMP_DURATION` and `DURATION` of the Gatling test at runtime through these parameters.
+
+# 9. Gatling Results Analysis
+
+At the end of each execution of a Gatling script, a [Gatling Results Report](https://gatling.io/docs/current/general/reports/) is automatically created.
+
+You will see a message in the console about where the report is located, i.e.:
+
+```shell
+Please open the following file: /Users/jw/Desktop/myGatlingTest/target/gatling/runtimeparameters-20200207112322164/index.html
+```
+
+The report will look something like the one in the screenshot below. It contains lots of useful metrics on the response times of your requests, as well as details of errors that were encountered:
+
+![Gatling Load Test Report](./gatlingTestReport.png)
+
+# 10. Summary & Next Steps
+
+This blog post gave a thorough introduction to Gatling. If you made it through all the content in this post, you should be in a good position to begin writing your own Gatling tests against your application.
+
+Of course, there is always more to learn. Here are some links to some other useful resources:
+
+- [Gatling Official Documentation](https://gatling.io/docs/current) - the official documentation and tutorials for Gatling
+- [Gatling Official Cheatsheet](https://gatling.io/docs/current/cheat-sheet) - useful cheatsheet containing every Gatling command
+- [Gatling Fundamentals Video Course](https://www.udemy.com/course/gatling-fundamentals/) - this is my Gatling course that I teach on Udemy
+
+Some more advanced topics that will I am planning to cover in upcoming content include:
+
+- Using Gatling with CI tools like [Jenkins](https://jenkins.io/) and [Travis](https://travis-ci.org/)
+- Graphical reporting of Gatling with [Grafana](https://grafana.com/)
+- Executing Gatling through [Docker](https://www.docker.com/) Containers
+- Building a distributed Gatling load testing environment on multiple injectors
+
+I hope you found this post useful! If you have any questions, please drop me a comment in the section below.
 
 ---
