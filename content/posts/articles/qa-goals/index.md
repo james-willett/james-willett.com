@@ -34,6 +34,10 @@ This is a big part of the reason I wrote a book about setting quality, compellin
 
 The focus of the book is on **QA engineers**, as for some reason coming up with those objectives can _seem_ even harder. The truth is, _the typical QA engineer has a diverse range of skills_ (beyond just technical) which **actually increases the range of objectives** they can be set!
 
+If you want help coming up with new objective ideas, click below:
+
+[![New Objective Ideas](./button_get-objective-ideas2.png)](https://app.monstercampaigns.com/c/aabhemr4qxl9jt968o2b/)
+
 But back to this post, and let's look at a few things to bare in mind when setting new objectives:
 
 # Setting (Good) Objectives is not easy!
@@ -110,4 +114,6 @@ Either way, both of these tick all of the boxes for a SMART objective, and are a
 
 # Further Objective Ideas
 
-Hopefully this post gave you some inspiration to come up with new QA Objectives. If would like further examples of great objectives for developers and testers, I regularly share awesome new objective ideas with my mailing list.
+Hopefully this post gave you some inspiration to come up with new QA Objectives. If would like further examples of great objectives for developers and testers, simply click the button below to sign up to my mailing list:
+
+[![New Objective Ideas](./button_get-objective-ideas2.png)](https://app.monstercampaigns.com/c/aabhemr4qxl9jt968o2b/)
