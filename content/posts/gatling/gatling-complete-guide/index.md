@@ -17,17 +17,17 @@ Need to do some load testing of your HTTP application server? Gatling is a great
 
 No idea what Gatling is? Check out my [Gatling Introduction](./gatling-introduction) post first. But to summarise:
 
-- Gatling is an open-source load testing tool written purely in [Scala](https://www.scala-lang.org/) code
+- Gatling is an open-source load testing tool written purely in [Scala](https://www.scala-lang.org/) code.
 - The straightforward and expressive DSL that Gatling offers makes it simple to write load testing scripts.
-- It doesn't contain a GUI (like say [JMeter](http://jmeter.apache.org/)), although it does ship with a GUI to assist with recording scripts
-- It can run a _huge_ amount of traffic on a single computer, eliminating the need for complex distributed testing infrastructure
-- The Gatling code check be checked into a version control system, and easily used with Continuous Integration tools to run load and performance tests as part of your CI build.
+- It _doesn't_ contain a GUI (like say [JMeter](http://jmeter.apache.org/)), although it does ship with a GUI to assist with recording scripts.
+- It can run a **_huge_** amount of traffic on a single computer, eliminating the need for complex distributed testing infrastructure.
+- The Gatling code check be checked into a version control system, and easily used with **Continuous Integration** tools to run load and performance tests as part of your CI build.
 
 ## What is Performance Testing?
 
-Before we begin, let's give a lighting quick explaination of _performance testing_.
+Before we begin, let's give a lighting-quick explanation of **_performance testing_**.
 
-_Performance testing_ is testing that you execute when you want to see how your system handles varying levels of throughput and traffic.
+_Performance testing_ is testing that you execute when you want to see how your system handles varying levels of **throughput and traffic**.
 
 An application will often work fine when there are only handful of users active. When the number of users suddenly rises, performance problems occur. Performance testing aims to reveal (and ultimately resolve) those potential problems.
 
@@ -45,11 +45,11 @@ Some of the metrics that you can expect to gain from performance testing are:
 - **Throughput** - the number of transactions that can be handled over a period
 - **Errors** - error messages that begin to appear at certain points of the load test (such as timeouts)
 
-# Post Contents
+# Table of Contents
 
 This is an exhaustive post, divided into several sections.
 
-If you are new to Gatling, I would recommend following through each of the sections in order. Or if you already have some experienced, I have designed the content that you can jump to any section and find the information you are looking for.
+If you are new to Gatling, I would recommend following through each of the sections in order. Or if you already have some experience with Gatling, I have designed the content so that you can jump to any section and find the information you are looking for.
 
 1. [Installation of Gatling from Website Download](#1-installation-of-gatling-from-website-download)
 2. [Gatling Recorder](#2-gatling-recorder)
@@ -641,7 +641,7 @@ Doing this has the added benefit of making our scenario steps look clearer, as t
 
 Create a new script in the _simulations_ folder called `CodeReuseWithObjects`. Here is the code:
 
-```scala{19,25}
+```scala
 package simulations
 
 import io.gatling.core.Predef._
