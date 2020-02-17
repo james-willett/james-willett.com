@@ -30,13 +30,13 @@ _But is that really enough?_
 
 Objectives play a **fundamental** role in the career aspirations of all employees. _So why isn’t more time spent ensuring that the most interesting, engaging and rewarding objectives get consistently set?_
 
-This is a big part of the reason I wrote a book about setting quality, compelling and meaningful objectives.
+This is a big part of the reason I wrote a book about setting **quality**, **compelling** and **meaningful** objectives.
 
 The focus of the book is on **QA engineers**, as for some reason coming up with those objectives can _seem_ even harder. The truth is, _the typical QA engineer has a diverse range of skills_ (beyond just technical) which **actually increases the range of objectives** they can be set!
 
-If you want help coming up with new objective ideas, click below:
+The book - [10 Awesome Objective Ideas for QA Engineers](https://gumroad.com/l/QA-Objectives) - is out now! If you are still struggling to come up with new objective ideas, you should find this helpful.
 
-[![New Objective Ideas](./button_get-objective-ideas2.png)](https://app.monstercampaigns.com/c/aabhemr4qxl9jt968o2b/)
+[![Objective Ideas Ebook Cover](./10_Awesome_Cover_smaller.png)](https://gumroad.com/l/QA-Objectives)
 
 But back to this post, and let's look at a few things to bare in mind when setting new objectives:
 
@@ -114,6 +114,8 @@ Either way, both of these tick all of the boxes for a SMART objective, and are a
 
 # Further Objective Ideas
 
-Hopefully this post gave you some inspiration to come up with new QA Objectives. If would like further examples of great objectives for developers and testers, simply click the button below to sign up to my mailing list:
+Hopefully this post gave you some inspiration to come up with new QA Objectives. If you would like further examples of great objectives for developers and testers, simply click the button below to sign up to my mailing list:
 
 [![New Objective Ideas](./button_get-objective-ideas2.png)](https://app.monstercampaigns.com/c/aabhemr4qxl9jt968o2b/)
+
+---
