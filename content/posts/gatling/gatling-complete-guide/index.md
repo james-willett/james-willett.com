@@ -9,11 +9,11 @@ category: Gatling
 ---
 
 [[info]]
-| This post is a complete, detailed and exhaustive guide to proficiently using Gatling for load testing. Also check out my [Gatling Video Tutorials on YouTube](https://www.youtube.com/channel/UCWznCtwNQeqrgZUSWss4XJw), where I explain these concepts in further detail.
+| This post is a complete, detailed and exhaustive tutorial guide to proficiently using Gatling for load testing. Also check out my [Gatling Video Tutorials on YouTube](https://www.youtube.com/channel/UCWznCtwNQeqrgZUSWss4XJw), where I explain these concepts in further detail.
 
-# Overview
+# Overview of this Gatling Load Testing Tutorial
 
-Need to do some load testing of your HTTP application server? Gatling is a great tool for the job!
+Need to do some load testing of your HTTP application server? Gatling is a great tool for the job! This blog post on Gatling load testing will be a heavily involved and in-depth tutorial. By the end of this tutorial, you will have a solid grasp of using Gatling for your next load testing project.
 
 No idea what Gatling is? Check out my [Gatling Introduction](./gatling-introduction) post first. But to summarise:
 
@@ -49,9 +49,9 @@ Some of the metrics that you can expect to gain from performance testing are:
 
 # Table of Contents
 
-This is an exhaustive post, divided into several sections.
+This is an exhaustive tutorial post on Gatling load testing, divided into several sections.
 
-If you are new to Gatling, I would recommend following through each of the sections in order. Or if you already have some experience with Gatling, I have designed the content so that you can jump to any section and find the information you are looking for.
+If you are new to Gatling load testing, I would recommend following through each of the sections in order. Or if you already have some experience with Gatling, I have designed the content so that you can jump to any section and find the information you are looking for.
 
 1. [Installation of Gatling from Website Download](#1-installation-of-gatling-from-website-download)
 2. [Gatling Recorder](#2-gatling-recorder)
@@ -384,7 +384,7 @@ Now that we have access to the Video Game Database, we can start writing some Ga
 
 # 5. Fundamentals of Gatling Scripting
 
-We are going to write a series of Gatling scripts in the remainder of this blog post, to explore some of the _core concepts_ of Gatling script development. Let's start by creating a new **package** inside the _scala_ folder of our project, to hold the Gatling scripts. Give the package a name of `simulations`.
+We are going to write a series of Gatling load testing scripts in the remainder of this tutorial post, to explore some of the _core concepts_ of Gatling script development. Let's start by creating a new **package** inside the _scala_ folder of our project, to hold the Gatling scripts. Give the package a name of `simulations`.
 
 ## 5.1 Basic Makeup of a Gatling Script
 
