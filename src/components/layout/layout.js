@@ -6,7 +6,7 @@ import Header from '../header/header'
 import Footer from '../footer/footer'
 import '../../styles/global.less'
 import style from './layout.module.less'
-import CookieConsent from '../cookie-consent/cookie-consent'
+// import CookieConsent from '../cookie-consent/cookie-consent'
 
 const Layout = ({ children, title }) => (
   <>
@@ -20,7 +20,7 @@ const Layout = ({ children, title }) => (
       {children}
     </div>
     <Footer />
-    <CookieConsent />
+    {/* <CookieConsent /> */}
   </>
 )
 
