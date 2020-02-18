@@ -9,6 +9,7 @@ module.exports = {
     'gatsby-plugin-typescript',
     'gatsby-plugin-sitemap',
     `gatsby-plugin-playground`,
+    `gatsby-plugin-force-trailing-slashes`,
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-plugin-typography`,
