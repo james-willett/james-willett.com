@@ -12,7 +12,7 @@ const TagList = ({ tags }) => (
     {tags
       .filter((tag, index) => index === tags.indexOf(tag)) // remove duplicate values
       .sort()
-      .map(tag => (
+      .map((tag) => (
         <Link to={`/${Utils.resolvePageUrl(Config.pages.blog, tag)}`} key={tag}>
           {Config.tags[tag].name || Utils.capitalize(tag)}
         </Link>
@@ -21,7 +21,7 @@ const TagList = ({ tags }) => (
 )
 
 TagList.propTypes = {
-  tags: PropTypes.arrayOf(PropTypes.string).isRequired
+  tags: PropTypes.arrayOf(PropTypes.string).isRequired,
 }
 
 export default TagList

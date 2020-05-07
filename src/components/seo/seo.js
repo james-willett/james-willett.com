@@ -19,12 +19,12 @@ function SEO({
   keywords,
   contentType,
   imageUrl,
-  meta
+  meta,
 }) {
   return (
     <StaticQuery
       query={detailsQuery}
-      render={data => {
+      render={(data) => {
         const metaKeywords =
           keywords && keywords.length > 0
             ? { name: 'keywords', content: keywords.join(', ') }
@@ -59,13 +59,13 @@ function SEO({
                 { name: 'twitter:image', content: metaImageUrl },
                 { name: 'twitter:image:alt', content: description },
                 { name: 'twitter:site', content: Config.author },
-                { name: 'twitter:creator', content: Config.author }
+                { name: 'twitter:creator', content: Config.author },
               ]
                 .concat(metaKeywords) // Keywords
                 .concat(meta || []) // Other provided metadata
             }
             link={[
-              { rel: 'canonical', href: pageUrl } // Canonical url
+              { rel: 'canonical', href: pageUrl }, // Canonical url
             ]}
           >
             {prev && <link rel="prev" href={prev.canonical} />}
@@ -88,9 +88,9 @@ SEO.propTypes = {
   meta: PropTypes.arrayOf(
     PropTypes.shape({
       property: PropTypes.string.isRequired,
-      content: PropTypes.string.isRequired
+      content: PropTypes.string.isRequired,
     })
-  )
+  ),
 }
 
 const detailsQuery = graphql`
