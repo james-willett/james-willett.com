@@ -87,9 +87,15 @@ There are quite a few different Gatling plugins out there for Gradle. The one th
 
 Starting a Gradle project for Scala through Intellij is frustratingly difficult, as I have found out over the years.
 
-The best way to get started, is to clone an example project.
+The best way to get started, is to create a sample project.
 
-1. Clone the [gatling-gradle-example](https://github.com/james-willett/gatling-gradle-example) GitHub repository somewhere on your machine
+1. Run the following command in a terminal or command prompt to create a sample project with the Gatling Gradle plugin:
+
+```bash
+curl -sL https://raw.githubusercontent.com/lkishalmi/gradle-gatling-plugin/master/bootstrap.sh | \
+    bash -s ~/sample-gradle-gatling && \
+    cd ~/sample-gradle-gatling && ./gradlew gatlingRun
+```
 
 2. Open the IntelliJ landing page and choose **Import Project**
 
@@ -120,7 +126,7 @@ The best way to get started, is to clone an example project.
 Or to run a specific test:
 
 ```bash
-./gradlew gatlingRun-com.project.SampleSimulation
+./gradlew gatlingRun-SampleSimulation
 ```
 
 For more information on using and configuring the plugin, check out the official documentation for the [Gatling Gradle Plugin](https://github.com/lkishalmi/gradle-gatling-plugin#installation)
