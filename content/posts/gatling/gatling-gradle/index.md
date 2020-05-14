@@ -13,9 +13,9 @@ Want to use Gatling through Gradle? Then you are in the right place. I have been
 
 So yes, it would be much nicer to do all the above through [Gradle](https://gradle.org/). Not to mention more convenient. Particularly if you want to run Gatling tests as part of Continuous Integration. One of the big advantages of doing that, is that you can have Gatling fail your CI build if a certain performance threshold is breached (such as too many errors, or average response time being too great etc.)
 
-Fortunately there are some good Gatling through Gradle plugins out there. Not so fortunate, the documentation around getting any of these working is lacking. Especially if you are new to Gradle, Gatling or any of this stuff in general.
+If you want to run Gatling through Gradle, check out the [Gatling Gradle Plugin](https://github.com/lkishalmi/gradle-gatling-plugin).
 
-Not to worry! This Complete Beginners Guide to Running Gatling through Gradle will have you setup and ready to go in no time.
+This guide will walk you through setting up the Gradle plugin for a new Gatling project.
 
 ---
 
@@ -35,7 +35,7 @@ Let me mention from the outset that I won’t be going into detail on Gatling in
 
 # Prerequisites
 
-Before we begin, you should check off the list of 5 prerequisites below. Most likely you will have some if not all of them already. But I have listed them all here for completeness. Along with guides for installing each.
+Before we begin, you should check off the list of prerequisites below:
 
 ## 1. Java 8 JDK
 
@@ -43,43 +43,13 @@ You probably have this already, but if not there is an in depth guide on [instal
 
 **I strongly recommend you use Java 8 with Gatling, as it's the most compatible**
 
-## 2. Gradle
-
-Suggest that you grab the latest version. See these guides:
-
-- [Install Gradle on Windows](http://bryanlor.com/blog/gradle-tutorial-how-install-gradle-windows)
-- [Install Gradle on OSx](https://kodejava.org/how-do-i-install-gradle-in-os-x/)
-- [Install Gradle on Linux](https://gradle.org/install#manually)
-
-## 3. Intellij
+## 2. Intellij
 
 I’ll be using Intellij for this guide, you can grab the latest version of [Intellij](https://www.jetbrains.com/idea/download) here.
 
-## 4. Scala SDK
+And that's all you need! The [Gatling Gradle Plugin](https://github.com/lkishalmi/gradle-gatling-plugin#installation) handles the installation of Scala, and if you run through the Gradle Wrapper there is no need to even download or install Gradle on your system.
 
-Download the [Scala SDK binaries](https://www.scala-lang.org/download/2.12.8.html) from here and unpack the archive.
-
-Note that I am not installing the SBT (Scala Build Tool), I am scrolling further down the page and downloading the Scala binaries:
-
-![Select Scala Binaries for Download](./scalaBinaries.gif)
-
-**You should use Scala 2.12 with Gatling**
-
-As the guide says, you could add scala and scalac to your path. This is the same method as when you setup the Java JDK. See the 2 guides above if you need a reminder. As per the Scala instructions, the default folders are as follows:
-
-![Scala Path and Environment screenshot](./ScalaPathEnvironment.png)
-
-Check that Scala is installed by launching a command prompt or terminal and typing scala.
-
-![Check Scala Version](./CheckScalaVersion.gif)
-
-## 5. Intellij Scala Plugin
-
-Follow this guide to install the [Intellij Scala Plugin](http://nanxiao.me/en/getting-started-with-scala-in-intellij-idea-14-1/).
-
-That’s all the prerequisites done. Now let’s get on to actually running Gatling through Gradle!
-
-There are quite a few different Gatling plugins out there for Gradle. The one that I have had the most success with is from lkishalmi . See the Github page for the [Gatling Gradle Plugin](https://github.com/lkishalmi/gradle-gatling-plugin#installation) for more information.
+Let's look at how we can use the plugin to get up and running.
 
 ---
 
@@ -113,7 +83,7 @@ curl -sL https://raw.githubusercontent.com/lkishalmi/gradle-gatling-plugin/maste
 
 ![Setup Scala SDK](./setupSDK.png)
 
-6. Choose the SDK that you installed in the prereqs. If it isn't in the list, you may need to click `Configure` instead and point to the binaries you previously downloaded
+6. Choose the SDK for Scala. If it isn't in the list, you may need to click `Configure` instead and first download the [Scala binaries](https://www.scala-lang.org/download/2.12.8.html).
 
 ![Choose Scala SDK](./chooseSDK.png)
 
