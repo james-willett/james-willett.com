@@ -212,7 +212,7 @@ Now that we have chosen our IDE, we will want a build tool to go with that:
 
 Now of course, you could use Gatling without a build tool and just run it from the raw zip files (as we did in the first section). But chances are, before long you will want to use a **build tool** with your Gatling load testing project. This will facilitate easy maintenance in a version control system. Again, you have a few options to choose from here:
 
-- You could use [Gradle](https://gradle.org/), which is an extremely popular build tool. Strangely the Gatling project doesn't provide an _official_ plugin for Gradle, so the one that I recommend is the [Gradle Gatling Plugin by lkishalmi](https://github.com/lkishalmi/gradle-gatling-plugin). Check out my blog post on [Running Gatling through Gradle](./running-gatling-through-gradle/) if you need help getting that setup.
+- You could use [Gradle](https://gradle.org/), which is an extremely popular build tool. Strangely the Gatling project doesn't provide an _official_ plugin for Gradle, so the one that I recommend is the [Gradle Gatling Plugin by lkishalmi](https://github.com/lkishalmi/gradle-gatling-plugin). Check out my blog post on [Running Gatling through Gradle](../running-gatling-through-gradle/) if you need help getting that setup.
 
 - Another good option is the [Scala Build Tool](https://www.scala-sbt.org/), or **SBT** for short. Gatling does provide an [official SBT plugin](https://gatling.io/docs/current/extensions/sbt_plugin/). Be sure to check out the [Gatling SBT Plugin Demo](https://github.com/gatling/gatling-sbt-plugin-demo) project as well, to see how its setup.
 
