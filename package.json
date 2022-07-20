@@ -58,7 +58,7 @@
     "react-icons": "^3.7.0",
     "react-svg-loader": "^3.0.3",
     "react-typography": "^0.16.19",
-    "terser": "^4.2.1",
+    "terser": "^4.8.1",
     "typography": "^0.16.19",
     "typography-theme-stow-lake": "^0.16.19"
   },
