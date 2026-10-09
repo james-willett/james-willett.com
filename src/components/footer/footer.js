@@ -14,6 +14,11 @@ const FooterComponent = props => {
       >
         Privacy Policy
       </a>
+      {/* Company details, shown on every page */}
+      <p className={css.footer__company}>
+        James Willett Ltd, registered in England and Wales, company number
+        12561641
+      </p>
       <script
         type="text/javascript"
         src="https://a.opmnstr.com/app/js/api.min.js"
